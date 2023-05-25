@@ -1,11 +1,15 @@
 {
 	"folders": [
 		{
+			"name": "DesarrolloWeb",
 			"path": "."
 		},
 		{
+			"name": "tests",
 			"path": "C:/Users/PC/Desktop/tests"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "tests"
+	}
 }
