@@ -28,7 +28,7 @@ body{
     align-items: center;
     overflow: hidden;
     transform: scale(0);
-    transition: height .2 ease;
+    transition: transform .5s ease, height .2 ease;
 }
 
 .wrapper.active-popup{
@@ -81,6 +81,7 @@ body{
     align-items: center;
     border-bottom-left-radius: 20px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .form-box h2{
