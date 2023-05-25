@@ -26,4 +26,15 @@ iconClose.addEventListener('click', () =>{
   wrapper.classList.remove('active-popup');
 });
 
+function resetForm(formId) {
+  var form = document.getElementById(formId);
+  var inputFields = form.getElementsByTagName('input');
+
+  for (var i = 0; i < inputFields.length; i++) {
+      inputFields[i].value = '';
+  }
+}
+
+
+
         
