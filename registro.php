@@ -1,25 +1,31 @@
-<?
-
+<?php
 include("db_conn.php");
 
-if(isset($_POST['register'])){
-    if(strlen($_POST['username']) >= 1 && strlen($_POST['email']) >= 1 && strlen($_POST['password']) >= 1){
-        $username = trim($_POST['username']);
-        $email = trim($_POST['email']);
-        $password = trim($_POST['password']);
-        $consulta = 'INSERT INTO RegistroWeb(username, email, password) values ($username, $email, $password)';
-        $resultado = mysqli_query($conex,$consulta);
+// Verificar la conexión
+if (!$conex) {
+    die("Error al conectar con la base de datos: " . mysqli_connect_error());
+}
 
-        if($resultado){
-            ?>
-            <h3>todo bien</h3>
-            <?
-        }else{
-            ?>
-            <h3>todo mail</h3>
-            <?
+// Verificar si el formulario ha sido enviado y el botón "Register" ha sido presionado
+if (isset($_POST['register'])) {
+    // Obtener los valores del formulario
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Validar que todos los campos estén completos
+    if (empty($username) || empty($email) || empty($password)) {
+        echo '<script>alert("Rellena todos los campos");</script>';
+    } else {
+        // Realizar el insert de datos en la tabla correspondiente
+        $sql = "INSERT INTO RegistroWeb (username, email, password) VALUES ('$username', '$email', '$password')";
+
+        if (mysqli_query($conex, $sql)) {
+            echo '<script>alert("Registro exitoso. Los datos han sido insertados en la base de datos.");</script>';
+            echo '<script>window.location.href = "index.php";</script>';
+        } else {
+            echo '<script>alert("Error al insertar los datos: ' . mysqli_error($conex) . '");</script>';
         }
     }
 }
-  
 ?>

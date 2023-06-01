@@ -1,8 +1,3 @@
-//Esta funcio manda con el boton de login a la pantalla Inicio
-function redirectToInicio() {
-    window.location.href = "inicio.html";
-  }
-
 //Cambio de forms
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
@@ -24,10 +19,9 @@ btnPopup.addEventListener('click', () =>{
 
 iconClose.addEventListener('click', () =>{
   wrapper.classList.remove('active-popup');
-});
+}); 
 
 
 
 
 
-        
