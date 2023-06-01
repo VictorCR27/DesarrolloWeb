@@ -28,18 +28,19 @@
     <div class="wrapper">
 
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
-    
+        
+        <!--Login-->
         <div class="form-box login">
             <h2>Login</h2>
-            <form id="login-form" action="#">
+            <form id="login-form" method="post" action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
-                    <input type="email" required>
+                    <input type="email">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
-                    <input type="password" required>
+                    <input type="password">
                     <label>Password</label>
                 </div>
                 <button type="submit" class="btn" onclick="resetForm('login-form')">Login</button>
@@ -49,25 +50,26 @@
             </form>
         </div>
     
+        <!--Registro-->
         <div class="form-box register">
             <h2>Registrarse</h2>
-            <form id="register-form" action="#">
+            <form id="register-form" method="post" action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></ion-icon></ion-icon></span>
-                    <input type="text" required>
+                    <input type="text" name="username">
                     <label>Username</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
-                    <input type="email" required>
+                    <input type="email" name="email">
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
-                    <input type="password" required>
+                    <input type="password" name="password">
                     <label>Password</label>
                 </div>
-                <button type="submit" class="btn" onclick="resetForm('register-form')">Registrarse</button>
+                <button type="submit" name="register" class="btn" onclick="resetForm('register-form')">Registrarse</button>
                 <div class="login-register">
                     <p>¿Tienes una cuenta? <a href="#" class="login-link">Login</a></p>
                 </div>
@@ -127,6 +129,15 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!--Fin Scripts-->
 
+    <!--Php-->
+    <?
+    include("registro.php");
+    ?>
+
+
+
 </body>
 
 </html>
+
+
