@@ -22,6 +22,43 @@ iconClose.addEventListener('click', () =>{
 }); 
 
 
+//Carrusel
+const carruselItems = document.querySelectorAll('.itemCarrusel');
+const flechasCarrusel = document.querySelectorAll('.flechasCarrusel');
+
+let currentIndex = 0;
+const waitTime = 10000;
+
+function nextIndex() {
+    currentIndex = (currentIndex + 1) % carruselItems.length;
+    showCurrentIndex();
+}
+
+function prevIndex() {
+    currentIndex = (currentIndex - 1 + carruselItems.length) % carruselItems.length;
+    showCurrentIndex();
+}
+
+function showCurrentIndex() {
+    carruselItems.forEach((item, index) => {
+        item.style.display = index === currentIndex ? 'block' : 'none';
+    });
+}
+
+showCurrentIndex();
+
+setInterval(nextIndex, waitTime);
+
+flechasCarrusel.forEach((flecha) => {
+    flecha.addEventListener('click', (event) => {
+        const targetId = event.currentTarget.getAttribute('href');
+        const targetIndex = parseInt(targetId.split('-')[1]) - 1;
+        currentIndex = targetIndex;
+        showCurrentIndex();
+    });
+});
+
+
 
 
 

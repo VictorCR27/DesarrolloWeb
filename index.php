@@ -25,7 +25,16 @@ include("login.php");
                 <a href="#">Servicios</a>
                 <a href="#">Quienes somos?</a>
                 <a href="#">Cuenta</a>
-                <button class="btnLogin-popup">Login</button>
+
+                <?
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo '<a>Bienvenido, ' . $username . '</a>';
+                    echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
+                } else {
+                    echo '<button class="btnLogin-popup">Login</button>';
+                }
+                ?>
 
             </nav>
         </header>
@@ -93,19 +102,11 @@ include("login.php");
                     <div class="imgCarrusel" id="img-1">
                         <img src="./imgCarrusel/img-1.jpg"  alt="item-1">
                     </div>
-                    <div class="flechasCarrusel">
-                        <a href="#itemCarrusel-3"> <i><ion-icon name="chevron-back-outline"></ion-icon></i> </a>
-                        <a href="#itemCarrusel-2"> <i><ion-icon name="chevron-forward-outline"></ion-icon></i> </a>
-                    </div>
                 </div>
 
                 <div class="itemCarrusel" id="itemCarrusel-2" >
                     <div class="imgCarrusel" id="img-2">
                         <img src="./imgCarrusel/img-2.jpg" alt="item-2">
-                    </div>
-                    <div class="flechasCarrusel">
-                        <a href="#itemCarrusel-1"> <i><ion-icon name="chevron-back-outline"></ion-icon></i> </a>
-                        <a href="#itemCarrusel-3"> <i><ion-icon name="chevron-forward-outline"></ion-icon></i> </a>
                     </div>
                 </div>
 
@@ -113,19 +114,10 @@ include("login.php");
                     <div class="imgCarrusel" id="img-3">
                         <img src="./imgCarrusel/img-3.jpg" alt="item-3">
                     </div>
-                    <div class="flechasCarrusel">
-                        <a href="#itemCarrusel-2"> <i><ion-icon name="chevron-back-outline"></ion-icon></i> </a>
-                        <a href="#itemCarrusel-1"> <i><ion-icon name="chevron-forward-outline"></ion-icon></i> </a>
-                    </div>
                 </div>
 
             </div>
 
-            <div id="contePuntos">
-                <a href="#itemCarrusel-1">•</a>
-                <a href="#itemCarrusel-2">•</a>
-                <a href="#itemCarrusel-3">•</a>
-            </div>
         </div>
         <!--Fin Body Images-->
 
@@ -137,6 +129,5 @@ include("login.php");
     <!--Fin Scripts-->
 </body>
 
-    </html>
-
+</html>
 

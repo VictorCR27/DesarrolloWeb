@@ -83,7 +83,7 @@ body {
   z-index: 1;
 }
 
-.form-box h2 {
+.form-box h2{
   font-size: 2em;
   color: #162938;
   text-align: center;
@@ -256,17 +256,6 @@ header {
     background-color: rgb(129, 245, 245);
     height: 100%;
   }
-  
-.flechasCarrusel {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-}
 
 #img-1 {
   background-color: brown;
@@ -289,18 +278,6 @@ i {
   font-size: 40px;
 }
 
-#contePuntos {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-}
-
-#contePuntos > a {
-  color: rgb(12, 137, 233);
-  font-size: 1.5em;
-  margin-left: 10px;
-}
-
 img {
   height: 100%;
   width: 100%;
@@ -313,13 +290,6 @@ img {
 }
 
 /* Remplazo de boton por el nombre logueado*/
-
-
-
-
-
-
-
 
 
 

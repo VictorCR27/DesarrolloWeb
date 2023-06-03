@@ -20,7 +20,5 @@ if (isset($_SESSION['username'])) {
 </head>
 <body>
     <h1>Usuario valido</h1>
-   
-
 </body>
 </html>

@@ -19,11 +19,11 @@ if (isset($_POST['login'])) {
         // Obtener el nombre de usuario de la consulta
         $row = mysqli_fetch_assoc($result);
         $username = $row['username'];
-
-        // Guardar el nombre de usuario en una variable de sesión
         $_SESSION['username'] = $username;
-        echo '<script>alert("Inicio de sesión exitoso.");</script>';
-        echo '<script>window.location.href = "inicio.php";</script>';
+        // Guardar el nombre de usuario en una variable de sesión
+        //$_SESSION['username'] = $username;
+        //echo '<script>alert("Inicio de sesión exitoso.");</script>';
+        //echo '<script>window.location.href = "inicio.php";</script>';
     
     } else {
         echo '<script>alert("Email o contraseña incorrectos.");</script>';
