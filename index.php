@@ -75,17 +75,31 @@ include("login.php");
                         <input type="text" name="username">
                         <label>Username</label>
                     </div>
+
                     <div class="input-box">
                         <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
                         <input type="email" name="email">
                         <label>Email</label>
                     </div>
+
                     <div class="input-box">
                         <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
                         <input type="password" name="password">
                         <label>Password</label>
                     </div>
+
+                    <div class="buttons-register">
+                        <div class="role-buttons">
+                            <button type="button" name="role" value="admin" class="role-button">Administrador</button>
+                            <button type="button" name="role" value="user" class="role-button">Cliente</button>
+                        </div>
+                        <input type="hidden" name="selectedRole" id="selected-role">
+                    </div>
+
+
+
                     <button type="submit" name="register" id="registrar" class="btn">Registrarse</button>
+
                     <div class="login-register">
                         <p>¿Tienes una cuenta? <a href="#" class="login-link">Login</a></p>
                     </div>

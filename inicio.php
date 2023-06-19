@@ -4,7 +4,7 @@ session_start();
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-    echo '<p>Bienvenid@, ' . $username . '</p>';
+    echo '<p>Bienvenid@' . $username . '</p>';
 } else {
     echo '<p>Error: Usuario no encontrado.</p>';
 }
