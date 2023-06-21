@@ -35,7 +35,6 @@ include("login.php");
                     echo '<button class="btnLogin-popup">Login</button>';
                 }
                 ?>
-
             </nav>
         </header>
         <!--Fin Header-->
@@ -90,13 +89,11 @@ include("login.php");
 
                     <div class="buttons-register">
                         <div class="role-buttons">
-                            <button type="button" name="role" value="admin" class="role-button">Administrador</button>
-                            <button type="button" name="role" value="user" class="role-button">Cliente</button>
+                            <button type="button" name="role" value="admin" class="role-button" onclick="toggleButton(this)">Administrador</button>
+                            <button type="button" name="role" value="user" class="role-button" onclick="toggleButton(this)">Cliente</button>
                         </div>
                         <input type="hidden" name="selectedRole" id="selected-role">
                     </div>
-
-
 
                     <button type="submit" name="register" id="registrar" class="btn">Registrarse</button>
 

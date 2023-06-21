@@ -12,13 +12,14 @@ if (isset($_POST['register'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $role = $_POST['selectedRole'];
 
     // Validar que todos los campos estén completos
-    if (empty($username) || empty($email) || empty($password)) {
+    if (empty($username) || empty($email) || empty($password) || empty($role)){
         echo '<script>alert("Rellena todos los campos");</script>';
     } else {
         // Realizar el insert de datos en la tabla correspondiente
-        $sql = "INSERT INTO RegistroWeb (username, email, password) VALUES ('$username', '$email', '$password')";
+        $sql = "INSERT INTO RegistroWeb (username, email, password, roles) VALUES ('$username', '$email', '$password', '$role')";
 
         if (mysqli_query($conex, $sql)) {
             echo '<script>alert("Registro exitoso. Los datos han sido insertados en la base de datos.");</script>';

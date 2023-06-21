@@ -1,4 +1,4 @@
-//Cambio de forms
+//-----------------------------------------------------------------------Cambio de forms
 const wrapper = document.querySelector('.wrapper');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.register-link');
@@ -22,7 +22,7 @@ iconClose.addEventListener('click', () =>{
 }); 
 
 
-//Carrusel
+//-----------------------------------------------------------------------Carrusel
 const carruselItems = document.querySelectorAll('.itemCarrusel');
 const flechasCarrusel = document.querySelectorAll('.flechasCarrusel');
 
@@ -49,14 +49,25 @@ showCurrentIndex();
 
 setInterval(nextIndex, waitTime);
 
-flechasCarrusel.forEach((flecha) => {
-    flecha.addEventListener('click', (event) => {
-        const targetId = event.currentTarget.getAttribute('href');
-        const targetIndex = parseInt(targetId.split('-')[1]) - 1;
-        currentIndex = targetIndex;
-        showCurrentIndex();
-    });
-});
+//-----------------------------------------------------------------------Función para botones de roles
+function toggleButton(button) {
+  // Remover la clase "active" de todos los botones
+  var buttons = document.getElementsByClassName("role-button");
+  for (var i = 0; i < buttons.length; i++) {
+      buttons[i].classList.remove("active");
+  }
+  
+  // Agregar la clase "active" al botón seleccionado
+  button.classList.add("active");
+  
+  // Actualizar el valor del input oculto "selectedRole"
+  var selectedRoleInput = document.getElementById("selected-role");
+  selectedRoleInput.value = button.value;
+}
+
+
+
+
 
 
 

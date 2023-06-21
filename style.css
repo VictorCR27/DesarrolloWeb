@@ -135,6 +135,8 @@ body {
   line-height: 57px;
 }
 
+/*------------------------------------------------ Botones de roles ------------------------------------------------*/
+
 .role-buttons {
   display: flex;
   justify-content: center;
@@ -161,6 +163,11 @@ body {
   background-color: #052f50; 
 }
 
+.role-button.active {
+  background-color: #156aab;
+}
+
+/*------------------------------------------------ Fin Botones de roles ------------------------------------------------*/
 
 .btn {
   width: 100%;
@@ -264,7 +271,7 @@ header {
   color: #ffffff;
 }
 
-/* Carrusel de imágenes */
+/*------------------------------------------------ Carrusel de imágenes ------------------------------------------------*/
 
 .carrusel-wrapper {
   width: 100%;
@@ -307,15 +314,14 @@ header {
   object-fit: cover;
 }
 
-/* Ocultar barras de desplazamiento en Chrome */
-/* Ocultar completamente las barras de desplazamiento en Chrome */
+/*------------------------------------------------ Ocultar scrollbar en Chrome ------------------------------------------------*/
+
 body::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
 
-
-/* Cards */
+/*------------------------------------------------ Cards ------------------------------------------------*/
 
 .container-cards{
   margin-top: 50px;
@@ -350,8 +356,8 @@ body::-webkit-scrollbar {
   height: 18rem;
   border-radius: 15px;
   box-shadow: 2px 2px rgb(168, 168, 166);
-  margin-right: 4rem; /* Added margin for card separation */
-  margin-bottom: 2rem; /* Added margin for card separation */
+  margin-right: 4rem; 
+  margin-bottom: 2rem; 
 }
 
 .card-img-top{
@@ -389,6 +395,7 @@ body::-webkit-scrollbar {
 .btn_hotel:hover {
   background-color: darkgreen;
 }
+
 
 
 
