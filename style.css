@@ -297,15 +297,15 @@ header {
 }
 
 #img-1 {
-  background-color: brown;
+  background-color: rgb(255, 255, 255);
 }
 
 #img-2 {
-  background-color: rgb(17, 14, 14);
+  background-color: rgb(255, 255, 255);
 }
 
 #img-3 {
-  background-color: rgb(231, 211, 211);
+  background-color: rgb(255, 255, 255);
 }
 
 .imgCarrusel img {
@@ -383,7 +383,7 @@ body::-webkit-scrollbar {
 
 .btn_hotel {
   border-radius: 15px;
-  background-color: green;
+  background-color: #052f50;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -393,7 +393,7 @@ body::-webkit-scrollbar {
 }
 
 .btn_hotel:hover {
-  background-color: darkgreen;
+  background-color: #19659f;
 }
 
 

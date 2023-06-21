@@ -17,6 +17,7 @@ if (isset($_POST['register'])) {
     // Validar que todos los campos estén completos
     if (empty($username) || empty($email) || empty($password) || empty($role)){
         echo '<script>alert("Rellena todos los campos");</script>';
+        echo '<script>window.location.href = "index.php";</script>';
     } else {
         // Realizar el insert de datos en la tabla correspondiente
         $sql = "INSERT INTO RegistroWeb (username, email, password, roles) VALUES ('$username', '$email', '$password', '$role')";
