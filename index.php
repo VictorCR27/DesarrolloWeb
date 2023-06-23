@@ -1,7 +1,6 @@
 <?
 include("registro.php");
 include("login.php");
-
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +20,16 @@ include("login.php");
         <header>
             <h2 class="logo">Hotel DESAP</h2>
             <nav class="navigation">
+                <?
+                // Verificar si el rol es administrador
+                if (isset($_SESSION['roles']) && $_SESSION['roles'] === 'admin') {
+                    echo '<a href="#">Publicar</a>';
+                    echo '<a href="#">Ver publicaciones</a>';}
+                ?>
                 <a href="#">Reservar</a>
                 <a href="#">Servicios</a>
                 <a href="#">Quienes somos?</a>
                 <a href="#">Cuenta</a>
-
                 <?
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
@@ -35,6 +39,7 @@ include("login.php");
                     echo '<button class="btnLogin-popup">Login</button>';
                 }
                 ?>
+                
             </nav>
         </header>
         <!--Fin Header-->
@@ -109,22 +114,31 @@ include("login.php");
             <!--Body Images-->
             <div class="carrusel-wrapper">
                 <div id="conteItemsCarrusel">
-
+            
                     <div class="itemCarrusel" id="itemCarrusel-1">
                         <div class="imgCarrusel" id="img-1">
                             <img src="./imgCarrusel/img-1.jpg"  alt="item-1">
+                            <div class="txtCarrusel">
+                                <h2>Los mejores hoteles en Centroamérica</h2>
+                            </div>
                         </div>
                     </div>
 
                     <div class="itemCarrusel" id="itemCarrusel-2" >
                         <div class="imgCarrusel" id="img-2">
                             <img src="./imgCarrusel/img-2.jpg" alt="item-2">
+                            <div class="txtCarrusel">
+                                <h2>Los mejores hoteles en Centroamérica</h2>
+                            </div>
                         </div>
                     </div>
-
+            
                     <div class="itemCarrusel" id="itemCarrusel-3">
                         <div class="imgCarrusel" id="img-3">
                             <img src="./imgCarrusel/img-3.jpg" alt="item-3">
+                            <div class="txtCarrusel">
+                                <h2>Los mejores hoteles en Centroamérica</h2>
+                            </div>
                         </div>
                     </div>
 

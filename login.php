@@ -11,6 +11,7 @@ if (isset($_POST['login'])) {
     // Obtener los valores del formulario
     $email = $_POST['email'];
     $password = $_POST['password'];
+    
 
     $sql = "SELECT * FROM RegistroWeb WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($conex, $sql);
@@ -20,6 +21,7 @@ if (isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result);
         $username = $row['username'];
         $_SESSION['username'] = $username;
+        $_SESSION['roles'] = $row['roles'];
         // Guardar el nombre de usuario en una variable de sesión
         //$_SESSION['username'] = $username;
         //echo '<script>alert("Inicio de sesión exitoso.");</script>';
@@ -29,4 +31,5 @@ if (isset($_POST['login'])) {
         echo '<script>alert("Email o contraseña incorrectos.");</script>';
     }
 }
+
 ?>
