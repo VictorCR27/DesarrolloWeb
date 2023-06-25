@@ -62,7 +62,7 @@ if (!$conex) {
             <textarea name="amenidades"></textarea><br><br>
 
             <label for="pais">País:</label>
-            <select name="pais">
+            <select name="pais" id="pais">
                 <option value="Belice">Belice</option>
                 <option value="Costa Rica">Costa Rica</option>
                 <option value="El Salvador">El Salvador</option>
@@ -84,14 +84,12 @@ if (!$conex) {
             <input type="submit" value="Publicar">
         </form>
     </div>
-
-
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Obtener datos del formulario
         $nombre_hotel = $_POST['nombre_hotel'];
         $amenidades = $_POST['amenidades'];
-        $pais = $_POST['pais'];
+        $pais = $_POST['pais']; // Obtener el país seleccionado
         $ubicacion = $_POST['ubicacion'];
         $precio_noche = $_POST['precio_noche'];
 
@@ -107,7 +105,8 @@ if (!$conex) {
 
         // Insertar datos en la base de datos
         $sql = "INSERT INTO publicaciones (nombre_hotel, amenidades, pais, ubicacion, imagenes, precio_noche)
-                VALUES ('$nombre_hotel', '$amenidades', '$pais', '$ubicacion', '" . implode(',', $imagenes) . "', $precio_noche)";
+        VALUES ('$nombre_hotel', '$amenidades', '$pais', '$ubicacion', '" . implode(',', $imagenes) . "', $precio_noche)";
+
         $resultado = mysqli_query($conex, $sql);
 
         if ($resultado) {
