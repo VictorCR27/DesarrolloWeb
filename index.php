@@ -18,13 +18,13 @@ include("login.php");
 
         <!--Header-->
         <header>
-            <h2 class="logo">Hotel DESAP</h2>
+            <h2><a class="logo" href="index.php">Hotel DESAP</a></h2>
             <nav class="navigation">
                 <?
                 // Verificar si el rol es administrador
                 if (isset($_SESSION['roles']) && $_SESSION['roles'] === 'admin') {
-                    echo '<a href="#">Publicar</a>';
-                    echo '<a href="#">Ver publicaciones</a>';}
+                    echo '<a href="publicar.php">Publicar</a>';
+                    echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
                 <a href="#">Reservar</a>
                 <a href="#">Servicios</a>
