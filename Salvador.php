@@ -12,17 +12,7 @@ include("login.php");
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>El Salvador</title>
         <link rel="stylesheet" href="style.css">
-
-        <style>
-        .publicaciones {
-            margin-top: 100px;
-            margin-left: 50px;
-        }
-
-        .publicacion {
-            margin-bottom: 20px;
-        }
-    </style>
+        <link rel="stylesheet" href="publicStyle.css">
     </head>
 
     <body>

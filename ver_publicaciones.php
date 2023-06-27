@@ -10,18 +10,8 @@ include("login.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="publicStyle.css">
     <title>Ver publicaciones</title>
-
-    <style>
-        .publicaciones {
-            margin-top: 100px;
-            margin-left: 50px;
-        }
-
-        .publicacion {
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
      <!--Header-->
@@ -92,11 +82,13 @@ include("login.php");
                     echo "<button type='submit'>Eliminar</button>";
                     echo "</form>";
                     echo "</div>";
+                    
 
                     // Obtener las imágenes
                     $imagenes = explode(',', $fila['imagenes']);
                     foreach ($imagenes as $imagen) {
                         echo "<img src='".$imagen."' alt='Imagen del hotel'>";
+                        echo "<hr>";
                     }
                 }
             } else {
