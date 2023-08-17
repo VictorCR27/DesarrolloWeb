@@ -87,7 +87,7 @@ include("login.php");
                     // Obtener las imágenes
                     $imagenes = explode(',', $fila['imagenes']);
                     foreach ($imagenes as $imagen) {
-                        echo "<img src='".$imagen."' alt='Imagen del hotel'>";
+                        echo "<img class='imgs_hoteles'src='".$imagen."' alt='Imagen del hotel'>";
                         echo "<hr>";
                     }
                 }
