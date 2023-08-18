@@ -146,10 +146,8 @@ include("login.php");
                     echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
                     echo "<form method='post'>";
                     echo "</form>";
-                    echo "<button class='btn-reservar'>Reservar</button>";
-                    echo "</div>"; // Cierre de publicacion_info
-                    
-                    echo "</div>"; // Cierre de publicacion_container
+                    echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidades=" . urlencode($fila['amenidades']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";                    
+                    echo "</div>"; 
                 }
             }
             echo "</div>"; // Cierre de publicaciones
