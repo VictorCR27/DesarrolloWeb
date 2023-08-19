@@ -322,25 +322,6 @@ include("login.php");
 
     </div>
     
-
-                <!--Mapa-->
-                <div class="mapa" style="text-align: center;">
-                    <h2 style="text-align: left; padding-left: 35px;font-family: 'Jost', sans-serif; color: rgb(23, 146, 29);">Mapa de Centroamérica</h2>
-                    <p style="text-align: left; padding-left: 35px; font-family: 'Rubik', sans-serif; padding-top: 8px; color: rgb(87, 87, 87);">Abajo encontrarás un mapa de Centroamérica, para visitar cada país, solo te posicionas sobre el país que deseas y lo seleccionas</p>
-                    <img src="imgCarrusel/mapa_centroamerica_vector.svg" height="500px" width="500px" usemap="#cntrm_mapa">
-
-                    <map name="cntrm_mapa">
-                        <area alt="Guatemala" title="Guatemala" href="Guatemala.php" coords="73,108,125,109,123,178,144,176,98,245,37,228,51,167,90,166,64,140,68,126" shape="poly">
-                        <area alt="Belice" title="Belice" href="Belice.php" coords="127,103,125,175,150,155,156,84" shape="poly">
-                        <area alt="Honduras" title="Honduras" href="Honduras.php" coords="249,208,259,214,294,201,256,175,185,176,162,176,149,184,139,188,129,206,124,221,134,230,193,251,197,244,231,231,248,207,165,241,172,255,176,261,184,260" shape="poly">
-                        <area alt="El Salvador" title="El Salvador" href="Salvador.php" coords="156,265,164,244,121,224,106,235,102,246,108,250" shape="poly">
-                        <area alt="Nicaragua" title="Nicaragua" href="Nicaragua.php" coords="250,216,294,205,279,339,223,331,192,298,170,275,197,261,198,245,231,239,240,224" shape="poly">
-                        <area class="Costa-Rica" alt="Costa Rica" title="Costa Rica" href="CostaRica.php" coords="257,337,284,347,305,377,299,421,286,417,259,381,241,379,219,366,225,331" shape="poly">
-                        <area alt="Panama" title="Panama" href="Panama.php" coords="442,453,410,400,374,463,302,423,308,388,400,384,444,394,465,435" shape="poly">
-                    </map>
-                 </div>
-                 <!--Fin Mapa-->
-            </div>
         </div>
         
     <!--Scripts-->
