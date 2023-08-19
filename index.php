@@ -152,27 +152,24 @@ include("login.php");
                     <div class="card">
                         <img src="imgCarrusel/costarica.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title">Costa Rica</h4>
+                            <a class="card-title" href="CostaRica.php">Costa Rica</a>
                             <p class="txt_desc_pais">Gran país con hermosas playas</p>
-                            <a href="CostaRica.php" class="btn_hotel">Ver hoteles</a>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/nicaragua.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title">Nicaragua</h4>
+                            <a class="card-title" href="Nicaragua.php">Nicaragua</a>
                             <p class="txt_desc_pais">Gran país con hermosas playas</p>
-                            <a href="Nicaragua.php" class="btn_hotel">Ver hoteles</a>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/honduras.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title">Honduras</h4>
+                            <a class="card-title" href="Honduras.php">Honduras</a>
                             <p class="txt_desc_pais">Gran país con hermosas playas</p>
-                            <a href="Honduras.php" class="btn_hotel">Ver hoteles</a>
                         </div>
                     </div>
                 </div>
@@ -181,27 +178,24 @@ include("login.php");
                     <div class="card">
                         <img src="imgCarrusel/guatemala.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title">Guatemala</h4>
+                            <a class="card-title" href="Guatemala.php">Guatemala</a>
                             <p class="txt_desc_pais">Gran país con hermosas playas</p>
-                            <a href="Guatemala.php" class="btn_hotel">Ver hoteles</a>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/panamaa.webp" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title">Panamá</h4>
+                            <a class="card-title" href="Panama.php">Panamá</a>
                             <p class="txt_desc_pais">Gran país con hermosas playas</p>
-                            <a href="Panama.php" class="btn_hotel">Ver hoteles</a>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/salvador.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title">El Salvador</h4>
+                            <a class="card-title" href="Salvador.php">El Salvador</a>
                             <p class="txt_desc_pais">Gran país con hermosas playas</p>
-                            <a href="Salvador.php" class="btn_hotel">Ver hoteles</a>
                         </div>
                     </div>
                 </div>
@@ -210,16 +204,16 @@ include("login.php");
                     <div class="card">
                         <img src="imgCarrusel/belice.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h4 class="card-title">Belice</h4>
+                            <a class="card-title" href="Belice.php">Belice</a>
                             <p class="txt_desc_pais">Gran país con hermosas playas</p>
-                            <a href="Belice.php" class="btn_hotel">Ver hoteles</a>
                         </div>
                     </div>
                 </div>
                 <!--Fin Cards-->
 
+    
     <div class="reviews-completo">
-        <h2>Reseñas</h2>
+    <h2 class="titulo-reviews">Reseñas de nuestra página</h2>
         <div class="carousel" data-carousel>
         <div class="carousel-buttons">
           <button
@@ -243,9 +237,9 @@ include("login.php");
                    <img src="imgCarrusel/avatar-hombre.png">
                  </div>
                      <div class="reviews-contenido">
-                       <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                           perspiciatis odit possimus at?</h4>
-                       <h6>Nombre</h6>
+                       <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
+                           perspiciatis odit possimus at?</h3>
+                       <h4>Nombre</h4>
                          <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                          <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                          <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -264,9 +258,9 @@ include("login.php");
                    <img src="imgCarrusel/avatar-mujer.png">
                  </div>
                      <div class="reviews-contenido">
-                       <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                           perspiciatis odit possimus at?</h4>
-                       <h6>Nombre</h6>
+                       <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
+                           perspiciatis odit possimus at?</h3>
+                       <h4>Nombre</h4>
                          <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                          <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                          <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -286,9 +280,9 @@ include("login.php");
                   <img src="imgCarrusel/avatar-hombre2.png">
                 </div>
                     <div class="reviews-contenido">
-                      <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                          perspiciatis odit possimus at?</h4>
-                      <h6>Nombre</h6>
+                      <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
+                          perspiciatis odit possimus at?</h3>
+                      <h4>Nombre</h4>
                         <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                         <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                         <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -308,9 +302,9 @@ include("login.php");
                   <img src="imgCarrusel/avatar-mujer2.png">
                 </div>
                     <div class="reviews-contenido">
-                      <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                          perspiciatis odit possimus at?</h4>
-                      <h6>Nombre</h6>
+                      <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
+                          perspiciatis odit possimus at?</h3>
+                      <h4>Nombre</h4>
                         <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                         <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                         <img src="imgCarrusel/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -341,7 +335,7 @@ include("login.php");
                         <area alt="Honduras" title="Honduras" href="Honduras.php" coords="249,208,259,214,294,201,256,175,185,176,162,176,149,184,139,188,129,206,124,221,134,230,193,251,197,244,231,231,248,207,165,241,172,255,176,261,184,260" shape="poly">
                         <area alt="El Salvador" title="El Salvador" href="Salvador.php" coords="156,265,164,244,121,224,106,235,102,246,108,250" shape="poly">
                         <area alt="Nicaragua" title="Nicaragua" href="Nicaragua.php" coords="250,216,294,205,279,339,223,331,192,298,170,275,197,261,198,245,231,239,240,224" shape="poly">
-                        <area alt="Costa Rica" title="Costa Rica" href="CostaRica.php" coords="257,337,284,347,305,377,299,421,286,417,259,381,241,379,219,366,225,331" shape="poly">
+                        <area class="Costa-Rica" alt="Costa Rica" title="Costa Rica" href="CostaRica.php" coords="257,337,284,347,305,377,299,421,286,417,259,381,241,379,219,366,225,331" shape="poly">
                         <area alt="Panama" title="Panama" href="Panama.php" coords="442,453,410,400,374,463,302,423,308,388,400,384,444,394,465,435" shape="poly">
                     </map>
                  </div>

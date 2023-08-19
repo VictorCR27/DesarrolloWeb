@@ -235,7 +235,7 @@ header {
 .navigation a {
   position: relative;
   font-size: 1.1em;
-  color: #052f50;
+  color: #065446;
   text-decoration: none;
   font-weight: 500;
   margin-left: 40px;
@@ -248,7 +248,7 @@ header {
   bottom: -6px;
   width: 100%;
   height: 3px;
-  background: #052f50;
+  background: #065446;
   border-radius: 5px;
   transform-origin: right;
   transform: scaleX(0);
@@ -264,19 +264,19 @@ header {
   width: 130px;
   height: 50px;
   background: transparent;
-  border: 2px solid #052f50;
+  border: 2px solid #065446;
   outline: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1.1em;
-  color: #052f50;
+  color: #065446;
   font-weight: 500;
   margin-left: 40px;
   transition: .5s;
 }
 
 .navigation .btnLogin-popup:hover {
-  background: #052f50;
+  background: #065446;
   color: #ffffff;
 }
 
@@ -389,14 +389,52 @@ body::-webkit-scrollbar {
   padding: 1rem;
 }
 
-.card-title {
+.card-title:link {
   text-align: left;
   margin-bottom: 0.5rem;
+  color: #197163;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: transparent;
+  position: relative;
+}
+
+.card-title:visited{
+  color: #197163;
+  background-color: transparent;
+  text-decoration: none;
+  position: relative;
+}
+
+.card-title:hover{
+  color: #197163;
+  background-color: transparent;
+  text-decoration: none;
+  text-underline-offset: 10px;
+}
+
+.card-title::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #197163;
+  transform: scaleX(0);
+  transform-origin: top left right bottom;
+  transition: transform 0.6s ease;
+}
+
+.card-title:hover::before {
+  transform: scaleX(1);
 }
 
 .txt_desc_pais {
   margin-bottom: 1rem;
-  color: #969696;
+  color: #197163;
 }
 
 .btn_hotel {
@@ -465,7 +503,7 @@ body::-webkit-scrollbar {
 /*------------------------------------------------ REVIEWS ------------------------------------------------*/
 
 .reviews-completo{
-  background-color: rgb(26, 45, 75);
+  background-color: inherit;
   width: 100%;
 }
 
@@ -477,7 +515,11 @@ body::-webkit-scrollbar {
   margin-right: 180px;
 }
 
-.reviews-contenedor{
+.titulo-reviews{
+  color: #3A98B9;
+  font-size: 35px;
+  padding-left: 80px;
+  margin-bottom: 60px;
 }
 
 .reviews-icono{
@@ -497,12 +539,16 @@ body::-webkit-scrollbar {
   float: right;
 }
 
-.reviews-contenido > h4{
-  color: rgb(236, 236, 236);
+.reviews-contenido > h3{
+  color: rgb(22, 22, 22);
+  font-weight: 400;
 }
 
-.reviews-contenido > h4 + h6{
-  color: rgb(194, 194, 194);
+.reviews-contenido > h3 + h4{
+  padding-top: 15px;
+  padding-bottom: 18px;
+  font-weight: 300;
+  color: rgb(51, 51, 51);
 }
 
 svg{
@@ -529,7 +575,7 @@ svg{
   border-radius: 50%;
   background-color: transparent;
   border: none;
-
+  color: #3A98B9;
   font-size: 1.5rem;
   cursor: pointer;
 
@@ -537,7 +583,7 @@ svg{
 }
 
 .carousel-button:hover {
-  color: rgba(0, 0, 0, 0.5);
+  color: #3a97b98e;
 }
 
 .carousel-button_next {
@@ -560,4 +606,8 @@ svg{
     font-size: 2rem;
     margin: 1rem;
   }
+}
+
+.Costa-Rica:hover{
+  transform: scaleX(1.2);
 }
