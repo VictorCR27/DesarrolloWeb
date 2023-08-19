@@ -111,47 +111,58 @@ include("login.php");
         </div>
         <!--Fin Formulario-->
 
-        <div class="publicaciones">
-            <?php
-            if (!$conex) {
-                die("Error de conexión: " . mysqli_connect_error());
-            }
 
-            // Realizar la consulta
-            $sql = "SELECT * FROM publicaciones";
-            $resultado = mysqli_query($conex, $sql);
+        <!--Ver publicaciones-->
+        <?php
+        if (!$conex) {
+            die("Error de conexión: " . mysqli_connect_error());
+        }
 
-            // Verificar si hay resultados
-            if (mysqli_num_rows($resultado) > 0) {
-                // Procesar los resultados
-                while ($fila = mysqli_fetch_assoc($resultado)) {
-                    if ($fila['pais'] === 'Nicaragua') { // Verificar si el país es igual a "Belice"
-                        echo "<div class='publicacion'>";
-                        echo "<h3>".$fila['nombre_hotel']."</h3>";
-                        echo "<p>Amenidades: ".$fila['amenidades']."</p>";
-                        echo "<p>País: ".$fila['pais']."</p>";
-                        echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
-                        echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
-                        echo "<form method='post'>";
-                        echo "</form>";
-                        echo "</div>";
+        // Realizar la consulta
+        $sql = "SELECT * FROM publicaciones";
+        $resultado = mysqli_query($conex, $sql);
 
-                        // Obtener las imágenes
-                        $imagenes = explode(',', $fila['imagenes']);
-                        foreach ($imagenes as $imagen) {
-                            echo "<img src='".$imagen."' alt='Imagen del hotel'>";
-                        }
+        // Verificar si hay resultados
+        if (mysqli_num_rows($resultado) > 0) {
+            echo "<div class='publicaciones'>";
+            // Procesar los resultados
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                if ($fila['pais'] === 'Nicaragua') { // Verificar si el país es igual a "Nicaragua"
+                    echo "<div class='publicacion_container'>";
+                    echo "<div class='imagen_hotel'>";
+                    
+                    // Obtener las imágenes
+                    $imagenes = explode(',', $fila['imagenes']);
+                    foreach ($imagenes as $imagen) {
+                        echo "<img class='imgs_hoteles' src='".$imagen."' alt='Imagen del hotel'>";
                     }
+                    
+                    echo "</div>"; // Cierre de imagen_hotel
+                    
+                    echo "<div class='publicacion_info'>";
+                    echo "<h3>".$fila['nombre_hotel']."</h3>";
+                    echo "<p>Amenidades: ".$fila['amenidades']."</p>";
+                    echo "<p>País: ".$fila['pais']."</p>";
+                    echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
+                    echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
+                    echo "<form method='post'>";
+                    echo "</form>";
+                    echo "<button class='btn-reservar'>Reservar</button>";
+                    echo "</div>"; // Cierre de publicacion_info
+                    
+                    echo "</div>"; // Cierre de publicacion_container
                 }
-            } else {
-                echo "No se encontraron publicaciones.";
             }
+            echo "</div>"; // Cierre de publicaciones
+        } else {
+            echo "No se encontraron publicaciones.";
+        }
 
-            // Cerrar la conexión
-            mysqli_close($conex);
-            ?>
-        </div>
-        
+        // Cerrar la conexión
+        mysqli_close($conex);
+        ?>
+        <!-- Fin Ver publicaciones-->
+
     <!--Scripts-->
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

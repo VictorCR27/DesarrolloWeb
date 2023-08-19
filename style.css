@@ -407,6 +407,60 @@ body::-webkit-scrollbar {
   background-color: #19659f;
 }
 
+/* Ver publicaciones */
+
+.publicaciones {
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 5px #171717; 
+  border-radius: 20px;
+  padding: 1%;
+  margin-top: 5px;
+  margin-left: 50px;
+  margin-right: 50px; 
+  background-color: #ffffff;
+}
+
+.publicacion_container {
+  display: flex;
+}
+
+.imgs_hoteles {
+  width: 500px;
+  height: 350px;
+  border-radius: 20px;
+}
+
+.publicacion_info {
+  flex: 2;
+}
+
+.btn_reservar {
+  border-radius: 15px;
+  background-color: #052f50;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn_reservar:hover {
+  background-color: #19659f;
+}
+
+.container-reservar{
+  margin-top: 60px;
+}
+
+
+
+
+
+
+
+
 
 
 

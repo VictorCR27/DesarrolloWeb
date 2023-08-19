@@ -26,7 +26,6 @@ include("login.php");
                     echo '<a href="publicar.php">Publicar</a>';
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
-                <a href="#">Reservar</a>
                 <a href="#">Servicios</a>
                 <a href="#">Quienes somos?</a>
                 <a href="#">Cuenta</a>

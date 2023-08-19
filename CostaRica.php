@@ -111,46 +111,54 @@ include("login.php");
         </div>
         <!--Fin Formulario-->
 
-        <div class="publicaciones">
-            <?php
-            if (!$conex) {
-                die("Error de conexión: " . mysqli_connect_error());
-            }
+        <!--Ver publicaciones-->
+        <?php
+        if (!$conex) {
+            die("Error de conexión: " . mysqli_connect_error());
+        }
 
-            // Realizar la consulta
-            $sql = "SELECT * FROM publicaciones";
-            $resultado = mysqli_query($conex, $sql);
+        // Realizar la consulta
+        $sql = "SELECT * FROM publicaciones";
+        $resultado = mysqli_query($conex, $sql);
 
-            // Verificar si hay resultados
-            if (mysqli_num_rows($resultado) > 0) {
-                // Procesar los resultados
-                while ($fila = mysqli_fetch_assoc($resultado)) {
-                    if ($fila['pais'] === 'Costa Rica') { // Verificar si el país es igual a "Belice"
-                        echo "<div class='publicacion'>";
-                        echo "<h3>".$fila['nombre_hotel']."</h3>";
-                        echo "<p>Amenidades: ".$fila['amenidades']."</p>";
-                        echo "<p>País: ".$fila['pais']."</p>";
-                        echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
-                        echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
-                        echo "<form method='post'>";
-                        echo "</form>";
-                        echo "</div>";
-
-                        // Obtener las imágenes
-                        $imagenes = explode(',', $fila['imagenes']);
-                        foreach ($imagenes as $imagen) {
-                            echo "<img src='".$imagen."' alt='Imagen del hotel'>";
-                        }
+        // Verificar si hay resultados
+        if (mysqli_num_rows($resultado) > 0) {
+            echo "<div class='publicaciones'>";
+            // Procesar los resultados
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                if ($fila['pais'] === 'Costa Rica') { // Verificar si el país es igual a "Nicaragua"
+                    echo "<div class='publicacion_container'>";
+                    echo "<div class='imagen_hotel'>";
+                    
+                    // Obtener las imágenes
+                    $imagenes = explode(',', $fila['imagenes']);
+                    foreach ($imagenes as $imagen) {
+                        echo "<img class='imgs_hoteles' src='".$imagen."' alt='Imagen del hotel'>";
                     }
+                    
+                    echo "</div>"; // Cierre de imagen_hotel
+                    
+                    echo "<div class='publicacion_info'>";
+                    echo "<h3>".$fila['nombre_hotel']."</h3>";
+                    echo "<p>Amenidades: ".$fila['amenidades']."</p>";
+                    echo "<p>País: ".$fila['pais']."</p>";
+                    echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
+                    echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
+                    echo "<form method='post'>";
+                    echo "</form>";
+                    echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidades=" . urlencode($fila['amenidades']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";                    
+                    echo "</div>"; 
                 }
-            } else {
-                echo "No se encontraron publicaciones.";
             }
+            echo "</div>"; // Cierre de publicaciones
+        } else {
+            echo "No se encontraron publicaciones.";
+        }
 
-            // Cerrar la conexión
-            mysqli_close($conex);
-            ?>
-        </div>
+        // Cerrar la conexión
+        mysqli_close($conex);
+        ?>
+        <!-- Fin Ver publicaciones-->
         
     <!--Scripts-->
     <script src="script.js"></script>
