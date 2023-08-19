@@ -1,4 +1,4 @@
-<?
+<?php
 include("registro.php");
 include("login.php");
 ?>

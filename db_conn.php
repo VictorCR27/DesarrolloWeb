@@ -1,4 +1,4 @@
-<?
+<?php
    $servername = "192.185.77.249";
    $username = "visualcr_dwUser";
    $password = "Uni2023op&";
