@@ -8,10 +8,16 @@
 }
 
 body {
+  background-color: #FAF9F6;
   display:relative;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+html, body {
+  margin:0px !important;
+  height:100% !important;
 }
 
 .wrapper {
@@ -364,7 +370,7 @@ body::-webkit-scrollbar {
   width: 22rem;
   height: 18rem;
   border-radius: 15px;
-  box-shadow: 2px 2px rgb(168, 168, 166);
+  border: none;
   margin-bottom: 2rem;
   flex: 0 0 auto; /* Añadir esta propiedad */
   margin-left: 20px;
@@ -390,6 +396,7 @@ body::-webkit-scrollbar {
 
 .txt_desc_pais {
   margin-bottom: 1rem;
+  color: #969696;
 }
 
 .btn_hotel {
@@ -455,15 +462,102 @@ body::-webkit-scrollbar {
 }
 
 
+/*------------------------------------------------ REVIEWS ------------------------------------------------*/
 
+.reviews-completo{
+  background-color: rgb(26, 45, 75);
+  width: 100%;
+}
 
+.reviews{
+  display: block;
+  height: 200px;
+  align-items: center;
+  margin-left: 180px;
+  margin-right: 180px;
+}
 
+.reviews-contenedor{
+}
 
+.reviews-icono{
+  float: left;
+  width: 15%;
+}
 
+.reviews-icono img{
+  height: 300px;
+  width: 300px;
+}
 
+.reviews-contenido{
+  padding-top: 30px;
+  padding-left: 70px;
+  width: 70%;
+  float: right;
+}
 
+.reviews-contenido > h4{
+  color: rgb(236, 236, 236);
+}
 
+.reviews-contenido > h4 + h6{
+  color: rgb(194, 194, 194);
+}
 
+svg{
+  fill: #ebd725;
+}
 
+.carousel {
+  --current-slide: 0;
+  /* we set position relative so absolute position works properly for the buttons */
+  position: relative;
+  overflow: hidden;
+}
 
+.carousel-button {
+  /* vertically centering the buttons */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
 
+  /* basic styling */
+  padding: 0;
+  margin: 0.5rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  transition: color 0.1s;
+}
+
+.carousel-button:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-button_next {
+  /* The "next slide button" will be at the right */
+  right: 0;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s;
+  transform: translateX(calc(-100% * var(--current-slide)));
+}
+
+.slide {
+  flex: 0 0 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel-button {
+    font-size: 2rem;
+    margin: 1rem;
+  }
+}
