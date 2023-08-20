@@ -11,6 +11,7 @@ include("login.php");
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
+        <link rel="icon" href="imgCarrusel/logo home.ico">
         <link rel="stylesheet" href="style.css">
     </head>
 
@@ -18,7 +19,16 @@ include("login.php");
 
         <!--Header-->
         <header>
-            <h2><a class="logo" href="index.php">Hotel DESAP</a></h2>
+        <div class="logo">
+                <ul class="logohover">
+                  <li>
+                    <a href="">
+                      <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
+                    </a>
+                  </li>
+                </ul>
+              </div>
             <nav class="navigation">
                 <?
                 // Verificar si el rol es administrador
@@ -145,6 +155,14 @@ include("login.php");
 
             </div>
             <!--Fin Body Images-->
+
+
+            <div class="titulo-bienvenida">
+                <h1>¡Bienvenidos a su puerta de entrada al paraíso en Centroamérica!</h1>
+                <p>En nuestro rincón virtual, te sumergirás en la belleza y diversidad que esta región tiene para ofrecer. 
+                    Desde playas bañadas por aguas turquesas hasta selvas exuberantes que esconden tesoros naturales, 
+                    te invitamos a explorar y descubrir cada rincón único que Centroamérica tiene reservado para ti.</p>
+            </div>
             
             <div class="container-cards">
                 <!--Cards de Paises-->
