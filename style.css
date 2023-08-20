@@ -456,6 +456,7 @@ body::-webkit-scrollbar {
 
 .publicaciones {
   justify-content: center;
+  margin-top: 20px;
 }
 
 .publicacion_container {
@@ -469,8 +470,6 @@ body::-webkit-scrollbar {
   margin-right: 210px; 
   background-color: #ffffff;
 }
-
-
 
 .imgs_hoteles {
   width: 500px;
@@ -618,4 +617,62 @@ svg{
 
 #map {
   display: none;
+}
+
+/* ------------------------------------------- info_reservar -------------------------------------------*/
+.info_reservar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 100px auto 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reserva-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(50% - 10px); /* Adjust the width as needed */
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  font-weight: bold;
+}
+
+.form-row input[type="date"],
+.form-row input[type="number"] {
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.confirm-button {
+  background-color: #052f50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.confirm-button:hover {
+  background-color: #19659f;
 }

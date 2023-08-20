@@ -12,6 +12,16 @@ include("login.php");
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Costa Rica</title>
         <link rel="stylesheet" href="style.css">
+        <style>
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: #1976D2; /* Change color as needed */
+            height: 50px;
+        }
+        </style>
     </head>
 
     <body>
@@ -26,7 +36,6 @@ include("login.php");
                     echo '<a href="publicar.php">Publicar</a>';
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
-                <a href="#">Reservar</a>
                 <a href="#">Servicios</a>
                 <a href="#">Quienes somos?</a>
                 <a href="#">Cuenta</a>
@@ -111,6 +120,29 @@ include("login.php");
         <!--Fin Formulario-->
 
         <!--Ver publicaciones-->
+        <div class="info_reservar">
+            <h2>Buscar Hotel</h2>
+            <form action="procesar_reserva.php" method="post" class="reserva-form">
+                <div class="form-row">
+                    <label>Llegada:</label>
+                    <input type="date" name="llegada" required>
+                </div>
+                <div class="form-row">
+                    <label>Salida:</label>
+                    <input type="date" name="salida" required>
+                </div>
+                <div class="form-row">
+                    <label>Personas:</label>
+                    <input type="number" name="personas" min="1" required>
+                </div>
+                <div class="form-row">
+                    <label>Habitaciones:</label>
+                    <input type="number" name="habitaciones" min="1" required>
+                </div>
+                <button type="button" class="confirm-button" id="buscar-button">Buscar hotel</button>
+            </form>
+        </div>
+
         <div class="publicaciones">
             <?php
             if (!$conex) {
@@ -169,7 +201,8 @@ include("login.php");
 
         
     <!--Scripts-->
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="js/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <!--Fin Scripts-->
