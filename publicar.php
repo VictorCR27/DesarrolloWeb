@@ -14,47 +14,118 @@ if (!$conex) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/stylesPublicar.css">
     <title>Publicar</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <style>
-        .form-publicar{
-            margin-top: 100px;
-        }
-    </style>
 </head>
 <body>
     <!--Header-->
     <header>
-        <h2><a class="logo" href="index.php">Hotel DESAP</a></h2>
-        <nav class="navigation">
-            <?php
-            // Verificar si el rol es administrador
-            if (isset($_SESSION['roles']) && $_SESSION['roles'] === 'admin') {
-                echo '<a href="publicar.php">Publicar</a>';
-                echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';
-            }
-            ?>
-            <a href="#">Servicios</a>
-            <a href="#">Quienes somos?</a>
-            <a href="#">Cuenta</a>
-            <?php
-            if (isset($_SESSION['username'])) {
-                $username = $_SESSION['username'];
-                echo '<a>Bienvenido, ' . $username . '</a>';
-                echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
-            } else {
-                echo '<button class="btnLogin-popup">Login</button>';
-            }
-            ?>
+        <div class="logo">
+                <ul class="logohover">
+                  <li>
+                    <a href="index.php">
+                      <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            <nav class="navigation">
+                <?
+                // Verificar si el rol es administrador
+                if (isset($_SESSION['roles']) && $_SESSION['roles'] === 'admin') {
+                    echo '<a href="publicar.php">Publicar</a>';
+                    echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
+                ?>
+                <a href="#">Servicios</a>
+                <a href="#">Quienes somos?</a>
+                <a href="#">Cuenta</a>
+                <?
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo '<a>Bienvenido, ' . $username . '</a>';
+                    echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
+                } else {
+                    echo '<button class="btnLogin-popup">Login</button>';
+                }
+                ?>
+                
+            </nav>
+        </header>
+        <!--Fin Header-->
 
-        </nav>
-    </header>
-    <!--Fin Header-->
+        <!--Formulario-->
+        <div class="wrapper">
+
+            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+            
+            <!--Login-->
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form id="login-form" method="post" action="index.php" onsubmit="cleanSpaces()">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
+                        <input type="email" name="email">
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
+                        <input type="password" name="password">
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn" name="login">Login</button>
+                    <div class="login-register">
+                        <p>¿No tienes una cuenta? <a href="#" class="register-link">Registrarse</a></p>
+                    </div>
+                </form>
+            </div>
+        
+            <!--Registro-->
+            <div class="form-box register">
+                <h2>Registrarse</h2>
+                <form id="register-form" method="post" action="registro.php">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person"></ion-icon></ion-icon></ion-icon></span>
+                        <input type="text" name="username">
+                        <label>Username</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
+                        <input type="email" name="email">
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
+                        <input type="password" name="password">
+                        <label>Password</label>
+                    </div>
+
+                    <div class="buttons-register">
+                        <div class="role-buttons">
+                            <button type="button" name="role" value="admin" class="role-button" onclick="toggleButton(this)">Administrador</button>
+                            <button type="button" name="role" value="user" class="role-button" onclick="toggleButton(this)">Cliente</button>
+                        </div>
+                        <input type="hidden" name="selectedRole" id="selected-role">
+                    </div>
+
+                    <button type="submit" name="register" id="registrar" class="btn">Registrarse</button>
+
+                    <div class="login-register">
+                        <p>¿Tienes una cuenta? <a href="#" class="login-link">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--Fin Formulario-->
+
 
     <!--Form publicación-->
-    <h2>Publicar Oferta de Hotel</h2>
-    <div class="form-publicar">
+    <h2 class="h2P" style="margin-top:100px">Publicar Oferta de Hotel</h2>
+    <div class="form-publicar" style="margin-top:0px">
         <form action="publicar.php" method="POST" enctype="multipart/form-data">
             <label for="nombre_hotel">Nombre del Hotel:</label>
             <input type="text" name="nombre_hotel"><br><br>
@@ -98,8 +169,10 @@ if (!$conex) {
             <button id="btnCerrarMapa" type="button" style="display: none;">Cerrar Mapa</button>
             <br><br>
 
-            <label for="imagenes">Imágenes:</label>
-            <input type="file" name="imagenes[]" multiple><br><br>
+            <label for="file-upload" class="custom-file-upload">
+                Elegir archivos
+            </label>
+            <input type="file" name="imagenes[]" id="file-upload" multiple>
 
             <label for="precio_noche">Precio por Noche:</label>
             <input type="text" name="precio_noche"><br><br>
@@ -161,19 +234,21 @@ if (!$conex) {
 
     var isMapVisible = false;
 
-    document.getElementById('btnAbrirMapa').addEventListener('click', function() {
+        document.getElementById('btnAbrirMapa').addEventListener('click', function() {
         document.getElementById('map').style.display = 'block';
         document.getElementById('btnAbrirMapa').style.display = 'none';
         document.getElementById('btnCerrarMapa').style.display = 'block';
         isMapVisible = true;
     });
 
-    document.getElementById('btnCerrarMapa').addEventListener('click', function() {
+
+        document.getElementById('btnCerrarMapa').addEventListener('click', function() {
         document.getElementById('map').style.display = 'none';
         document.getElementById('btnCerrarMapa').style.display = 'none';
         document.getElementById('btnAbrirMapa').style.display = 'block';
         isMapVisible = false;
     });
+
 
     map.on('click', function(e) {
         if (isMapVisible) {
@@ -193,6 +268,30 @@ if (!$conex) {
                 });
         }
     });
+
+        document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector("form").addEventListener("submit", function(event) {
+            const requiredFields = ["nombre_hotel", "amenidad1", "amenidad2", "amenidad3", "amenidad4", "amenidad5", "amenidad6", "pais", "ubicacion", "precio_noche"];
+            let isValid = true;
+
+            for (const fieldName of requiredFields) {
+                const fieldValue = document.querySelector(`[name="${fieldName}"]`).value.trim();
+                if (fieldValue === "") {
+                    isValid = false;
+                    alert(`El campo "${fieldName}" no puede estar vacío.`);
+                    event.preventDefault(); // Evita que el formulario se envíe
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            // Si todos los campos requeridos están llenos, el formulario se enviará normalmente
+        });
+    });
+
     </script>
 
 

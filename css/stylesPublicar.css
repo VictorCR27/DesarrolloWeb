@@ -1,0 +1,243 @@
+.h2P {
+    text-align: center;
+    color: black; 
+    background-color: #4CAF50; 
+    margin: 20px auto; 
+    padding: 20px 20px; 
+    border-radius: 15px; 
+    width: fit-content; 
+    font-size: 20px;
+}
+
+
+/* acomodar formulario*/
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.h2P {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.form-publicar {
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* tamaño formulario */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    font-size: 24px;  /* Título un poco más pequeño */
+}
+
+.form-publicar {
+    background-color: #ffffff;
+    max-width: 400px;  /* Ancho más pequeño */
+    margin: 20px auto;
+    padding: 15px 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;  /* Menos espacio después de la etiqueta */
+    color: #555;
+    font-size: 14px;  /* Texto un poco más pequeño */
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;  /* Menos padding */
+    margin-bottom: 10px;  /* Menos espacio entre campos */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;  /* Texto un poco más pequeño */
+}
+
+input[type="file"] {
+    margin-bottom: 10px;  /* Menos espacio después del campo */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 12px;  /* Menos padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;  /* Tamaño de texto más pequeño */
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+
+/* btn publicar*/
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 12px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; 
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Transición suave */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra inicial */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-3px); 
+}
+
+input[type="submit"]:active {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(1px);
+}
+
+/* btn archivos*/ 
+
+/* Estilo para el botón personalizado de carga */
+.custom-file-upload {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
+
+/* Ocultamos el input original */
+input[type="file"] {
+    display: none;
+}
+
+.form-publicar {
+    background-color: #f9f9f9; /* Un fondo claro */
+    padding: 20px; 
+    border-radius: 8px; /* Bordes redondeados */
+    width: 60%; 
+    margin: 20px auto; /* Centrado */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+form label {
+    display: block; 
+    margin-bottom: 8px; 
+    font-size: 16px;
+}
+
+form input[type="text"], form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; 
+}
+
+form input[type="submit"]:hover {
+    background-color: #45a049; 
+}
+
+form input[type="text"]:focus, form select:focus {
+    border-color: #4CAF50; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(72,239,128,0.5); 
+}
+
+.input-error {
+    border-color: #e74c3c;
+    background-color: #fdecea;
+}
+
+#file-upload {
+    display: none; 
+}
+
+
+#map {
+    display: none;
+}
