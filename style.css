@@ -611,3 +611,9 @@ svg{
 .Costa-Rica:hover{
   transform: scaleX(1.2);
 }
+
+/* Publicar */
+
+#map {
+  display: none;
+}

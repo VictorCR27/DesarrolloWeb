@@ -73,7 +73,12 @@ include("login.php");
                 while ($fila = mysqli_fetch_assoc($resultado)) {
                     echo "<div class='publicacion'>";
                     echo "<h3>".$fila['nombre_hotel']."</h3>";
-                    echo "<p>Amenidades: ".$fila['amenidades']."</p>";
+                    echo "<p>Amenidades: ".$fila['amenidad1']."</p>";
+                    echo "<p>Amenidades: ".$fila['amenidad2']."</p>";
+                    echo "<p>Amenidades: ".$fila['amenidad3']."</p>";
+                    echo "<p>Amenidades: ".$fila['amenidad4']."</p>";
+                    echo "<p>Amenidades: ".$fila['amenidad5']."</p>";
+                    echo "<p>Amenidades: ".$fila['amenidad6']."</p>";
                     echo "<p>País: ".$fila['pais']."</p>";
                     echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
                     echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";

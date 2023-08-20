@@ -137,16 +137,24 @@ include("login.php");
                     }
                     
                     echo "</div>"; // Cierre de imagen_hotel
-                    
+
                     echo "<div class='publicacion_info'>";
                     echo "<h3>".$fila['nombre_hotel']."</h3>";
-                    echo "<p>Amenidades: ".$fila['amenidades']."</p>";
+                    echo "<p>Amenidades:</p>";
+                    echo "<ul>";
+                    for ($i = 1; $i <= 6; $i++) {
+                        $amenidadKey = "amenidad" . $i;
+                        if (!empty($fila[$amenidadKey])) {
+                            echo "<li>".$fila[$amenidadKey]."</li>";
+                        }
+                    }
+                    echo "</ul>";
                     echo "<p>País: ".$fila['pais']."</p>";
                     echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
                     echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
                     echo "<form method='post'>";
                     echo "</form>";
-                    echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidades=" . urlencode($fila['amenidades']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";                    
+                    echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidades=" . urlencode(implode(', ', array_values($fila))) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";                    
                     echo "</div>"; 
                 }
             }
