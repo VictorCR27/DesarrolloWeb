@@ -134,10 +134,11 @@ include("login.php");
     <br><br>
 
 
+   
     <section>
-    <!-- CARDS -->
+        <!-- CARDS -->
         <div class="container">
-            <div class="row"> <!-- Agregado el contenedor de filas -->
+            <div class="row row-cols-1 row-cols-md-3"> <!-- Set the number of columns for each row -->
                 <?php
                 if (!$conex) {
                     die("Error de conexión: " . mysqli_connect_error());
@@ -149,25 +150,27 @@ include("login.php");
 
                 // Verificar si hay resultados
                 if (mysqli_num_rows($resultado) > 0) {
-                    // Procesar los resultados
                     while ($fila = mysqli_fetch_assoc($resultado)) {
-                        if ($fila['pais'] === 'Costa Rica') { // Verificar si el país es igual a "Costa Rica"
-                            echo "<div class='col'>"; // Agregado el contenedor de columna
-                            echo "<div class='card'>"; // Agregado el contenedor de tarjeta
-                            echo "<div class='card-img-top'>";
+                        if ($fila['pais'] === 'Costa Rica') {
+                            // Display the card content
+                            echo "<div class='col mb-4'>"; // Add margin between columns
+                            echo "<div class='card h-100'>"; // Set a fixed height for the card
                             
+                            // Display the card image
+                            echo "<div class='card-img-top'>";
+
                             // Obtener las imágenes
                             $imagenes = explode(',', $fila['imagenes']);
                             foreach ($imagenes as $imagen) {
-                                echo "<img class='card-img-top' src='".$imagen."' alt='Imagen del hotel'>";
+                                echo "<img style='height: 207px'class='card-img-top' src='".$imagen."' alt='Imagen del hotel'>";
                             }
-                            
+
                             echo "</div>"; // Cierre de card-img-top
 
                             echo "<div class='card-body'>";
                             echo "<h5 class='modern black centered-text subtitulo'>".$fila['nombre_hotel']."</h5>";
                             echo "<p class='sand black  body'>".$fila['ubicacion']."</p>";
-                            echo "<p class='sand black  body'>Precio: ".$fila['precio_noche']."</p>";
+                            echo "<p class='sand black  body'>Precio: $".$fila['precio_noche']."</p>";
                             echo "<p class='sand black  bold body'>Amenidades:</p>";
                             echo "<p class='sand black maspequeña'>";
                             for ($i = 1; $i <= 6; $i++) {
@@ -177,7 +180,7 @@ include("login.php");
                                 }
                             }
                             echo "</p>";
-                            echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidad1=" . urlencode($fila['amenidad1']) . "&amenidad2=" . urlencode($fila['amenidad2']) . "&amenidad3=" . urlencode($fila['amenidad3']) . "&amenidad4=" . urlencode($fila['amenidad4']) . "&amenidad5=" . urlencode($fila['amenidad5']) . "&amenidad6=" . urlencode($fila['amenidad6']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";
+                            echo "<a class='reservar_btn'href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidad1=" . urlencode($fila['amenidad1']) . "&amenidad2=" . urlencode($fila['amenidad2']) . "&amenidad3=" . urlencode($fila['amenidad3']) . "&amenidad4=" . urlencode($fila['amenidad4']) . "&amenidad5=" . urlencode($fila['amenidad5']) . "&amenidad6=" . urlencode($fila['amenidad6']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";
                             echo "</div>"; // Cierre de card-body
 
                             echo "</div>"; // Cierre de tarjeta
@@ -190,136 +193,12 @@ include("login.php");
 
                 // Cerrar la conexión
                 mysqli_close($conex);
-                ?>
-                
-                <div class="col">
-                    <div class="card">
-                        <img src="imgCarrusel/2.jpg" class="card-img-top" alt="Imagen 1">
-                        <div class="card-body">
-                            <div class="card-details">
-                                <h5 class="modern black centered-text subtitulo">Hotel 1</h5>
-                                <p class="sand black  body">Dirección del Hotel 1</p>
-                                <p class="sand black  body">Precio: $100</p>
-                                <p class="sand black  bold body">Amenidades:</p>
-                                <p class="sand black maspequeña"> - Bar y Restaurante <br> - Spa y Piscina <br>-
-                                    Servicio a la habitacion <br> - WiFi <br> - Desayuno Incluido</p>
-                            </div>
-                            <div class="card-details-bottom">
-                                <div class="rating">
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                </div>
-                                <button class="btn btn-primary">Reservar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="imgCarrusel/3.jpg" class="card-img-top" alt="Imagen 1">
-                        <div class="card-body">
-                            <div class="card-details">
-                                <h5 class="modern black centered-text subtitulo">Hotel 1</h5>
-                                <p class="sand black  body">Dirección del Hotel 1</p>
-                                <p class="sand black  body">Precio: $100</p>
-                                <p class="sand black  bold body">Amenidades:</p>
-                                <p class="sand black maspequeña"> - Bar y Restaurante <br> - Spa y Piscina <br>-
-                                    Servicio a la habitacion <br> - WiFi <br> - Desayuno Incluido</p>
-                            </div>
-                            <div class="card-details-bottom">
-                                <div class="rating">
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                </div>
-                                <button class="btn btn-primary">Reservar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="imgCarrusel/4.jpg" class="card-img-top" alt="Imagen 1">
-                        <div class="card-body">
-                            <div class="card-details">
-                                <h5 class="modern black centered-text subtitulo">Hotel 1</h5>
-                                <p class="sand black  body">Dirección del Hotel 1</p>
-                                <p class="sand black  body">Precio: $100</p>
-                                <p class="sand black  bold body">Amenidades:</p>
-                                <p class="sand black maspequeña"> - Bar y Restaurante <br> - Spa y Piscina <br>-
-                                    Servicio a la habitacion <br> - WiFi <br> - Desayuno Incluido</p>
-                            </div>
-                            <div class="card-details-bottom">
-                                <div class="rating">
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                </div>
-                                <button class="btn btn-primary">Reservar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="imgCarrusel/5.jpeg" class="card-img-top" alt="Imagen 1">
-                        <div class="card-body">
-                            <div class="card-details">
-                                <h5 class="modern black centered-text subtitulo">Hotel 1</h5>
-                                <p class="sand black  body">Dirección del Hotel 1</p>
-                                <p class="sand black  body">Precio: $100</p>
-                                <p class="sand black  bold body">Amenidades:</p>
-                                <p class="sand black maspequeña"> - Bar y Restaurante <br> - Spa y Piscina <br>-
-                                    Servicio a la habitacion <br> - WiFi <br> - Desayuno Incluido</p>
-                            </div>
-                            <div class="card-details-bottom">
-                                <div class="rating">
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                </div>
-                                <button class="btn btn-primary">Reservar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <img src="imgCarrusel/6.jpeg" class="card-img-top" alt="Imagen 1">
-                        <div class="card-body">
-                            <div class="card-details">
-                                <h5 class="modern black centered-text subtitulo">Hotel 1</h5>
-                                <p class="sand black  body">Dirección del Hotel 1</p>
-                                <p class="sand black  body">Precio: $100</p>
-                                <p class="sand black  bold body">Amenidades:</p>
-                                <p class="sand black maspequeña"> - Bar y Restaurante <br> - Spa y Piscina <br>-
-                                    Servicio a la habitacion <br> - WiFi <br> - Desayuno Incluido</p>
-                            </div>
-                            <div class="card-details-bottom">
-                                <div class="rating">
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                </div>
-                                <button class="btn btn-primary">Reservar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                ?>   
             </div>
         </div>
     </section>
+
+    <br><br><br>
     <br><br><br>
 
     <!-- FOOTER -->

@@ -162,7 +162,7 @@ if (!$conex) {
 
             <label for="ubicacion">Ubicación:</label>
             <input type="text" id="ubicacion-input" name="ubicacion" placeholder="Busca una ubicación en el mapa" required><br><br>
-            <div id="map" style="height: 500px; width: 800px;"></div>
+            <div id="map" style="height: 500px; width: 100%;"></div>
             <input type="hidden" id="coordenadas" name="coordenadas">
 
             <button id="btnAbrirMapa" class="custom-file-upload" type="button">Abrir Mapa</button>
@@ -268,36 +268,6 @@ if (!$conex) {
                 });
         }
     });
-
-        document.addEventListener("DOMContentLoaded", function() {
-        document.querySelector("form").addEventListener("submit", function(event) {
-            const requiredFields = [
-                "nombre_hotel", "amenidad1", "amenidad2", "amenidad3",
-                "amenidad4", "amenidad5", "amenidad6", "pais", "ubicacion", "precio_noche"
-            ];
-            let isValid = true;
-
-            for (const fieldName of requiredFields) {
-                const inputField = document.querySelector(`[name="${fieldName}"]`);
-                const fieldValue = inputField.value.trim();
-                const errorField = document.querySelector(`#${fieldName}-error`);
-
-                if (fieldValue === "") {
-                    isValid = false;
-                    errorField.textContent = "Este campo es obligatorio.";
-                    inputField.classList.add("error");
-                } else {
-                    errorField.textContent = "";
-                    inputField.classList.remove("error");
-                }
-            }
-
-            if (!isValid) {
-                event.preventDefault(); // Evita que el formulario se envíe si hay campos vacíos
-            }
-        });
-    });
-
     </script>
 
 

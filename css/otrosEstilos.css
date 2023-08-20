@@ -219,20 +219,22 @@ body {
     margin-right: 2px;
   }
   
-  .btn-primary {
-    display: block;
-    background-color: white;
-    color: black;
+  .reservar_btn {
     border-radius: 20px;
-    width: 150px;
-    align-items: center;
+    background-color: #ffffff;
+    color: Black;
+    padding: 7px 40px;
+    text-decoration: none;
     transition: background-color 0.3s, border-width 0.3s;
-    /* Añade la transición del grosor del borde */
-    border-color: #dfd7bf;
-    border-width: 3px;
-  }
+    cursor: pointer;
+    font-weight: 400;
+    transition: background-color 0.3s;
+    border: #dfd7bf solid 3px;
+    float: right;
+}
+
   
-  .btn-primary:hover {
+  .reservar_btn:hover {
     background-color: #dfd7bf;
     color: black;
     border-color: #dfd7bf;
