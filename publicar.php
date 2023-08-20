@@ -58,7 +58,7 @@ if (!$conex) {
         <form action="publicar.php" method="POST" enctype="multipart/form-data">
             <label for="nombre_hotel">Nombre del Hotel:</label>
             <input type="text" name="nombre_hotel"><br><br>
-
+            
             <label for="amenidad1">Amenidad 1:</label>
             <input type="text" name="amenidad1"><br><br>
 
@@ -94,8 +94,9 @@ if (!$conex) {
             <div id="map" style="height: 500px; width: 800px;"></div>
             <input type="hidden" id="coordenadas" name="coordenadas">
 
-            
-
+            <button id="btnAbrirMapa" type="button">Abrir Mapa</button>
+            <button id="btnCerrarMapa" type="button" style="display: none;">Cerrar Mapa</button>
+            <br><br>
 
             <label for="imagenes">Imágenes:</label>
             <input type="file" name="imagenes[]" multiple><br><br>
@@ -109,12 +110,21 @@ if (!$conex) {
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Obtener datos del formulario
-        $nombre_hotel = $_POST['nombre_hotel'];
-        $amenidades = $_POST['amenidades'];
-        $pais = $_POST['pais']; // Obtener el país seleccionado
-        $ubicacion = $_POST['ubicacion'];
-        $precio_noche = $_POST['precio_noche'];
-
+        $nombre_hotel = mysqli_real_escape_string($conex, $_POST['nombre_hotel']);
+    
+        // Crear la cadena de amenidades
+        // Obtener las amenidades
+        $amenidad1 = mysqli_real_escape_string($conex, $_POST['amenidad1']);
+        $amenidad2 = mysqli_real_escape_string($conex, $_POST['amenidad2']);
+        $amenidad3 = mysqli_real_escape_string($conex, $_POST['amenidad3']);
+        $amenidad4 = mysqli_real_escape_string($conex, $_POST['amenidad4']);
+        $amenidad5 = mysqli_real_escape_string($conex, $_POST['amenidad5']);
+        $amenidad6 = mysqli_real_escape_string($conex, $_POST['amenidad6']);
+        
+        $pais = mysqli_real_escape_string($conex, $_POST['pais']);
+        $ubicacion = mysqli_real_escape_string($conex, $_POST['ubicacion']);
+        $precio_noche = mysqli_real_escape_string($conex, $_POST['precio_noche']);
+    
         // Procesar imágenes
         $imagenes = array();
         foreach ($_FILES['imagenes']['tmp_name'] as $key => $tmp_name) {
@@ -124,50 +134,67 @@ if (!$conex) {
             move_uploaded_file($imagen_tmp, $imagen_destino);
             $imagenes[] = $imagen_destino;
         }
-
+    
+        $imagenes_str = implode(',', array_map(function($imagen) use ($conex) {
+            return mysqli_real_escape_string($conex, $imagen);
+        }, $imagenes));
+    
         // Insertar datos en la base de datos
-        $sql = "INSERT INTO publicaciones (nombre_hotel, amenidades, pais, ubicacion, imagenes, precio_noche)
-        VALUES ('$nombre_hotel', '$amenidades', '$pais', '$ubicacion', '" . implode(',', $imagenes) . "', $precio_noche)";
-
+        $sql = "INSERT INTO publicaciones (nombre_hotel, amenidad1, amenidad2, amenidad3, amenidad4, amenidad5, amenidad6, pais, ubicacion, imagenes, precio_noche)
+                VALUES ('$nombre_hotel', '$amenidad1', '$amenidad2', '$amenidad3', '$amenidad4', '$amenidad5', '$amenidad6', '$pais', '$ubicacion', '$imagenes_str', '$precio_noche')";
+    
         $resultado = mysqli_query($conex, $sql);
-
+    
         if ($resultado) {
             echo "La publicación se ha agregado correctamente.";
         } else {
-            echo "Error al agregar la publicación: " . mysqli_error($conexion);
+            echo "Error al agregar la publicación: " . mysqli_error($conex);
         }
-    }
+    }  
     ?>
     
     <script>
-    // Inicializar el mapa centrado en Centroamérica
     var map = L.map('map').setView([14.1, -89.4], 6);
-
-    // Agregar el mapa base (puedes elegir un proveedor de mapas)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    // Manejar la selección de ubicación
-   // Manejar la selección de ubicación
-    map.on('click', function(e) {
-        const coordenadasInput = document.getElementById('coordenadas');
-        const ubicacionInput = document.getElementById('ubicacion-input');
-        
-        coordenadasInput.value = JSON.stringify({
-            lat: e.latlng.lat,
-            lng: e.latlng.lng
-        });
+    var isMapVisible = false;
 
-        // Reverse geocoding to get the place name based on coordinates
-        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${e.latlng.lat}&lon=${e.latlng.lng}`)
-            .then(response => response.json())
-            .then(data => {
-                const placeName = data.display_name;
-                ubicacionInput.value = placeName;
+    document.getElementById('btnAbrirMapa').addEventListener('click', function() {
+        document.getElementById('map').style.display = 'block';
+        document.getElementById('btnAbrirMapa').style.display = 'none';
+        document.getElementById('btnCerrarMapa').style.display = 'block';
+        isMapVisible = true;
+    });
+
+    document.getElementById('btnCerrarMapa').addEventListener('click', function() {
+        document.getElementById('map').style.display = 'none';
+        document.getElementById('btnCerrarMapa').style.display = 'none';
+        document.getElementById('btnAbrirMapa').style.display = 'block';
+        isMapVisible = false;
+    });
+
+    map.on('click', function(e) {
+        if (isMapVisible) {
+            const coordenadasInput = document.getElementById('coordenadas');
+            const ubicacionInput = document.getElementById('ubicacion-input');
+
+            coordenadasInput.value = JSON.stringify({
+                lat: e.latlng.lat,
+                lng: e.latlng.lng
             });
+
+            fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${e.latlng.lat}&lon=${e.latlng.lng}`)
+                .then(response => response.json())
+                .then(data => {
+                    const placeName = data.display_name;
+                    ubicacionInput.value = placeName;
+                });
+        }
     });
     </script>
+
 
 
 </body>
