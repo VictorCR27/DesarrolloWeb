@@ -26,27 +26,31 @@
         </header>
         <!--Fin Header-->
 
-    <h2>Reservar Hotel</h2>
-    <div>
-        <img src="<?php echo $_GET['imagen']; ?>" alt="Imagen del hotel">
+    
+    <div class="publicaciones" style="margin-top:110px">
+        <div class="publicacion_container">
+            <div>
+                <img src="<?php echo $_GET['imagen']; ?>" alt="Imagen del hotel">
+            </div>
+            <form action="procesar_reserva.php" method="post">
+                <label>Nombre del hotel: <?php echo $_GET['nombre_hotel']; ?></label><br>
+                <label>Amenidades:</label><br>
+                <ul>
+                <?php
+                for ($i = 1; $i <= 6; $i++) {
+                    $amenidadKey = "amenidad" . $i;
+                    if (!empty($_GET[$amenidadKey])) {
+                        echo "<li>" . $_GET[$amenidadKey] . "</li>";
+                    }
+                }
+                ?>
+                </ul>
+                
+                <label>Ubicación: <?php echo $_GET['ubicacion']; ?></label><br>
+                <label>Precio por noche: <?php echo $_GET['precio_noche']; ?></label><br>
+                <input type="submit" value="Confirmar Reserva">
+            </form>
+        </div>
     </div>
-    <form action="procesar_reserva.php" method="post">
-        <label>Nombre del hotel: <?php echo $_GET['nombre_hotel']; ?></label><br>
-        <label>Amenidades:</label><br>
-        <ul>
-        <?php
-        for ($i = 1; $i <= 6; $i++) {
-            $amenidadKey = "amenidad" . $i;
-            if (!empty($_GET[$amenidadKey])) {
-                echo "<li>" . $_GET[$amenidadKey] . "</li>";
-            }
-        }
-        ?>
-        </ul>
-        
-        <label>Ubicación: <?php echo $_GET['ubicacion']; ?></label><br>
-        <label>Precio por noche: <?php echo $_GET['precio_noche']; ?></label><br>
-        <input type="submit" value="Confirmar Reserva">
-    </form>
 </body>
 </html>

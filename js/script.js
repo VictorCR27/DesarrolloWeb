@@ -108,6 +108,32 @@ const carousels = document.querySelectorAll('[data-carousel]');
 carousels.forEach(setUpCarousel);
 
 
+/* Carga al buscar */
+
+document.addEventListener("DOMContentLoaded", function() {
+  const buscarButton = document.getElementById("buscar-button");
+
+  buscarButton.addEventListener("click", function() {
+      // Display a rotating circle loading animation using Font Awesome icon
+      Swal.fire({
+          title: 'Buscando...',
+          allowOutsideClick: false,
+          showConfirmButton: false,
+          html: '<div class="loading-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>',
+          onBeforeOpen: () => {
+              Swal.showLoading();
+          }
+      });
+
+      // Delay for demonstration purposes (remove this in your actual implementation)
+      setTimeout(function() {
+          // Close the SweetAlert loading message
+          Swal.close();
+
+          // Do not submit the form
+      }, 4000);
+  });
+});
 
 
 
