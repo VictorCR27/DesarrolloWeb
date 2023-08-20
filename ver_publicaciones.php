@@ -10,7 +10,6 @@ include("login.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="publicStyle.css">
     <title>Ver publicaciones</title>
 </head>
 <body>
@@ -24,7 +23,7 @@ include("login.php");
                     echo '<a href="publicar.php">Publicar</a>';
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
-                <a href="#">Reservar</a>
+                
                 <a href="#">Servicios</a>
                 <a href="#">Quienes somos?</a>
                 <a href="#">Cuenta</a>
@@ -42,25 +41,11 @@ include("login.php");
         </header>
         <!--Fin Header-->
 
+        <!--Ver publicaciones-->
         <div class="publicaciones">
             <?php
             if (!$conex) {
                 die("Error de conexión: " . mysqli_connect_error());
-            }
-
-            // Verificar si se envió una solicitud de eliminación
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
-                $eliminar_id = $_POST['eliminar_id'];
-
-                // Eliminar la fila de la base de datos
-                $eliminar_sql = "DELETE FROM publicaciones WHERE id = $eliminar_id";
-                $eliminar_resultado = mysqli_query($conex, $eliminar_sql);
-
-                if ($eliminar_resultado) {
-                    echo "La publicación se ha eliminado correctamente.";
-                } else {
-                    echo "Error al eliminar la publicación: " . mysqli_error($conex);
-                }
             }
 
             // Realizar la consulta
@@ -71,6 +56,8 @@ include("login.php");
             if (mysqli_num_rows($resultado) > 0) {
                 // Procesar los resultados
                 while ($fila = mysqli_fetch_assoc($resultado)) {
+                    echo "<div class='publicacion_container'>";
+                    
                     echo "<div class='publicacion'>";
                     echo "<h3>".$fila['nombre_hotel']."</h3>";
                     echo "<p>Amenidades: ".$fila['amenidad1']."</p>";
@@ -88,13 +75,14 @@ include("login.php");
                     echo "</form>";
                     echo "</div>";
                     
-
                     // Obtener las imágenes
                     $imagenes = explode(',', $fila['imagenes']);
                     foreach ($imagenes as $imagen) {
-                        echo "<img class='imgs_hoteles'src='".$imagen."' alt='Imagen del hotel'>";
+                        echo "<img class='imgs_hoteles' src='".$imagen."' alt='Imagen del hotel'>";
                         echo "<hr>";
                     }
+                    
+                    echo "</div>"; // Cierre de publicacion_container
                 }
             } else {
                 echo "No se encontraron publicaciones.";
@@ -104,6 +92,9 @@ include("login.php");
             mysqli_close($conex);
             ?>
         </div>
+        <!-- Fin Ver publicaciones-->
+
+
 
 </body>
 </html>

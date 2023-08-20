@@ -12,7 +12,6 @@ include("login.php");
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Costa Rica</title>
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="publicStyle.css">
     </head>
 
     <body>
@@ -112,61 +111,62 @@ include("login.php");
         <!--Fin Formulario-->
 
         <!--Ver publicaciones-->
-        <?php
-        if (!$conex) {
-            die("Error de conexión: " . mysqli_connect_error());
-        }
-
-        // Realizar la consulta
-        $sql = "SELECT * FROM publicaciones";
-        $resultado = mysqli_query($conex, $sql);
-
-        // Verificar si hay resultados
-        if (mysqli_num_rows($resultado) > 0) {
-            echo "<div class='publicaciones'>";
-            // Procesar los resultados
-            while ($fila = mysqli_fetch_assoc($resultado)) {
-                if ($fila['pais'] === 'Costa Rica') { // Verificar si el país es igual a "Nicaragua"
-                    echo "<div class='publicacion_container'>";
-                    echo "<div class='imagen_hotel'>";
-                    
-                    // Obtener las imágenes
-                    $imagenes = explode(',', $fila['imagenes']);
-                    foreach ($imagenes as $imagen) {
-                        echo "<img class='imgs_hoteles' src='".$imagen."' alt='Imagen del hotel'>";
-                    }
-                    
-                    echo "</div>"; // Cierre de imagen_hotel
-
-                    echo "<div class='publicacion_info'>";
-                    echo "<h3>".$fila['nombre_hotel']."</h3>";
-                    echo "<p>Amenidades:</p>";
-                    echo "<ul>";
-                    for ($i = 1; $i <= 6; $i++) {
-                        $amenidadKey = "amenidad" . $i;
-                        if (!empty($fila[$amenidadKey])) {
-                            echo "<li>".$fila[$amenidadKey]."</li>";
-                        }
-                    }
-                    echo "</ul>";
-                    echo "<p>País: ".$fila['pais']."</p>";
-                    echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
-                    echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
-                    echo "<form method='post'>";
-                    echo "</form>";
-                    echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidades=" . urlencode(implode(', ', array_values($fila))) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";                    
-                    echo "</div>"; 
-                }
+        <div class="publicaciones">
+            <?php
+            if (!$conex) {
+                die("Error de conexión: " . mysqli_connect_error());
             }
-            echo "</div>"; // Cierre de publicaciones
-        } else {
-            echo "No se encontraron publicaciones.";
-        }
 
-        // Cerrar la conexión
-        mysqli_close($conex);
-        ?>
+            // Realizar la consulta
+            $sql = "SELECT * FROM publicaciones";
+            $resultado = mysqli_query($conex, $sql);
+
+            // Verificar si hay resultados
+            if (mysqli_num_rows($resultado) > 0) {
+                // Procesar los resultados
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    if ($fila['pais'] === 'Costa Rica') { // Verificar si el país es igual a "Costa Rica"
+                        echo "<div class='publicacion_container'>";
+                        echo "<div class='imagen_hotel'>";
+                        
+                        // Obtener las imágenes
+                        $imagenes = explode(',', $fila['imagenes']);
+                        foreach ($imagenes as $imagen) {
+                            echo "<img class='imgs_hoteles' src='".$imagen."' alt='Imagen del hotel'>";
+                        }
+                        
+                        echo "</div>"; // Cierre de imagen_hotel
+
+                        echo "<div class='publicacion_info'>";
+                        echo "<h3>".$fila['nombre_hotel']."</h3>";
+                        echo "<p>Amenidades:</p>";
+                        echo "<ul>";
+                        for ($i = 1; $i <= 6; $i++) {
+                            $amenidadKey = "amenidad" . $i;
+                            if (!empty($fila[$amenidadKey])) {
+                                echo "<li>".$fila[$amenidadKey]."</li>";
+                            }
+                        }
+                        echo "</ul>";
+                        echo "<p>País: ".$fila['pais']."</p>";
+                        echo "<p>Ubicación: ".$fila['ubicacion']."</p>";
+                        echo "<p>Precio por noche: ".$fila['precio_noche']."</p>";
+                        echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidad1=" . urlencode($fila['amenidad1']) . "&amenidad2=" . urlencode($fila['amenidad2']) . "&amenidad3=" . urlencode($fila['amenidad3']) . "&amenidad4=" . urlencode($fila['amenidad4']) . "&amenidad5=" . urlencode($fila['amenidad5']) . "&amenidad6=" . urlencode($fila['amenidad6']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";
+                        echo "</div>"; 
+
+                        echo "</div>"; // Cierre de publicacion_container
+                    }
+                }
+            } else {
+                echo "No se encontraron publicaciones.";
+            }
+
+            // Cerrar la conexión
+            mysqli_close($conex);
+            ?>
+        </div>
         <!-- Fin Ver publicaciones-->
+
         
     <!--Scripts-->
     <script src="script.js"></script>

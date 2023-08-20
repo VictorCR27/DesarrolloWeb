@@ -82,7 +82,7 @@ html, body {
   right: 0;
   width: 45px;
   height: 45px;
-  background: #162938;
+  background: #197163;
   font-size: 2em;
   color: #fff;
   display: flex;
@@ -96,7 +96,7 @@ html, body {
 
 .form-box h2{
   font-size: 2em;
-  color: #162938;
+  color: white;
   text-align: center;
   padding-bottom: 20px;
 }
@@ -105,7 +105,7 @@ html, body {
   position: relative;
   width: 100%;
   height: 50px;
-  border-bottom: 2px solid #162938;
+  border-bottom: 2px solid white;
   margin: 30px 0;
 }
 
@@ -115,7 +115,7 @@ html, body {
   left: 5px;
   transform: translateY(-50%);
   font-size: 1em;
-  color: #000000;
+  color: #fff;
   font-weight: 500;
   pointer-events: none;
   top: -5px;
@@ -128,7 +128,7 @@ html, body {
   border: none;
   outline: none;
   font: 1em;
-  color: #162938;
+  color: #fff;
   font-weight: 300;
   padding: 0 35px 0 5px;
 }
@@ -137,7 +137,7 @@ html, body {
   position: absolute;
   right: 8px;
   font-size: 1.2em;
-  color: #162938;
+  color: #fff;
   line-height: 57px;
 }
 
@@ -154,7 +154,7 @@ html, body {
   position: relative;
   height: 45px;
   border: none;
-  background-color: #162938;
+  background-color: #197163;
   color: #fff;
   padding: 10px;
   border-radius: 10px;
@@ -166,11 +166,11 @@ html, body {
 }
 
 .role-button:hover {
-  background-color: #052f50; 
+  background-color: #42a897; 
 }
 
 .role-button.active {
-  background-color: #156aab;
+  background-color: #197163;
 }
 
 /*------------------------------------------------ Fin Botones de roles ------------------------------------------------*/
@@ -178,7 +178,7 @@ html, body {
 .btn {
   width: 100%;
   height: 45px;
-  background: #162938;
+  background: #197163;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -188,19 +188,19 @@ html, body {
 }
 
 .btn:hover {
-  background: #052f50;
+  background: #42a897;
 }
 
 .login-register {
   font-size: .9em;
-  color: #162938;
+  color: #197163;
   text-align: center;
   font-weight: 500;
   margin: 25px 0 10px;
 }
 
 .login-register p a {
-  color: #162938;
+  color: #197163;
   text-decoration: none;
   font-weight: 600;
 }
@@ -455,20 +455,22 @@ body::-webkit-scrollbar {
 /* Ver publicaciones */
 
 .publicaciones {
+  justify-content: center;
+}
+
+.publicacion_container {
   display: flex;
   justify-content: center;
   box-shadow: 0 0 5px #171717; 
   border-radius: 20px;
   padding: 1%;
-  margin-top: 5px;
-  margin-left: 50px;
-  margin-right: 50px; 
+  margin-top: 20px;
+  margin-left: 160px;
+  margin-right: 210px; 
   background-color: #ffffff;
 }
 
-.publicacion_container {
-  display: flex;
-}
+
 
 .imgs_hoteles {
   width: 500px;

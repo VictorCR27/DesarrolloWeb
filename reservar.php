@@ -32,15 +32,18 @@
     </div>
     <form action="procesar_reserva.php" method="post">
         <label>Nombre del hotel: <?php echo $_GET['nombre_hotel']; ?></label><br>
-        <p>Amenidades:</p>
+        <label>Amenidades:</label><br>
         <ul>
-            <?php
-            $amenidades = explode(',', $_GET['amenidades']);
-            for ($i = 0; $i < count($amenidades); $i++) {
-                echo "<li>" . $amenidades[$i] . "</li>";
+        <?php
+        for ($i = 1; $i <= 6; $i++) {
+            $amenidadKey = "amenidad" . $i;
+            if (!empty($_GET[$amenidadKey])) {
+                echo "<li>" . $_GET[$amenidadKey] . "</li>";
             }
-            ?>
+        }
+        ?>
         </ul>
+        
         <label>Ubicación: <?php echo $_GET['ubicacion']; ?></label><br>
         <label>Precio por noche: <?php echo $_GET['precio_noche']; ?></label><br>
         <input type="submit" value="Confirmar Reserva">
