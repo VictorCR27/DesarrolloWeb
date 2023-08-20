@@ -501,7 +501,9 @@ body::-webkit-scrollbar {
 }
 
 .txt_desc_pais {
-  margin-bottom: 1rem;
+  font-size: 12px;
+  text-align: justify;
+  margin-bottom: 5px;
   color: #197163;
 }
 
@@ -678,12 +680,83 @@ svg{
   }
 }
 
-.Costa-Rica:hover{
-  transform: scaleX(1.2);
-}
 
 /* Publicar */
 
 #map {
   display: none;
+}
+
+
+.imgs-CR-container{
+  margin-top: 30px;
+  margin-bottom: 80px;
+  display: flex;
+  gap: 0;
+  position: relative;
+  text-align: center;
+}
+
+.imgs-CR-container > .imag-info-paises{
+  height: 60vmin;
+  width: 56vmin;
+  object-fit: cover;
+}
+
+.txt-imag-info{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 35px;
+}
+
+#txt-img1-CR-info{
+  position: absolute;
+  bottom: 2px;
+  left: 10px;
+}
+
+.card-bd-hotel:link {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  color: #197163;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 300;
+  background-color: transparent;
+  position: relative;
+}
+
+.card-bd-hotel:visited{
+  color: #197163;
+  background-color: transparent;
+  text-decoration: none;
+  position: relative;
+}
+
+.card-bd-hotel:hover{
+  color: #197163;
+  background-color: transparent;
+  text-decoration: none;
+  text-underline-offset: 10px;
+}
+
+.card-bd-hotel::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #197163;
+  transform: scaleX(0);
+  transform-origin: top left right bottom;
+  transition: transform 0.6s ease;
+}
+
+.card-bd-hotel:hover::before {
+  transform: scaleX(1);
 }
