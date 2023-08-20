@@ -1,3 +1,7 @@
+<?php
+include("registro.php");
+include("login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,28 +28,15 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php">Home</a>
+                    <a class="nav-link text-white" href="">Servicios</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                      data-bs-toggle="dropdown" aria-expanded="false">
-                      Destinos
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="http://127.0.0.1:5500/html/belice.html">Belice</a></li>
-                        <li><a class="dropdown-item" href="http://127.0.0.1:5500/html/costarica.html">Costa Rica</a></li>
-                        <li><a class="dropdown-item" href="http://127.0.0.1:5500/html/elsalvador.html">El Salvador</a></li>
-                        <li><a class="dropdown-item" href="http://127.0.0.1:5500/html/guatemala.html">Guatemala</a></li>
-                        <li><a class="dropdown-item" href="http://127.0.0.1:5500/html/honduras.html">Honduras</a></li>
-                        <li><a class="dropdown-item" href="http://127.0.0.1:5500/html/nicaragua.html">Nicaragua</a></li>
-                        <li><a class="dropdown-item" href="http://127.0.0.1:5500/html/panama.html">Panamá</a></li>
-                    </ul>
-                  </li>
+
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="http://127.0.0.1:5500/html/informacionpagina.html">Información de la Página</a>
+                    <a class="nav-link text-white" href="">Quienes somos?</a>
                   </li>
+
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="http://127.0.0.1:5500/html/miperfil.html">Mi Perfil</a>
+                    <a class="nav-link text-white" href="">Perfil</a>
                   </li>
                 </ul>
               </div>
@@ -53,7 +44,7 @@
               <div class="logo">
                 <ul class="logohover">
                   <li>
-                    <a href="">
+                    <a href="index.php">
                       <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
                       <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
                     </a>
@@ -144,37 +135,63 @@
 
 
     <section>
-
-
-
-        <!-- CARDS -->
+    <!-- CARDS -->
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card">
-                        <img src="imgCarrusel/1.jpg" class="card-img-top" alt="Imagen 1">
-                        <div class="card-body">
-                            <div class="card-details">
-                                <h5 class="modern black centered-text subtitulo">Hotel 1</h5>
-                                <p class="sand black  body">Dirección del Hotel 1</p>
-                                <p class="sand black  body">Precio: $100</p>
-                                <p class="sand black  bold body">Amenidades:</p>
-                                <p class="sand black maspequeña"> - Bar y Restaurante <br> - Spa y Piscina <br>-
-                                    Servicio a la habitacion <br> - WiFi <br> - Desayuno Incluido</p>
-                            </div>
-                            <div class="card-details-bottom">
-                                <div class="rating">
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                    <span class="star"></span>
-                                </div>
-                                <button class="btn btn-primary">Reservar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row"> <!-- Agregado el contenedor de filas -->
+                <?php
+                if (!$conex) {
+                    die("Error de conexión: " . mysqli_connect_error());
+                }
+
+                // Realizar la consulta
+                $sql = "SELECT * FROM publicaciones";
+                $resultado = mysqli_query($conex, $sql);
+
+                // Verificar si hay resultados
+                if (mysqli_num_rows($resultado) > 0) {
+                    // Procesar los resultados
+                    while ($fila = mysqli_fetch_assoc($resultado)) {
+                        if ($fila['pais'] === 'Costa Rica') { // Verificar si el país es igual a "Costa Rica"
+                            echo "<div class='col'>"; // Agregado el contenedor de columna
+                            echo "<div class='card'>"; // Agregado el contenedor de tarjeta
+                            echo "<div class='card-img-top'>";
+                            
+                            // Obtener las imágenes
+                            $imagenes = explode(',', $fila['imagenes']);
+                            foreach ($imagenes as $imagen) {
+                                echo "<img class='card-img-top' src='".$imagen."' alt='Imagen del hotel'>";
+                            }
+                            
+                            echo "</div>"; // Cierre de card-img-top
+
+                            echo "<div class='card-body'>";
+                            echo "<h5 class='modern black centered-text subtitulo'>".$fila['nombre_hotel']."</h5>";
+                            echo "<p class='sand black  body'>".$fila['ubicacion']."</p>";
+                            echo "<p class='sand black  body'>Precio: ".$fila['precio_noche']."</p>";
+                            echo "<p class='sand black  bold body'>Amenidades:</p>";
+                            echo "<p class='sand black maspequeña'>";
+                            for ($i = 1; $i <= 6; $i++) {
+                                $amenidadKey = "amenidad" . $i;
+                                if (!empty($fila[$amenidadKey])) {
+                                    echo "- ".$fila[$amenidadKey]."<br>";
+                                }
+                            }
+                            echo "</p>";
+                            echo "<a href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidad1=" . urlencode($fila['amenidad1']) . "&amenidad2=" . urlencode($fila['amenidad2']) . "&amenidad3=" . urlencode($fila['amenidad3']) . "&amenidad4=" . urlencode($fila['amenidad4']) . "&amenidad5=" . urlencode($fila['amenidad5']) . "&amenidad6=" . urlencode($fila['amenidad6']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";
+                            echo "</div>"; // Cierre de card-body
+
+                            echo "</div>"; // Cierre de tarjeta
+                            echo "</div>"; // Cierre de columna
+                        }
+                    }
+                } else {
+                    echo "No se encontraron publicaciones.";
+                }
+
+                // Cerrar la conexión
+                mysqli_close($conex);
+                ?>
+                
                 <div class="col">
                     <div class="card">
                         <img src="imgCarrusel/2.jpg" class="card-img-top" alt="Imagen 1">
