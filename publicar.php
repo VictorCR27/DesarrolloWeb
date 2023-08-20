@@ -128,29 +128,29 @@ if (!$conex) {
     <div class="form-publicar" style="margin-top:0px">
         <form action="publicar.php" method="POST" enctype="multipart/form-data">
             <label for="nombre_hotel">Nombre del Hotel:</label>
-            <input type="text" name="nombre_hotel"><br><br>
+            <input type="text" name="nombre_hotel" required>
             
             <label for="amenidad1">Amenidad 1:</label>
-            <input type="text" name="amenidad1"><br><br>
+            <input type="text" name="amenidad1" required><br><br>
 
             <label for="amenidad2">Amenidad 2:</label>
-            <input type="text" name="amenidad2"><br><br>
+            <input type="text" name="amenidad2" required><br><br>
 
             <label for="amenidad3">Amenidad 3:</label>
-            <input type="text" name="amenidad3"><br><br>
+            <input type="text" name="amenidad3" required><br><br>
 
             <label for="amenidad4">Amenidad 4:</label>
-            <input type="text" name="amenidad4"><br><br>
+            <input type="text" name="amenidad4" required><br><br>
 
             <label for="amenidad5">Amenidad 5:</label>
-            <input type="text" name="amenidad5"><br><br>
+            <input type="text" name="amenidad5" required><br><br>
 
             <label for="amenidad6">Amenidad 6:</label>
-            <input type="text" name="amenidad6"><br><br>
+            <input type="text" name="amenidad6" required><br><br>
 
 
             <label for="pais">País:</label>
-            <select name="pais" id="pais">
+            <select name="pais" id="pais" required>
                 <option value="Belice">Belice</option>
                 <option value="Costa Rica">Costa Rica</option>
                 <option value="El Salvador">El Salvador</option>
@@ -161,21 +161,21 @@ if (!$conex) {
             </select><br><br>
 
             <label for="ubicacion">Ubicación:</label>
-            <input type="text" id="ubicacion-input" name="ubicacion" placeholder="Busca una ubicación en el mapa"><br><br>
+            <input type="text" id="ubicacion-input" name="ubicacion" placeholder="Busca una ubicación en el mapa" required><br><br>
             <div id="map" style="height: 500px; width: 800px;"></div>
             <input type="hidden" id="coordenadas" name="coordenadas">
 
-            <button id="btnAbrirMapa" type="button">Abrir Mapa</button>
-            <button id="btnCerrarMapa" type="button" style="display: none;">Cerrar Mapa</button>
+            <button id="btnAbrirMapa" class="custom-file-upload" type="button">Abrir Mapa</button>
+            <button id="btnCerrarMapa"  class="custom-file-upload" type="button" style="display: none;">Cerrar Mapa</button>
             <br><br>
 
             <label for="file-upload" class="custom-file-upload">
                 Elegir archivos
             </label>
-            <input type="file" name="imagenes[]" id="file-upload" multiple>
+            <input type="file" name="imagenes[]" required id="file-upload" multiple>
 
             <label for="precio_noche">Precio por Noche:</label>
-            <input type="text" name="precio_noche"><br><br>
+            <input type="text" name="precio_noche" required><br><br>
 
             <input type="submit" value="Publicar">
         </form>
@@ -271,24 +271,30 @@ if (!$conex) {
 
         document.addEventListener("DOMContentLoaded", function() {
         document.querySelector("form").addEventListener("submit", function(event) {
-            const requiredFields = ["nombre_hotel", "amenidad1", "amenidad2", "amenidad3", "amenidad4", "amenidad5", "amenidad6", "pais", "ubicacion", "precio_noche"];
+            const requiredFields = [
+                "nombre_hotel", "amenidad1", "amenidad2", "amenidad3",
+                "amenidad4", "amenidad5", "amenidad6", "pais", "ubicacion", "precio_noche"
+            ];
             let isValid = true;
 
             for (const fieldName of requiredFields) {
-                const fieldValue = document.querySelector(`[name="${fieldName}"]`).value.trim();
+                const inputField = document.querySelector(`[name="${fieldName}"]`);
+                const fieldValue = inputField.value.trim();
+                const errorField = document.querySelector(`#${fieldName}-error`);
+
                 if (fieldValue === "") {
                     isValid = false;
-                    alert(`El campo "${fieldName}" no puede estar vacío.`);
-                    event.preventDefault(); // Evita que el formulario se envíe
-                    break;
+                    errorField.textContent = "Este campo es obligatorio.";
+                    inputField.classList.add("error");
+                } else {
+                    errorField.textContent = "";
+                    inputField.classList.remove("error");
                 }
             }
 
             if (!isValid) {
-                return;
+                event.preventDefault(); // Evita que el formulario se envíe si hay campos vacíos
             }
-
-            // Si todos los campos requeridos están llenos, el formulario se enviará normalmente
         });
     });
 
