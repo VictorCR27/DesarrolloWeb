@@ -20,8 +20,8 @@ include("login.php");
                 <ul class="logohover">
                   <li>
                     <a href="index.php">
-                      <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
-                      <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
+                      <img class="peque" src="imgs/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgs/logonav2.png" alt="Logo2">
                     </a>
                   </li>
                 </ul>
@@ -33,7 +33,7 @@ include("login.php");
                     echo '<a href="publicar.php">Publicar</a>';
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
-                <a href="#">Servicios</a>
+                <a href="Servicios.php">Servicios</a>
                 <a href="SobreNosotros.php">Quienes somos?</a>
                 <a href="#">Cuenta</a>
                 <?
@@ -205,7 +205,7 @@ include("login.php");
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Hotel "nombre" &copy;
+            <p>Pacific Breeze &copy;
                 <script>document.write(new Date().getFullYear())</script>. Todos los derechos reservados.
             </p>
         </div>

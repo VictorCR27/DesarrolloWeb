@@ -135,13 +135,13 @@ include("login.php");
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="imgCarrusel/img-1.jpg" class="d-block w-100" alt="Image 1" />
+                    <img src="imgs/img-1.jpg" class="d-block w-100" alt="Image 1" />
                 </div>
                 <div class="carousel-item">
-                    <img src="imgCarrusel/img-2.jpg" class="d-block w-100" alt="Image 2" />
+                    <img src="imgs/img-2.jpg" class="d-block w-100" alt="Image 2" />
                 </div>
                 <div class="carousel-item">
-                    <img src="imgCarrusel/img-3.jpg" class="d-block w-100" alt="Image 3" />
+                    <img src="imgs/img-3.jpg" class="d-block w-100" alt="Image 3" />
                 </div>
             </div>
         </div>
