@@ -263,7 +263,7 @@ include("login.php");
         const buscarButton = document.getElementById("buscar-button");
 
         buscarButton.addEventListener("click", function() {
-            // Mostrar SweetAlert de carga
+            
             Swal.fire({
                 title: 'Realizando busqueda...',
                 allowOutsideClick: false,
@@ -274,10 +274,10 @@ include("login.php");
                 }
             });
 
-            // Esperar 3 segundos y luego cerrar el SweetAlert
+            
             setTimeout(function() {
                 Swal.close();
-                // Aquí puedes realizar la acción de búsqueda o cualquier otra tarea
+                
             }, 3000);
         });
     });
@@ -291,9 +291,14 @@ include("login.php");
             const fechaLlegadaInput = document.getElementById("fechaLlegada");
             const fechaSalidaInput = document.getElementById("fechaSalida");
 
-            // Add click event listener to the search button
-            buscarButton.addEventListener("click", function() {
-                console.log("Search button clicked");
+            // Add click event listener to the search button and "Reservar" links
+            buscarButton.addEventListener("click", updateLinks);
+            
+            // Update the links when the page loads
+            updateLinks();
+
+            function updateLinks() {
+                console.log("Updating links...");
 
                 // Get data from input elements
                 const fechaLlegada = fechaLlegadaInput.value;
@@ -305,7 +310,12 @@ include("login.php");
                 // Update URL with data
                 const reservarBtns = document.querySelectorAll(".reservar_btn");
                 reservarBtns.forEach(function(btn) {
-                    const url = btn.getAttribute("href") + "&fechaLlegada=" + fechaLlegada + "&fechaSalida=" + fechaSalida + "&cantidadAdultos=" + cantidadAdultos + "&cantidadNinos=" + cantidadNinos + "&cantidadHabitaciones=" + cantidadHabitaciones;
+                    const url = btn.getAttribute("href") +
+                        "&fechaLlegada=" + fechaLlegada +
+                        "&fechaSalida=" + fechaSalida +
+                        "&cantidadAdultos=" + cantidadAdultos +
+                        "&cantidadNinos=" + cantidadNinos +
+                        "&cantidadHabitaciones=" + cantidadHabitaciones;
                     btn.setAttribute("href", url);
                 });
 
@@ -315,8 +325,30 @@ include("login.php");
                 console.log(cantidadAdultos);
                 console.log(cantidadNinos);
                 console.log(cantidadHabitaciones);
-            });
+            }
         });
+    </script>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get references to date input fields
+            const fechaLlegadaInput = document.getElementById("fechaLlegada");
+            const fechaSalidaInput = document.getElementById("fechaSalida");
+
+            // Get the current date
+            const currentDate = new Date();
+            
+            // Set the min attribute of the date input fields to the current date
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const minDate = `${year}-${month}-${day}`;
+            
+            fechaLlegadaInput.min = minDate;
+            fechaSalidaInput.min = minDate;
+        });
+
     </script>
 
 

@@ -39,8 +39,8 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                 <ul class="logohover">
                   <li>
                     <a href="index.php">
-                      <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
-                      <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
+                      <img class="peque" src="imgs/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgs/logonav2.png" alt="Logo2">
                     </a>
                   </li>
                 </ul>
@@ -54,12 +54,11 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                 ?>
                 <a href="#">Servicios</a>
                 <a href="#">Quienes somos?</a>
-                <a href="#">Cuenta</a>
                 <?
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
                     echo '<a>Bienvenido, ' . $username . '</a>';
-                    echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
+                    echo '<a href="logout.php">Cerrar sesión</a>';
                 } else {
                     echo '<button class="btnLogin-popup">Login</button>';
                 }
@@ -141,7 +140,6 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
             <section class="filter">
                 
                 <form class="row row-cols-lg-auto g-3 align-items-center whitebox">
-                <label>Modificar busqueda</label>
                     <!-- Fecha Llegada -->
                     <div class="col-12">
                         <label class="sand black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
@@ -186,7 +184,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
 
                     <div class="col-12">
                         <button type="button" class="centered-button" id="buscar-button">
-                            <img src="imgCarrusel/botonbuscar2.png" height="120" width="100" alt="buscar">
+                            <img src="imgs/botonbuscar2.png" height="120" width="100" alt="buscar">
                         </button>
                     </div>
                 </form>
@@ -208,7 +206,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                         <div class='card-body'>
                             <h5 class='modern black centered-text subtitulo'><?php echo $_GET['nombre_hotel']; ?></h5>
                             <p class='sand black  body'>Ubicación: <?php echo $_GET['ubicacion']; ?></p>
-                            <p class='sand black  body'>Precio por noche: <?php echo $_GET['precio_noche']; ?></p>
+                            <p class='sand black  body'>Precio por noche: $<?php echo $_GET['precio_noche']; ?></p>
                             <p class='sand black  bold body'>Amenidades:</p>
                             <ul class='sand black maspequeña'>
                                 <?php
@@ -244,26 +242,27 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const confirmarReservaBtn = document.querySelector(".reservar_btn");
+    document.addEventListener("DOMContentLoaded", function() {
+        const confirmarReservaBtn = document.querySelector(".reservar_btn");
 
-            confirmarReservaBtn.addEventListener("click", function(event) {
-                event.preventDefault(); // Evitar que el formulario se envíe directamente
+        confirmarReservaBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe directamente
 
-                const fechaLlegada = document.getElementById("fechaLlegada").value;
-                const fechaSalida = document.getElementById("fechaSalida").value;
-                const cantidadAdultos = document.querySelector("#option-controls-adultos .option-count").value;
-                const cantidadNinos = document.querySelector("#option-controls-ninos .option-count").value;
-                const cantidadHabitaciones = document.querySelector("#option-controls-habitaciones .option-count").value;
+            const fechaLlegada = document.getElementById("fechaLlegada").value;
+            const fechaSalida = document.getElementById("fechaSalida").value;
+            const cantidadAdultos = document.querySelector("#option-controls-adultos .option-count").value;
+            const cantidadNinos = document.querySelector("#option-controls-ninos .option-count").value;
+            const cantidadHabitaciones = document.querySelector("#option-controls-habitaciones .option-count").value;
 
                 // Obtener la URL actual y separarla de los parámetros existentes
                 const baseUrl = window.location.href.split("?")[0];
                 
                 // Construir la nueva URL con los parámetros del filtro y los valores de la publicación
-                const newUrl = baseUrl + "?fechaLlegada=" + fechaLlegada + "&fechaSalida=" + fechaSalida + "&cantidadAdultos=" + cantidadAdultos + "&cantidadNinos=" + cantidadNinos + "&cantidadHabitaciones=" + cantidadHabitaciones 
-                                + "<?php echo isset($_GET['nombre_hotel']) ? '&nombre_hotel=' . urlencode($_GET['nombre_hotel']) : ''; ?>"
-                                + "<?php echo isset($_GET['ubicacion']) ? '&ubicacion=' . urlencode($_GET['ubicacion']) : ''; ?>"
-                                + "<?php echo isset($_GET['precio_noche']) ? '&precio_noche=' . urlencode($_GET['precio_noche']) : ''; ?>";
+                const newUrl = `${baseUrl}?fechaLlegada=${fechaLlegada}&fechaSalida=${fechaSalida}&cantidadAdultos=${cantidadAdultos}&cantidadNinos=${cantidadNinos}&cantidadHabitaciones=${cantidadHabitaciones}`
+                    + `&nombre_hotel=${encodeURIComponent('<?php echo isset($_GET['nombre_hotel']) ? $_GET['nombre_hotel'] : ''; ?>')}`
+                    + `&ubicacion=${encodeURIComponent('<?php echo isset($_GET['ubicacion']) ? $_GET['ubicacion'] : ''; ?>')}`
+                    + `&precio_noche=${encodeURIComponent('<?php echo isset($_GET['precio_noche']) ? $_GET['precio_noche'] : ''; ?>')}`;
+
                 
                 // Redirigir a la nueva URL
                 window.location.href = newUrl;
