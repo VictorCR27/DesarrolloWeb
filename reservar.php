@@ -136,7 +136,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
         <!--Fin Formulario-->
 
         <!-- FILTRO -->
-        <div class="rectangulofilter">
+        <div class="rectangulofilter" style="margin-top: -450px;">
             <section class="filter">
                 
                 <form class="row row-cols-lg-auto g-3 align-items-center whitebox">
@@ -195,7 +195,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
     
 
         <!-- Reserva -->
-        <div class="container" style="margin-top:100px">
+        <div class="container" style="margin-top:230px">
             <div class="row row-cols-1 row-cols-md-3">
                 <div class='col mb-4'>
                     <div class='card h-100'>
