@@ -137,9 +137,11 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
 
         <!-- FILTRO -->
         <div class="rectangulofilter" style="margin-top: -450px;">
+       
             <section class="filter">
                 
                 <form class="row row-cols-lg-auto g-3 align-items-center whitebox">
+                <label>Modificar busqueda</label>
                     <!-- Fecha Llegada -->
                     <div class="col-12">
                         <label class="sand black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
