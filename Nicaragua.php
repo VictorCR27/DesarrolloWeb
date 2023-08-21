@@ -11,6 +11,17 @@ include("login.php");
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="css/otrosEstilos.css">
 
+    <style>
+        .loading-spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 48px;
+            color: #1976D2; /* Change color as needed */
+            height: 50px;
+        }
+        </style>
+
 </head>
 
 <body>
@@ -60,46 +71,54 @@ include("login.php");
         <!-- FILTRO -->
 
 
+        <!-- FILTRO -->
         <div class="rectangulofilter">
             <section class="filter">
                 <form class="row row-cols-lg-auto g-3 align-items-center whitebox">
+                    <!-- Fecha Llegada -->
                     <div class="col-12">
                         <label class="sand black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
                         <input type="date" class="form-control" id="fechaLlegada">
                     </div>
+
+                    <!-- Fecha Salida -->
                     <div class="col-12">
                         <label class="sand black normal centered-text bold" for="fechaSalida">Fecha Salida</label>
                         <input type="date" class="form-control" id="fechaSalida">
                     </div>
+
+                    <!-- Cantidad Adultos -->
                     <div class="col-12">
                         <label class="sand black normal centered-text bold" for="CantidadAdultos">Cantidad Adultos</label>
-                        <div class="option-controls horizontal-controls" id="option-controls">
-                            <button class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
-                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="0"
-                                readonly>
-                            <button class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
+                        <div class="option-controls horizontal-controls" id="option-controls-adultos">
+                            <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
+                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="0" readonly>
+                            <button type="button" class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
                         </div>
                     </div>
+
+                    <!-- Cantidad Niños -->
                     <div class="col-12">
                         <label class="sand black normal centered-text bold" for="CantidadNinos">Cantidad Niños</label>
-                        <div class="option-controls horizontal-controls" id="option-controls">
-                            <button class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
-                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="0"
-                                readonly>
-                            <button class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
+                        <div class="option-controls horizontal-controls" id="option-controls-ninos">
+                            <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
+                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="0" readonly>
+                            <button type="button" class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
                         </div>
                     </div>
+
+                    <!-- Cantidad Habitaciones -->
                     <div class="col-12">
                         <label class="sand black normal centered-text bold" for="CantidadHabitaciones">Habitaciones</label>
-                        <div class="option-controls horizontal-controls" id="option-controls">
-                            <button class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
-                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="0"
-                                readonly>
-                            <button class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
+                        <div class="option-controls horizontal-controls" id="option-controls-habitaciones">
+                            <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
+                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="0" readonly>
+                            <button type="button" class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
                         </div>
                     </div>
+
                     <div class="col-12">
-                        <button type="button" class="centered-button" onclick="">
+                        <button type="button" class="centered-button" id="buscar-button">
                             <img src="imgCarrusel/botonbuscar2.png" height="120" width="100" alt="buscar">
                         </button>
                     </div>
@@ -209,18 +228,70 @@ include("login.php");
     </footer>
 
 
-    <!-- SCRIPT -->
+    <!-- SCRIPTS -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-    </script>
     <script>
-        // Inicializar los dropdowns de Bootstrap
-        var dropdowns = document.querySelectorAll('.dropdown-toggle');
-        dropdowns.forEach(function (dropdown) {
-            new bootstrap.Dropdown(dropdown);
+    /*  ------------------------------------- Sumar y restar -------------------------------------  */
+    // Función para controlar las operaciones de suma y resta
+    function updateOptionControls(buttonClass, inputClass, operation) {
+    const buttons = document.querySelectorAll(buttonClass);
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            const input = this.parentNode.querySelector(inputClass);
+            let currentValue = parseInt(input.value);
+            if (operation === 'plus') {
+                input.value = currentValue + 1;
+            } else if (operation === 'minus' && currentValue > 0) {
+                input.value = currentValue - 1;
+            }
         });
+    });
+    }
+
+    // Actualizar los controles para Cantidad Adultos
+    updateOptionControls('.option-plus.adultos-plus', '.option-count.adultos-input', 'plus');
+    updateOptionControls('.option-minus.adultos-minus', '.option-count.adultos-input', 'minus');
+
+    // Actualizar los controles para Cantidad Niños
+    updateOptionControls('.option-plus.ninos-plus', '.option-count.ninos-input', 'plus');
+    updateOptionControls('.option-minus.ninos-minus', '.option-count.ninos-input', 'minus');
+
+    // Actualizar los controles para Cantidad Habitaciones
+    updateOptionControls('.option-plus.habitaciones-plus', '.option-count.habitaciones-input', 'plus');
+    updateOptionControls('.option-minus.habitaciones-minus', '.option-count.habitaciones-input', 'minus'); 
     </script>
 
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const buscarButton = document.getElementById("buscar-button");
+
+        buscarButton.addEventListener("click", function() {
+            // Mostrar SweetAlert de carga
+            Swal.fire({
+                title: 'Buscando...',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                html: '<div class="loading-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>',
+                onBeforeOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            // Esperar 3 segundos y luego cerrar el SweetAlert
+            setTimeout(function() {
+                Swal.close();
+                // Aquí puedes realizar la acción de búsqueda o cualquier otra tarea
+            }, 3000);
+        });
+    });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="js/script.js"></script>
+        
     
 </body>
 
