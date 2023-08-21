@@ -13,6 +13,7 @@ include("login.php");
         <title>Login</title>
         <link rel="icon" href="imgCarrusel/logo home.ico">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/informativas.css">
     </head>
 
     <body>
@@ -37,7 +38,7 @@ include("login.php");
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
                 <a href="#">Servicios</a>
-                <a href="#">Quienes somos?</a>
+                <a href="SobreNosotros.php">Quienes somos?</a>
                 <a href="#">Cuenta</a>
                 <?
                 if (isset($_SESSION['username'])) {
@@ -474,6 +475,56 @@ include("login.php");
             </div>
     </div>
     <!--Fin Info Países-->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p>Email: prueba@hotel.com</p>
+                    <p>Teléfono: 000000000000</p>
+                    <p>Dirección: Calle prueba, Ciudad</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Redes Sociales</h3>
+                    <a href="https://www.expedia.com/es/?locale=es_MX&siteid=4407&semcid=CR.B.GOOGLE.BT-c-ES.GT&semdtl=a118255096686.b1144190512640.g1kwd-12670071.e1c.m1Cj0KCQjw84anBhCtARIsAISI-xc_fncpnNwlpLgoxGTnzSuSZXzML_fD48Fp3djN3UQKsJ1TLmrVfw4aAjF9EALw_wcB.r1bd8c920c52847e0b4f1fd28792d1aa6637cc80706b1256a90a1b92d72969c61b.c1il8_4oA02nMemQgd0osRVA.j19070296.k1.d1624876730999.h1e.i1.l1.n1.o1.p1.q1.s1.t1.x1.f1.u1.v1.w1&gclid=Cj0KCQjw84anBhCtARIsAISI-xc_fncpnNwlpLgoxGTnzSuSZXzML_fD48Fp3djN3UQKsJ1TLmrVfw4aAjF9EALw_wcB"><i class="fab fa-facebook" style="color: #0edd98;"></i></a>
+                    <a href="https://www.expedia.com/es/?locale=es_MX&siteid=4407&semcid=CR.B.GOOGLE.BT-c-ES.GT&semdtl=a118255096686.b1144190512640.g1kwd-12670071.e1c.m1Cj0KCQjw84anBhCtARIsAISI-xc_fncpnNwlpLgoxGTnzSuSZXzML_fD48Fp3djN3UQKsJ1TLmrVfw4aAjF9EALw_wcB.r1bd8c920c52847e0b4f1fd28792d1aa6637cc80706b1256a90a1b92d72969c61b.c1il8_4oA02nMemQgd0osRVA.j19070296.k1.d1624876730999.h1e.i1.l1.n1.o1.p1.q1.s1.t1.x1.f1.u1.v1.w1&gclid=Cj0KCQjw84anBhCtARIsAISI-xc_fncpnNwlpLgoxGTnzSuSZXzML_fD48Fp3djN3UQKsJ1TLmrVfw4aAjF9EALw_wcB"><i class="fab fa-instagram" style="color: #0edd98;"></i></a>
+                    <a href="https://www.expedia.com/es/?locale=es_MX&siteid=4407&semcid=CR.B.GOOGLE.BT-c-ES.GT&semdtl=a118255096686.b1144190512640.g1kwd-12670071.e1c.m1Cj0KCQjw84anBhCtARIsAISI-xc_fncpnNwlpLgoxGTnzSuSZXzML_fD48Fp3djN3UQKsJ1TLmrVfw4aAjF9EALw_wcB.r1bd8c920c52847e0b4f1fd28792d1aa6637cc80706b1256a90a1b92d72969c61b.c1il8_4oA02nMemQgd0osRVA.j19070296.k1.d1624876730999.h1e.i1.l1.n1.o1.p1.q1.s1.t1.x1.f1.u1.v1.w1&gclid=Cj0KCQjw84anBhCtARIsAISI-xc_fncpnNwlpLgoxGTnzSuSZXzML_fD48Fp3djN3UQKsJ1TLmrVfw4aAjF9EALw_wcB"><i class="fas fa-envelope" style="color: #0edd99;"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-column tofu-form">
+                    <form action="https://public.herotofu.com/v1/99cadf90-3fc9-11ee-be2a-8766f5b1e927" method="post" accept-charset="UTF-8">
+                        <div>
+                            <label for="name">Nombre</label>
+                            <input name="Name" id="name" type="text" required />
+                        </div>
+                        <div>
+                            <label for="email">Correo Electrónico</label>
+                            <input name="Email" id="email" type="email" required />
+                        </div>
+                        <div>
+                            <label for="subject">Asunto</label>
+                            <input name="Subject" id="subject" type="text" required />
+                        </div>
+                        <div>
+                            <input type="submit" value="Enviar" />
+                            <div style="text-indent:-99999px; white-space:nowrap; overflow:hidden; position:absolute;" aria-hidden="true">
+                                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Hotel "nombre" &copy;
+                <script>document.write(new Date().getFullYear())</script>. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
     
     </div>
         
