@@ -170,27 +170,27 @@ include("login.php");
                     <div class="card">
                         <img src="imgCarrusel/costarica.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a class="card-title" href="#CR-info-home">Costa Rica</a>
-                            <p class="txt_desc_pais">Situado en el corazón de América Central, este paraíso tropical es un destino incomparable para los amantes de la naturaleza y la aventura. Te cautivará con su impresionante biodiversidad, playas de ensueño y exuberantes selvas tropicales.</p>
+                            <a class="card-title" href="#CR-info-home">Costa Rica</a><span> | </span>
                             <a class="card-bd-hotel" href="CostaRica.php"><i class="fa-solid fa-hotel"></i> Hoteles</a>
+                            <p class="txt_desc_pais">Situado en el corazón de América Central, este paraíso tropical es un destino incomparable para los amantes de la naturaleza y la aventura. Te cautivará con su impresionante biodiversidad, playas de ensueño y exuberantes selvas tropicales.</p>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/nicaragua.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a class="card-title" href="#NC-info-home">Nicaragua</a>
-                            <p class="txt_desc_pais">¡Bienvenido a Nicaragua, una joya escondida en América Central que te espera para una experiencia inigualable de aventura y autenticidad! Con paisajes variados y una rica cultura, Nicaragua te invita a explorar su belleza natural y su historia fascinante.</p>
+                            <a class="card-title" href="#NC-info-home">Nicaragua</a><span> | </span>
                             <a class="card-bd-hotel" href="Nicaragua.php"><i class="fa-solid fa-hotel"></i> Hoteles</a>
+                            <p class="txt_desc_pais">¡Bienvenido a Nicaragua, una joya escondida en América Central que te espera para una experiencia inigualable de aventura y autenticidad! Con paisajes variados y una rica cultura, Nicaragua te invita a explorar su belleza natural y su historia fascinante.</p>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/honduras.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a class="card-title" href="#HD-info-home">Honduras</a>
-                            <p class="txt_desc_pais">La naturaleza exuberante de Honduras te cautivará. Desde las majestuosas montañas hasta las selvas tropicales llenas de vida, tendrás la oportunidad de explorar una variedad de ecosistemas impresionantes.</p>
+                            <a class="card-title" href="#HD-info-home">Honduras</a><span> | </span>
                             <a class="card-bd-hotel" href="Honduras.php"><i class="fa-solid fa-hotel"></i> Hoteles</a>
+                            <p class="txt_desc_pais">La naturaleza exuberante de Honduras te cautivará. Desde las majestuosas montañas hasta las selvas tropicales llenas de vida, tendrás la oportunidad de explorar una variedad de ecosistemas impresionantes.</p>
                         </div>
                     </div>
                 </div>
@@ -199,27 +199,27 @@ include("login.php");
                     <div class="card">
                         <img src="imgCarrusel/guatemala.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a class="card-title" href="#GM-info-home">Guatemala</a>
-                            <p class="txt_desc_pais">Descubre paisajes impresionantes que van desde altas montañas hasta selvas tropicales exuberantes y lagos cristalinos. El icónico Lago de Atitlán, rodeado por volcanes majestuosos, te dejará asombrado por su belleza serena. </p>
+                            <a class="card-title" href="#GM-info-home">Guatemala</a><span> | </span>
                             <a class="card-bd-hotel" href="Guatemala.php"><i class="fa-solid fa-hotel"></i> Hoteles</a>
+                            <p class="txt_desc_pais">Descubre paisajes impresionantes que van desde altas montañas hasta selvas tropicales exuberantes y lagos cristalinos. El icónico Lago de Atitlán, rodeado por volcanes majestuosos, te dejará asombrado por su belleza serena. </p>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/panamaa.webp" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a class="card-title" href="#PM-info-home">Panamá</a>
-                            <p class="txt_desc_pais">Situado en el istmo que conecta América del Norte con América del Sur, Panamá te invita a explorar su mezcla única de culturas, impresionante biodiversidad y maravillas naturales.</p>
+                            <a class="card-title" href="#PM-info-home">Panamá</a><span> | </span>
                             <a class="card-bd-hotel" href="Panama.php"><i class="fa-solid fa-hotel"></i> Hoteles</a>
+                            <p class="txt_desc_pais">Situado en el istmo que conecta América del Norte con América del Sur, Panamá te invita a explorar su mezcla única de culturas, impresionante biodiversidad y maravillas naturales.</p>
                         </div>
                     </div>
 
                     <div class="card">
                         <img src="imgCarrusel/salvador.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a class="card-title" href="#ES-info-home">El Salvador</a>
-                            <p class="txt_desc_pais">En El Salvador, la aventura y la autenticidad van de la mano. Tanto si buscas emocionantes actividades al aire libre como si deseas sumergirte en la rica cultura y patrimonio del país. </p>
+                            <a class="card-title" href="#ES-info-home">El Salvador</a><span> | </span>
                             <a class="card-bd-hotel" href="Salvador.php"><i class="fa-solid fa-hotel"></i> Hoteles</a>
+                            <p class="txt_desc_pais">En El Salvador, la aventura y la autenticidad van de la mano. Tanto si buscas emocionantes actividades al aire libre como si deseas sumergirte en la rica cultura y patrimonio del país. </p>
                         </div>
                     </div>
                 </div>
@@ -228,9 +228,9 @@ include("login.php");
                     <div class="card">
                         <img src="imgCarrusel/belice.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a class="card-title" href="#BL-info-home">Belice</a>
-                            <p class="txt_desc_pais">¡Bienvenido a Belice, donde el paraíso caribeño y la rica diversidad te esperan para una experiencia inolvidable! Belice te invita a explorar sus playas de arena blanca, su arrecife de coral impresionante y su herencia cultural única.</p>
+                            <a class="card-title" href="#BL-info-home">Belice</a><span> | </span>
                             <a class="card-bd-hotel" href="Belice.php"><i class="fa-solid fa-hotel"></i> Hoteles</a>
+                            <p class="txt_desc_pais">¡Bienvenido a Belice, donde el paraíso caribeño y la rica diversidad te esperan para una experiencia inolvidable! Belice te invita a explorar sus playas de arena blanca, su arrecife de coral impresionante y su herencia cultural única.</p>
                         </div>
                     </div>
                 </div>
@@ -354,7 +354,7 @@ include("login.php");
     <!--Info Países-->
 
     <div class="info-paises">
-        <h2 id="CR-info-home">Costa Rica</h2>
+        <h2 id="CR-info-home" class="titulo-pais-infoh">Costa Rica</h2>
             <div class="imgs-CR-container">
                 
                 <img src="imgCarrusel/catarata-CR.jpg" alt="" class="imag-info-paises">
@@ -371,7 +371,7 @@ include("login.php");
                 </img>
             </div>
 
-            <h2 id="NC-info-home">Nicaragua</h2>
+            <h2 id="NC-info-home" class="titulo-pais-infoh">Nicaragua</h2>
             <div class="imgs-CR-container">
                 
                 <img src="imgCarrusel/catarata-CR.jpg" alt="" class="imag-info-paises">
@@ -388,7 +388,7 @@ include("login.php");
                 </img>
             </div>
 
-            <h2 id="HD-info-home">Honduras</h2>
+            <h2 id="HD-info-home" class="titulo-pais-infoh">Honduras</h2>
             <div class="imgs-CR-container">
                 
                 <img src="imgCarrusel/catarata-CR.jpg" alt="" class="imag-info-paises">
@@ -405,7 +405,7 @@ include("login.php");
                 </img>
             </div>
 
-            <h2 id="GM-info-home">Guatemala</h2>
+            <h2 id="GM-info-home" class="titulo-pais-infoh">Guatemala</h2>
             <div class="imgs-CR-container">
                 
                 <img src="imgCarrusel/catarata-CR.jpg" alt="" class="imag-info-paises">
@@ -422,7 +422,7 @@ include("login.php");
                 </img>
             </div>
 
-            <h2 id="PM-info-home">Panamá</h2>
+            <h2 id="PM-info-home" class="titulo-pais-infoh">Panamá</h2>
             <div class="imgs-CR-container">
                 
                 <img src="imgCarrusel/catarata-CR.jpg" alt="" class="imag-info-paises">
@@ -439,7 +439,7 @@ include("login.php");
                 </img>
             </div>
 
-            <h2 id="ES-info-home">El Salvador</h2>
+            <h2 id="ES-info-home" class="titulo-pais-infoh">El Salvador</h2>
             <div class="imgs-CR-container">
                 
                 <img src="imgCarrusel/catarata-CR.jpg" alt="" class="imag-info-paises">
@@ -456,7 +456,7 @@ include("login.php");
                 </img>
             </div>
 
-            <h2 id="BL-info-home">Belice</h2>
+            <h2 id="BL-info-home" class="titulo-pais-infoh">Belice</h2>
             <div class="imgs-CR-container">
                 
                 <img src="imgCarrusel/catarata-CR.jpg" alt="" class="imag-info-paises">
