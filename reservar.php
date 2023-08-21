@@ -1,3 +1,8 @@
+<?php
+include("registro.php");
+include("login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Costa Rica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/otrosEstilos.css">
 </head>
 <body>
      <!--Header-->
@@ -110,30 +118,52 @@
         </div>
         <!--Fin Formulario-->
     
-    <div class="publicaciones" style="margin-top:110px">
-        <div class="publicacion_container">
-            <div>
-                <img src="<?php echo $_GET['imagen']; ?>" alt="Imagen del hotel">
+
+        <!-- Reserva -->
+        <div class="container" style="margin-top:100px">
+            <div class="row row-cols-1 row-cols-md-3">
+                <div class='col mb-4'>
+                    <div class='card h-100'>
+                    <div class='card-img-top' style='height: 207px; overflow: hidden;'>
+                        <img src="<?php echo $_GET['imagen']; ?>" alt="Imagen del hotel" style='width: 100%; height: 100%; object-fit: cover;'>
+                    </div>
+
+                        <div class='card-body'>
+                            <h5 class='modern black centered-text subtitulo'><?php echo $_GET['nombre_hotel']; ?></h5>
+                            <p class='sand black  body'>Ubicación: <?php echo $_GET['ubicacion']; ?></p>
+                            <p class='sand black  body'>Precio por noche: <?php echo $_GET['precio_noche']; ?></p>
+                            <p class='sand black  bold body'>Amenidades:</p>
+                            <ul class='sand black maspequeña'>
+                                <?php
+                                for ($i = 1; $i <= 6; $i++) {
+                                    $amenidadKey = "amenidad" . $i;
+                                    if (!empty($_GET[$amenidadKey])) {
+                                        echo "<li>" . $_GET[$amenidadKey] . "</li>";
+                                    }
+                                }
+                                ?>
+                            </ul>
+                            <form action="procesar_reserva.php" method="post">
+                                <input type="hidden" name="nombre_hotel" value="<?php echo $_GET['nombre_hotel']; ?>">
+                                <input type="hidden" name="ubicacion" value="<?php echo $_GET['ubicacion']; ?>">
+                                <input type="hidden" name="precio_noche" value="<?php echo $_GET['precio_noche']; ?>">
+                                <?php
+                                for ($i = 1; $i <= 6; $i++) {
+                                    $amenidadKey = "amenidad" . $i;
+                                    if (!empty($_GET[$amenidadKey])) {
+                                        echo "<input type='hidden' name='" . $amenidadKey . "' value='" . $_GET[$amenidadKey] . "'>";
+                                    }
+                                }
+                                ?>
+                                <input type="submit" value="Confirmar Reserva" class="reservar_btn">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <form action="procesar_reserva.php" method="post">
-                <label>Nombre del hotel: <?php echo $_GET['nombre_hotel']; ?></label><br>
-                <label>Amenidades:</label><br>
-                <ul>
-                <?php
-                for ($i = 1; $i <= 6; $i++) {
-                    $amenidadKey = "amenidad" . $i;
-                    if (!empty($_GET[$amenidadKey])) {
-                        echo "<li>" . $_GET[$amenidadKey] . "</li>";
-                    }
-                }
-                ?>
-                </ul>
-                
-                <label>Ubicación: <?php echo $_GET['ubicacion']; ?></label><br>
-                <label>Precio por noche: <?php echo $_GET['precio_noche']; ?></label><br>
-                <input type="submit" value="Confirmar Reserva">
-            </form>
         </div>
+
+
     </div>
 </body>
 </html>
