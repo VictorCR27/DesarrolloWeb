@@ -439,6 +439,7 @@ include("login.php");
     </div>
     <!--Fin Info Países-->
 
+    <!--Footer-->
     <footer>
         <div class="footer-content">
             <div class="footer-left">
