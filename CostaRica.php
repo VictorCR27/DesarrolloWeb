@@ -28,7 +28,16 @@ include("login.php");
 
         <!--Header-->
         <header>
-            <h2><a class="logo" href="index.php">Hotel DESAP</a></h2>
+        <div class="logo">
+                <ul class="logohover">
+                  <li>
+                    <a href="">
+                      <img class="peque" src="imgs/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgs/logonav2.png" alt="Logo2">
+                    </a>
+                  </li>
+                </ul>
+              </div>
             <nav class="navigation">
                 <?
                 // Verificar si el rol es administrador

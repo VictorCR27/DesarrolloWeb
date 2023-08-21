@@ -367,6 +367,11 @@ footer, footer * {
     padding-left: 20px;
 }
 
+.footer-content img{
+    width: 150px;
+    height: 150px;
+}
+
 .tofu-form {
     max-width: 350px; 
     background-color: rgba(255, 255, 255, 0.1);
