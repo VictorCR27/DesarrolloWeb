@@ -1,6 +1,23 @@
 <?php
 include("registro.php");
 include("login.php");
+
+// Retrieve query parameters
+$nombre_hotel = isset($_GET['nombre_hotel']) ? $_GET['nombre_hotel'] : "";
+$amenidad1 = isset($_GET['amenidad1']) ? $_GET['amenidad1'] : "";
+$amenidad2 = isset($_GET['amenidad2']) ? $_GET['amenidad2'] : "";
+$amenidad3 = isset($_GET['amenidad3']) ? $_GET['amenidad3'] : "";
+$amenidad4 = isset($_GET['amenidad4']) ? $_GET['amenidad4'] : "";
+$amenidad5 = isset($_GET['amenidad5']) ? $_GET['amenidad5'] : "";
+$amenidad6 = isset($_GET['amenidad6']) ? $_GET['amenidad6'] : "";
+$ubicacion = isset($_GET['ubicacion']) ? $_GET['ubicacion'] : "";
+$precio_noche = isset($_GET['precio_noche']) ? $_GET['precio_noche'] : "";
+
+$fechaLlegada = isset($_GET['fechaLlegada']) ? $_GET['fechaLlegada'] : "";
+$fechaSalida = isset($_GET['fechaSalida']) ? $_GET['fechaSalida'] : "";
+$cantidadAdultos = isset($_GET['cantidadAdultos']) ? $_GET['cantidadAdultos'] : "";
+$cantidadNinos = isset($_GET['cantidadNinos']) ? $_GET['cantidadNinos'] : "";
+$cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHabitaciones'] : "";
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +26,7 @@ include("login.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Costa Rica</title>
+    <title>Reservar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -117,6 +134,64 @@ include("login.php");
             </div>
         </div>
         <!--Fin Formulario-->
+
+        <!-- FILTRO -->
+        <div class="rectangulofilter">
+            <section class="filter">
+                
+                <form class="row row-cols-lg-auto g-3 align-items-center whitebox">
+                    <!-- Fecha Llegada -->
+                    <div class="col-12">
+                        <label class="sand black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
+                        <input type="date" class="form-control" id="fechaLlegada" value="<?php echo $fechaLlegada; ?>">
+                    </div>
+
+                    <!-- Fecha Salida -->
+                    <div class="col-12">
+                        <label class="sand black normal centered-text bold" for="fechaSalida">Fecha Salida</label>
+                        <input type="date" class="form-control" id="fechaSalida" value="<?php echo $fechaSalida; ?>">
+                    </div>
+
+                    <!-- Cantidad Adultos -->
+                    <div class="col-12">
+                        <label class="sand black normal centered-text bold" for="CantidadAdultos">Cantidad Adultos</label>
+                        <div class="option-controls horizontal-controls" id="option-controls-adultos">
+                            <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
+                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="<?php echo $cantidadAdultos; ?>" readonly>
+                            <button type="button" class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Cantidad Niños -->
+                    <div class="col-12">
+                        <label class="sand black normal centered-text bold" for="CantidadNinos">Cantidad Niños</label>
+                        <div class="option-controls horizontal-controls" id="option-controls-ninos">
+                            <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
+                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="<?php echo $cantidadNinos; ?>" readonly>
+                            <button type="button" class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Cantidad Habitaciones -->
+                    <div class="col-12">
+                        <label class="sand black normal centered-text bold" for="CantidadHabitaciones">Habitaciones</label>
+                        <div class="option-controls horizontal-controls" id="option-controls-habitaciones">
+                            <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
+                            <input type="text" class="form-control form-control-sm option-count adultos-input" value="<?php echo $cantidadHabitaciones; ?>" readonly>
+                            <button type="button" class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="button" class="centered-button" id="buscar-button">
+                            <img src="imgCarrusel/botonbuscar2.png" height="120" width="100" alt="buscar">
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+
     
 
         <!-- Reserva -->
@@ -165,5 +240,65 @@ include("login.php");
 
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const confirmarReservaBtn = document.querySelector(".reservar_btn");
+
+            confirmarReservaBtn.addEventListener("click", function(event) {
+                event.preventDefault(); // Evitar que el formulario se envíe directamente
+
+                const fechaLlegada = document.getElementById("fechaLlegada").value;
+                const fechaSalida = document.getElementById("fechaSalida").value;
+                const cantidadAdultos = document.querySelector("#option-controls-adultos .option-count").value;
+                const cantidadNinos = document.querySelector("#option-controls-ninos .option-count").value;
+                const cantidadHabitaciones = document.querySelector("#option-controls-habitaciones .option-count").value;
+
+                // Obtener la URL actual y separarla de los parámetros existentes
+                const baseUrl = window.location.href.split("?")[0];
+                
+                // Construir la nueva URL con los parámetros del filtro y los valores de la publicación
+                const newUrl = baseUrl + "?fechaLlegada=" + fechaLlegada + "&fechaSalida=" + fechaSalida + "&cantidadAdultos=" + cantidadAdultos + "&cantidadNinos=" + cantidadNinos + "&cantidadHabitaciones=" + cantidadHabitaciones 
+                                + "<?php echo isset($_GET['nombre_hotel']) ? '&nombre_hotel=' . urlencode($_GET['nombre_hotel']) : ''; ?>"
+                                + "<?php echo isset($_GET['ubicacion']) ? '&ubicacion=' . urlencode($_GET['ubicacion']) : ''; ?>"
+                                + "<?php echo isset($_GET['precio_noche']) ? '&precio_noche=' . urlencode($_GET['precio_noche']) : ''; ?>";
+                
+                // Redirigir a la nueva URL
+                window.location.href = newUrl;
+            });
+        });
+    </script>
+
+    <script>
+        /*  ------------------------------------- Sumar y restar -------------------------------------  */
+        // Función para controlar las operaciones de suma y resta
+        function updateOptionControls(buttonClass, inputClass, operation) {
+        const buttons = document.querySelectorAll(buttonClass);
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const input = this.parentNode.querySelector(inputClass);
+                let currentValue = parseInt(input.value);
+                if (operation === 'plus') {
+                    input.value = currentValue + 1;
+                } else if (operation === 'minus' && currentValue > 0) {
+                    input.value = currentValue - 1;
+                }
+            });
+        });
+        }
+
+        // Actualizar los controles para Cantidad Adultos
+        updateOptionControls('.option-plus.adultos-plus', '.option-count.adultos-input', 'plus');
+        updateOptionControls('.option-minus.adultos-minus', '.option-count.adultos-input', 'minus');
+
+        // Actualizar los controles para Cantidad Niños
+        updateOptionControls('.option-plus.ninos-plus', '.option-count.ninos-input', 'plus');
+        updateOptionControls('.option-minus.ninos-minus', '.option-count.ninos-input', 'minus');
+
+        // Actualizar los controles para Cantidad Habitaciones
+        updateOptionControls('.option-plus.habitaciones-plus', '.option-count.habitaciones-input', 'plus');
+        updateOptionControls('.option-minus.habitaciones-minus', '.option-count.habitaciones-input', 'minus'); 
+    </script>
+
 </body>
 </html>

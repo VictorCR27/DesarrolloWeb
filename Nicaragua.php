@@ -67,10 +67,6 @@ include("login.php");
           
 
 
-
-        <!-- FILTRO -->
-
-
         <!-- FILTRO -->
         <div class="rectangulofilter">
             <section class="filter">
@@ -199,7 +195,7 @@ include("login.php");
                                 }
                             }
                             echo "</p>";
-                            echo "<a class='reservar_btn'href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidad1=" . urlencode($fila['amenidad1']) . "&amenidad2=" . urlencode($fila['amenidad2']) . "&amenidad3=" . urlencode($fila['amenidad3']) . "&amenidad4=" . urlencode($fila['amenidad4']) . "&amenidad5=" . urlencode($fila['amenidad5']) . "&amenidad6=" . urlencode($fila['amenidad6']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";
+                            echo "<a class='reservar_btn' href='reservar.php?nombre_hotel=" . urlencode($fila['nombre_hotel']) . "&amenidad1=" . urlencode($fila['amenidad1']) . "&amenidad2=" . urlencode($fila['amenidad2']) . "&amenidad3=" . urlencode($fila['amenidad3']) . "&amenidad4=" . urlencode($fila['amenidad4']) . "&amenidad5=" . urlencode($fila['amenidad5']) . "&amenidad6=" . urlencode($fila['amenidad6']) . "&ubicacion=" . urlencode($fila['ubicacion']) . "&precio_noche=" . urlencode($fila['precio_noche']) . "&imagen=" . urlencode($imagenes[0]) . "' class='btn_reservar'>Reservar</a>";
                             echo "</div>"; // Cierre de card-body
 
                             echo "</div>"; // Cierre de tarjeta
@@ -269,7 +265,7 @@ include("login.php");
         buscarButton.addEventListener("click", function() {
             // Mostrar SweetAlert de carga
             Swal.fire({
-                title: 'Buscando hotel...',
+                title: 'Realizando busqueda...',
                 allowOutsideClick: false,
                 showConfirmButton: false,
                 html: '<div class="loading-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>',
@@ -285,8 +281,44 @@ include("login.php");
             }, 3000);
         });
     });
-
     </script>
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get references to DOM elements
+            const buscarButton = document.getElementById("buscar-button");
+            const fechaLlegadaInput = document.getElementById("fechaLlegada");
+            const fechaSalidaInput = document.getElementById("fechaSalida");
+
+            // Add click event listener to the search button
+            buscarButton.addEventListener("click", function() {
+                console.log("Search button clicked");
+
+                // Get data from input elements
+                const fechaLlegada = fechaLlegadaInput.value;
+                const fechaSalida = fechaSalidaInput.value;
+                const cantidadAdultos = document.querySelector("#option-controls-adultos .option-count").value;
+                const cantidadNinos = document.querySelector("#option-controls-ninos .option-count").value;
+                const cantidadHabitaciones = document.querySelector("#option-controls-habitaciones .option-count").value;
+
+                // Update URL with data
+                const reservarBtns = document.querySelectorAll(".reservar_btn");
+                reservarBtns.forEach(function(btn) {
+                    const url = btn.getAttribute("href") + "&fechaLlegada=" + fechaLlegada + "&fechaSalida=" + fechaSalida + "&cantidadAdultos=" + cantidadAdultos + "&cantidadNinos=" + cantidadNinos + "&cantidadHabitaciones=" + cantidadHabitaciones;
+                    btn.setAttribute("href", url);
+                });
+
+                // Log the captured data
+                console.log(fechaLlegada);
+                console.log(fechaSalida);
+                console.log(cantidadAdultos);
+                console.log(cantidadNinos);
+                console.log(cantidadHabitaciones);
+            });
+        });
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
