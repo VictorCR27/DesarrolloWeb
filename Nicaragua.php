@@ -56,8 +56,8 @@ include("login.php");
                 <ul class="logohover">
                   <li>
                     <a href="index.php">
-                      <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
-                      <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
+                      <img class="peque" src="imgs/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgs/logonav2.png" alt="Logo2">
                     </a>
                   </li>
                 </ul>
