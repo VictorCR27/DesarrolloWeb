@@ -4,6 +4,25 @@ include("login.php");
 
 ?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
+    // Obtener el ID de la publicación a eliminar
+    $eliminar_id = mysqli_real_escape_string($conex, $_POST['eliminar_id']);
+
+    // Ejecutar la consulta para eliminar la publicación
+    $eliminar_query = "DELETE FROM publicaciones WHERE id = '$eliminar_id'";
+    $resultado_eliminar = mysqli_query($conex, $eliminar_query);
+
+    if ($resultado_eliminar) {
+        echo "La publicación se ha eliminado correctamente.";
+        // Puedes redirigir a la misma página para actualizar la lista de publicaciones
+        // header("Location: ver_publicaciones.php");
+    } else {
+        echo "Error al eliminar la publicación: " . mysqli_error($conex);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,19 +34,27 @@ include("login.php");
 <body>
      <!--Header-->
      <header>
-            <h2><a class="logo" href="index.php">Hotel DESAP</a></h2>
+        <div class="logo">
+                <ul class="logohover">
+                  <li>
+                    <a href="index.php">
+                      <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
+                    </a>
+                  </li>
+                </ul>
+              </div>
             <nav class="navigation">
-                <?php
+                <?
                 // Verificar si el rol es administrador
                 if (isset($_SESSION['roles']) && $_SESSION['roles'] === 'admin') {
                     echo '<a href="publicar.php">Publicar</a>';
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
-                
                 <a href="#">Servicios</a>
                 <a href="#">Quienes somos?</a>
                 <a href="#">Cuenta</a>
-                <?php
+                <?
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
                     echo '<a>Bienvenido, ' . $username . '</a>';
@@ -41,8 +68,74 @@ include("login.php");
         </header>
         <!--Fin Header-->
 
+        <!--Formulario-->
+        <div class="wrapper">
+
+            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+            
+            <!--Login-->
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form id="login-form" method="post" action="index.php" onsubmit="cleanSpaces()">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
+                        <input type="email" name="email">
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
+                        <input type="password" name="password">
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn" name="login">Login</button>
+                    <div class="login-register">
+                        <p>¿No tienes una cuenta? <a href="#" class="register-link">Registrarse</a></p>
+                    </div>
+                </form>
+            </div>
+        
+            <!--Registro-->
+            <div class="form-box register">
+                <h2>Registrarse</h2>
+                <form id="register-form" method="post" action="registro.php">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person"></ion-icon></ion-icon></ion-icon></span>
+                        <input type="text" name="username">
+                        <label>Username</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
+                        <input type="email" name="email">
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
+                        <input type="password" name="password">
+                        <label>Password</label>
+                    </div>
+
+                    <div class="buttons-register">
+                        <div class="role-buttons">
+                            <button type="button" name="role" value="admin" class="role-button" onclick="toggleButton(this)">Administrador</button>
+                            <button type="button" name="role" value="user" class="role-button" onclick="toggleButton(this)">Cliente</button>
+                        </div>
+                        <input type="hidden" name="selectedRole" id="selected-role">
+                    </div>
+
+                    <button type="submit" name="register" id="registrar" class="btn">Registrarse</button>
+
+                    <div class="login-register">
+                        <p>¿Tienes una cuenta? <a href="#" class="login-link">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--Fin Formulario-->
+
         <!--Ver publicaciones-->
-        <div class="publicaciones">
+        <div style="margin-top:100px" class="publicaciones">
             <?php
             if (!$conex) {
                 die("Error de conexión: " . mysqli_connect_error());
