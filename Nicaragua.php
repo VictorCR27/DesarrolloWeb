@@ -269,7 +269,7 @@ include("login.php");
         buscarButton.addEventListener("click", function() {
             // Mostrar SweetAlert de carga
             Swal.fire({
-                title: 'Buscando...',
+                title: 'Buscando hotel...',
                 allowOutsideClick: false,
                 showConfirmButton: false,
                 html: '<div class="loading-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>',
