@@ -10,8 +10,8 @@ include("login.php");
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link rel="icon" href="imgCarrusel/logo home.ico">
+        <title>Pacific Breeze</title>
+        <link rel="icon" href="imgs/logo home.ico">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="css/informativas.css">
     </head>
@@ -274,8 +274,7 @@ include("login.php");
                    <img src="imgs/avatar-hombre.png">
                  </div>
                      <div class="reviews-contenido">
-                       <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                           perspiciatis odit possimus at?</h3>
+                       <h3>"¡Una experiencia inolvidable! Gracias a esta página, pude encontrar el hotel perfecto en Costa Rica para unas vacaciones en familia. La reserva fue fácil de hacer y el personal del hotel fue muy atento. La ubicación frente a la playa era simplemente impresionante. ¡Definitivamente volveremos a reservar con ellos!"</h3>
                        <h4>Joe Moore</h4>
                          <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                          <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -293,8 +292,7 @@ include("login.php");
                    <img src="imgs/avatar-mujer.png">
                  </div>
                      <div class="reviews-contenido">
-                       <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                           perspiciatis odit possimus at?</h3>
+                       <h3>"Mi esposa y yo estábamos buscando un lugar romántico para nuestra luna de miel en Belice, y esta página fue un hallazgo increíble. Encontramos un hotel boutique encantador con un servicio excepcional. El equipo de atención al cliente nos ayudó a elegir la habitación perfecta, y la sorpresa en nuestra habitación al llegar realmente hizo que nuestra estancia fuera especial."</h3>
                        <h4>Samantha Murphy </h4>
                          <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                          <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -312,8 +310,7 @@ include("login.php");
                   <img src="imgs/avatar-hombre2.png">
                 </div>
                     <div class="reviews-contenido">
-                      <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                          perspiciatis odit possimus at?</h3>
+                      <h3>"Nunca había viajado solo, pero esta página me ayudó a sentirme segura y emocionada. Elegí un hostal en Nicaragua y conocí a otros viajeros maravillosos. La reserva fue rápida y el equipo de soporte respondió a todas mis preguntas. Aunque el alojamiento era básico, la atmósfera y las conexiones que hice lo convirtieron en un viaje memorable."</h3>
                       <h4>Ollie Smith</h4>
                         <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                         <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -334,8 +331,7 @@ include("login.php");
                   <img src="imgs/avatar-mujer2.png">
                 </div>
                     <div class="reviews-contenido">
-                      <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti magnam recusandae velit nemo facere aut minus
-                          perspiciatis odit possimus at?</h3>
+                      <h3>"Siempre he querido explorar la belleza natural de Guatemala, y esta página hizo que todo fuera sencillo. Encontré un eco-resort en las montañas que superó todas mis expectativas. Las vistas eran impresionantes, el personal era acogedor y la experiencia en general fue mágica. ¡Gracias por hacer realidad mi aventura soñada!"</h3>
                       <h4>Mary Williams</h4>
                         <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                         <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -365,129 +361,80 @@ include("login.php");
 
     <div class="info-paises">
         <h2 id="CR-info-home" class="titulo-pais-infoh">Costa Rica</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt ut numquam accusantium sequi quos quidem repellat. Beatae, temporibus, excepturi sunt, ducimus nemo repudiandae repellat est unde quos perferendis quis.</p>
+        <p>Explora sus playas de arena blanca bañadas por las aguas cristalinas del océano Pacífico y el mar Caribe. Para los amantes de la adrenalina, Costa Rica ofrece una variedad de actividades emocionantes, desde tirolinas en lo alto de la selva hasta rafting en aguas bravas en ríos tumultuosos. Descubre volcanes activos y relájate en sus aguas termales rejuvenecedoras. La cultura costarricense es tan cálida como su clima, y sus habitantes te recibirán con los brazos abiertos. Disfruta de la gastronomía local, desde los sabores auténticos de la cocina tradicional hasta los platos más modernos y fusionados. </p>
             <div class="imgs-CR-container">
-                
-                <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info" id="txt-img1-CR-info">Hermosas Cataratas</div>
-                </img>
-                <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Cabañas en medio de la jungla</div>
-                </img>
-                <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Playas espectaculares</div>
-                </img>
-                <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Sorprendentes volcanes</div>
-                </img>
+
+                    <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
+                    <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
+                    <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
+                    <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
+
             </div>
 
             <h2 id="NC-info-home" class="titulo-pais-infoh">Nicaragua</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt ut numquam accusantium sequi quos quidem repellat. Beatae, temporibus, excepturi sunt, ducimus nemo repudiandae repellat est unde quos perferendis quis.</p>
+            <p>Nicaragua es tierra de volcanes, y tendrás la oportunidad única de explorar estos imponentes gigantes, algunos de los cuales todavía están activos. Pasea por los alrededores de cráteres humeantes y siente la energía de la Tierra en movimiento. La cultura nicaragüense es tan diversa como su paisaje. Explora ciudades coloniales como Granada y León, donde las calles adoquinadas y las impresionantes iglesias te transportarán en el tiempo. En Nicaragua, la aventura y la autenticidad van de la mano. Ya sea que estés buscando explorar la naturaleza, descubrir la historia o simplemente relajarte en la playa, este país te ofrece una experiencia única que quedará grabada en tu corazón.</p>
             <div class="imgs-CR-container">
-                
-                <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info" id="txt-img1-CR-info">Hermosas Cataratas</div>
-                </img>
-                <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Cabañas en medio de la jungla</div>
-                </img>
-                <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Playas espectaculares</div>
-                </img>
-                <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Sorprendentes volcanes</div>
-                </img>
+
+                <img src="imgs/volcan-NC.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/lago-NC.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/piscina-NC.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/playa-NC.jpg" alt="" class="imag-info-paises">
+
             </div>
 
             <h2 id="HD-info-home" class="titulo-pais-infoh">Honduras</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt ut numquam accusantium sequi quos quidem repellat. Beatae, temporibus, excepturi sunt, ducimus nemo repudiandae repellat est unde quos perferendis quis.</p>
+            <p>Para los amantes de la historia y la cultura, Honduras ofrece un viaje en el tiempo a través de sus ciudades coloniales y sitios arqueológicos. Descubre las ruinas de Copán, una antigua ciudad maya conocida por sus intrincados grabados y estelas talladas. Honduras es un tesoro esperando a ser descubierto. Tanto si buscas emocionantes aventuras al aire libre como si deseas sumergirte en la rica historia y cultura del país, encontrarás una experiencia única y enriquecedora en cada rincón de Honduras. </p>
             <div class="imgs-CR-container">
-                
-                <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info" id="txt-img1-CR-info">Hermosas Cataratas</div>
-                </img>
-                <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Cabañas en medio de la jungla</div>
-                </img>
-                <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Playas espectaculares</div>
-                </img>
-                <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Sorprendentes volcanes</div>
-                </img>
+
+                <img src="imgs/ciudad_HD.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/piramide_HD.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/lago_HD.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/roatan_HD.jpg" alt="" class="imag-info-paises">
+
             </div>
 
             <h2 id="GM-info-home" class="titulo-pais-infoh">Guatemala</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt ut numquam accusantium sequi quos quidem repellat. Beatae, temporibus, excepturi sunt, ducimus nemo repudiandae repellat est unde quos perferendis quis.</p>
+            <p>¡Bienvenido a Guatemala, un país lleno de maravillas naturales, rica herencia cultural y experiencias auténticas que te dejarán sin aliento! Explora las antiguas ciudades mayas, como Tikal, donde las imponentes pirámides y templos te transportarán a una época pasada de esplendor y misterio. La historia y la arqueología cobran vida en cada rincón, ofreciéndote una visión fascinante de una civilización antigua. La cultura guatemalteca es una mezcla de influencias indígenas y coloniales, y podrás experimentarla a través de su música, danzas y festivales tradicionales.</p>
             <div class="imgs-CR-container">
                 
-                <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info" id="txt-img1-CR-info">Hermosas Cataratas</div>
-                </img>
-                <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Cabañas en medio de la jungla</div>
-                </img>
-                <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Playas espectaculares</div>
-                </img>
-                <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Sorprendentes volcanes</div>
-                </img>
+                <img src="imgs/tikal-GM.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/atitlan-GM.png" alt="" class="imag-info-paises">
+                <img src="imgs/agua-GM.jpeg" alt="" class="imag-info-paises">
+                <img src="imgs/antigua-GM.jpg" alt="" class="imag-info-paises">
+
             </div>
 
             <h2 id="PM-info-home" class="titulo-pais-infoh">Panamá</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt ut numquam accusantium sequi quos quidem repellat. Beatae, temporibus, excepturi sunt, ducimus nemo repudiandae repellat est unde quos perferendis quis.</p>
+            <p>Adéntrate en la selva tropical de Panamá y descubre una rica variedad de flora y fauna. Desde exuberantes montañas hasta playas prístinas en el Pacífico y el Caribe, encontrarás un entorno natural que te dejará sin palabras. Explora el famoso Canal de Panamá, una maravilla de la ingeniería que conecta dos océanos y que ha sido un punto vital de comercio y navegación. En Bocas del Toro y San Blas, encontrarás islas paradisíacas con aguas cristalinas y arenas blancas, ideales para el buceo, el snorkel y el relax total.</p>
             <div class="imgs-CR-container">
                 
-                <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info" id="txt-img1-CR-info">Hermosas Cataratas</div>
-                </img>
-                <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Cabañas en medio de la jungla</div>
-                </img>
-                <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Playas espectaculares</div>
-                </img>
-                <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Sorprendentes volcanes</div>
-                </img>
+                <img src="imgs/bt-PM.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/montana-PM.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/bosque-PM.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/ciudad-PM.jpg" alt="" class="imag-info-paises">
+
             </div>
 
             <h2 id="ES-info-home" class="titulo-pais-infoh">El Salvador</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt ut numquam accusantium sequi quos quidem repellat. Beatae, temporibus, excepturi sunt, ducimus nemo repudiandae repellat est unde quos perferendis quis.</p>
+            <p>Sumérgete en las aguas cálidas y cristalinas del océano Pacífico en las hermosas playas de El Salvador. Desde playas aptas para el surf hasta bahías tranquilas ideales para nadar, encontrarás un paraíso playero que satisface todos los gustos. Conocido como "El país de los 40 minutos", en El Salvador puedes pasar de las olas al bosque tropical o a una ciudad colonial en cuestión de minutos.</p>
             <div class="imgs-CR-container">
                 
-                <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info" id="txt-img1-CR-info">Hermosas Cataratas</div>
-                </img>
-                <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Cabañas en medio de la jungla</div>
-                </img>
-                <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Playas espectaculares</div>
-                </img>
-                <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Sorprendentes volcanes</div>
-                </img>
+                <img src="imgs/lago-ES.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/volcan-ES.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/volcan2-ES.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/playa-ES.jpg" alt="" class="imag-info-paises">
+
             </div>
 
             <h2 id="BL-info-home" class="titulo-pais-infoh">Belice</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt ut numquam accusantium sequi quos quidem repellat. Beatae, temporibus, excepturi sunt, ducimus nemo repudiandae repellat est unde quos perferendis quis.</p>
+            <p>Explora las islas paradisíacas de Belice, como Ambergris Caye y Caye Caulker, donde el ritmo relajado de la vida te envolverá. Disfruta de la tranquilidad de sus playas, haz esnórquel en aguas cristalinas y degusta deliciosos platos locales con influencias caribeñas y mayas. Para los amantes de la naturaleza, Belice ofrece una variedad de ecosistemas, desde selvas tropicales hasta cuevas misteriosas. Visita el Parque Nacional de las Cuevas del Río Belice y explora cuevas y cenotes impresionantes. Descubre las ruinas mayas en lugares como Xunantunich y Caracol, donde podrás conectarte con la historia y cultura de la antigua civilización.</p>
             <div class="imgs-CR-container">
                 
-                <img src="imgs/catarata-CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info" id="txt-img1-CR-info">Hermosas Cataratas</div>
-                </img>
-                <img src="imgs/jungla_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Cabañas en medio de la jungla</div>
-                </img>
-                <img src="imgs/playa_CR.jpeg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Playas espectaculares</div>
-                </img>
-                <img src="imgs/volcan_CR.jpg" alt="" class="imag-info-paises">
-                    <div class="txt-imag-info">Sorprendentes volcanes</div>
-                </img>
+                <img src="imgs/mar-BL.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/piramide-BL.webp" alt="" class="imag-info-paises">
+                <img src="imgs/playa-BL.jpg" alt="" class="imag-info-paises">
+                <img src="imgs/buceo-BL.jpg" alt="" class="imag-info-paises">
+
             </div>
     </div>
     <!--Fin Info Países-->
@@ -498,9 +445,12 @@ include("login.php");
                 <div class="footer-column">
                     <img src="imgs/logo-home.png" alt="" class="imag-info-paises">
                     <h3>Contacto</h3>
-                    <p>Email: pacificbreeze@hotel.com</p>
-                    <p>Teléfono: 8888-8888</p>
-                    <p>Dirección: Calle prueba, Ciudad</p>
+                    <h4>Email</h4>
+                    <p>pacificbreeze@hotel.com</p>
+                    <h4>Teléfono</h4>
+                    <p>8888-8888</p>
+                    <h4>Oficina Central</h4>
+                    <p>San José, Costa Rica</p>
                 </div>
 
                 <div class="footer-column">

@@ -115,7 +115,7 @@ include("login.php");
 
                     <div class="col-12">
                         <button type="button" class="centered-button" id="buscar-button">
-                            <img src="imgCarrusel/botonbuscar2.png" height="120" width="100" alt="buscar">
+                            <img src="imgs/botonbuscar2.png" height="120" width="100" alt="buscar">
                         </button>
                     </div>
                 </form>

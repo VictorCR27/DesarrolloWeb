@@ -9,6 +9,7 @@ include("login.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="icon" href="imgCarrusel/logo home.ico">
     <link rel="stylesheet" href="css/informativas.css">
     <link rel="stylesheet" href="style.css">
@@ -125,10 +126,9 @@ include("login.php");
                     <figcaption>Hoteles con muy buen servicio</figcaption>
                 </figure>
                 <div class="text-content">
-                    <p class="txt-informativas">Fundado en 1980 en el corazón de la ciudad, el Hotel "nombre" comenzó como una pequeña posada
-                        familiar, y con el tiempo se ha transformado en uno de los destinos más prestigiosos para
-                        viajeros de todo el mundo. A lo largo de los años, hemos crecido y evolucionado, pero siempre
-                        manteniendo la pasión por ofrecer una estancia inolvidable.</p>
+                    <p class="txt-informativas">Nuestra Misión es conectar a viajeros con las maravillas de Centroamérica a través de experiencias de alojamiento excepcionales. 
+                        Nos esforzamos por ser el puente que une a los aventureros con la belleza y diversidad de esta región única, 
+                        brindando un servicio de reservaciones de hoteles que garantiza comodidad, calidad y memorias inolvidables.</p>
                     <h2 class="subt-informativas">Misión</h2>
                     <div class="info-box">
                         <p class="txt-informativas">Nuestra misión en el Hotel "nombre" es proporcionar una experiencia de alojamiento
@@ -139,10 +139,10 @@ include("login.php");
 
                     <h2 class="subt-informativas">Visión</h2>
                     <div class="info-box">
-                        <p class="txt-informativas">Aspiramos a ser reconocidos como el hotel líder en la ciudad, no solo por nuestras
-                            instalaciones y servicios de primera clase, sino también por nuestro compromiso genuino con
-                            el bienestar y satisfacción de nuestros huéspedes. Buscamos establecer el estándar de la
-                            hospitalidad, siendo una inspiración para otros en la industria.</p>
+                        <p class="txt-informativas">Nuestra Visión es ser el recurso de elección para aquellos que buscan explorar y disfrutar
+                             de la riqueza de Centroamérica. A medida que evolucionamos, aspiramos a convertirnos en la plataforma líder 
+                             en reservaciones de hoteles en la región, reconocida por la excelencia en servicio al cliente, la amplia selección de alojamientos 
+                             y el impacto positivo que generamos en las comunidades locales.</p>
                     </div>
                     <h2 class="subt-informativas">Valores</h2>
                     <div class="info-box">
@@ -165,10 +165,14 @@ include("login.php");
         <div class="footer-content">
             <div class="footer-left">
                 <div class="footer-column">
+                    <img src="imgs/logo-home.png" alt="" class="imag-info-paises">
                     <h3>Contacto</h3>
-                    <p>Email: prueba@hotel.com</p>
-                    <p>Teléfono: 000000000000</p>
-                    <p>Dirección: Calle prueba, Ciudad</p>
+                    <h4>Email</h4>
+                    <p>pacificbreeze@hotel.com</p>
+                    <h4>Teléfono</h4>
+                    <p>8888-8888</p>
+                    <h4>Oficina Central</h4>
+                    <p>San José, Costa Rica</p>
                 </div>
 
                 <div class="footer-column">

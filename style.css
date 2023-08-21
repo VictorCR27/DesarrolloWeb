@@ -216,7 +216,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 30px;
+  padding: 10px 30px;
   font-size: 15px;
   display: flex;
   justify-content: space-between;
@@ -778,6 +778,7 @@ svg{
 .info-paises p{
   text-align: center;
   color: #263a29;
+  margin: 20px 80px 20px 80px;
 }
 
 .imgs-CR-container{
@@ -800,20 +801,6 @@ svg{
   transition: all 3s;
 }
 
-.txt-imag-info{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 35px;
-}
-
-#txt-img1-CR-info{
-  position: absolute;
-  bottom: 2px;
-  left: 10px;
-}
 
 .titulo-pais-infoh{
   text-align: center;
