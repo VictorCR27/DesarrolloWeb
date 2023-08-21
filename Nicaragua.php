@@ -39,15 +39,11 @@ include("login.php");
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="">Servicios</a>
+                    <a class="nav-link text-white" href="Servicios.php">Servicios</a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="">Quienes somos?</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="">Perfil</a>
+                    <a class="nav-link text-white" href="SobreNosotros.php">Quienes somos?</a>
                   </li>
                 </ul>
               </div>
@@ -73,19 +69,19 @@ include("login.php");
                 <form class="row row-cols-lg-auto g-3 align-items-center whitebox">
                     <!-- Fecha Llegada -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
+                        <label class="black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
                         <input type="date" class="form-control" id="fechaLlegada">
                     </div>
 
                     <!-- Fecha Salida -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="fechaSalida">Fecha Salida</label>
+                        <label class="black normal centered-text bold" for="fechaSalida">Fecha Salida</label>
                         <input type="date" class="form-control" id="fechaSalida">
                     </div>
 
                     <!-- Cantidad Adultos -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="CantidadAdultos">Cantidad Adultos</label>
+                        <label class="black normal centered-text bold" for="CantidadAdultos">Cantidad Adultos</label>
                         <div class="option-controls horizontal-controls" id="option-controls-adultos">
                             <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
                             <input type="text" class="form-control form-control-sm option-count adultos-input" value="0" readonly>
@@ -95,7 +91,7 @@ include("login.php");
 
                     <!-- Cantidad Niños -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="CantidadNinos">Cantidad Niños</label>
+                        <label class="black normal centered-text bold" for="CantidadNinos">Cantidad Niños</label>
                         <div class="option-controls horizontal-controls" id="option-controls-ninos">
                             <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
                             <input type="text" class="form-control form-control-sm option-count adultos-input" value="0" readonly>
@@ -105,7 +101,7 @@ include("login.php");
 
                     <!-- Cantidad Habitaciones -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="CantidadHabitaciones">Habitaciones</label>
+                        <label class="black normal centered-text bold" for="CantidadHabitaciones">Habitaciones</label>
                         <div class="option-controls horizontal-controls" id="option-controls-habitaciones">
                             <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
                             <input type="text" class="form-control form-control-sm option-count adultos-input" value="0" readonly>
@@ -127,7 +123,7 @@ include("login.php");
 
         <!-- TITULO -->
 
-        <h1 class="modern white titulo centered-text greenbackground">Nicaragua</h1>
+        <h1 class="white titulo centered-text greenbackground">Nicaragua</h1>
 
 
         <!-- CARUSEL CON IMÁGENES DE DIFERENTES HOTELES -->
@@ -135,7 +131,7 @@ include("login.php");
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="imgs/img-1.jpg" class="d-block w-100" alt="Image 1" />
+                    <img src="imgs/andaz-hotel.jpg" class="d-block w-100" alt="Image 1" />
                 </div>
                 <div class="carousel-item">
                     <img src="imgs/img-2.jpg" class="d-block w-100" alt="Image 2" />
@@ -183,11 +179,11 @@ include("login.php");
                             echo "</div>"; // Cierre de card-img-top
 
                             echo "<div class='card-body'>";
-                            echo "<h5 class='modern black centered-text subtitulo'>".$fila['nombre_hotel']."</h5>";
-                            echo "<p class='sand black  body'>".$fila['ubicacion']."</p>";
-                            echo "<p class='sand black  body'>Precio: $".$fila['precio_noche']."</p>";
-                            echo "<p class='sand black  bold body'>Amenidades:</p>";
-                            echo "<p class='sand black maspequeña'>";
+                            echo "<h5 class='black centered-text subtitulo'>".$fila['nombre_hotel']."</h5>";
+                            echo "<p class='black  body'>".$fila['ubicacion']."</p>";
+                            echo "<p class='black  body'>Precio: $".$fila['precio_noche']."</p>";
+                            echo "<p class='black  bold body'>Amenidades:</p>";
+                            echo "<p class='black maspequeña'>";
                             for ($i = 1; $i <= 6; $i++) {
                                 $amenidadKey = "amenidad" . $i;
                                 if (!empty($fila[$amenidadKey])) {

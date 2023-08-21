@@ -152,15 +152,6 @@ include("login.php");
                         </div>
                     </div>
 
-                    <div class="itemCarrusel" id="itemCarrusel-3">
-                        <div class="imgCarrusel" id="img-3">
-                            <img src="./imgs/four-seasons.jpg" alt="item-3">
-                            <div class="txtCarrusel">
-                                <h2>Los mejores hoteles en Centroamérica</h2>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
@@ -310,7 +301,7 @@ include("login.php");
                   <img src="imgs/avatar-hombre2.png">
                 </div>
                     <div class="reviews-contenido">
-                      <h3>"Nunca había viajado solo, pero esta página me ayudó a sentirme segura y emocionada. Elegí un hostal en Nicaragua y conocí a otros viajeros maravillosos. La reserva fue rápida y el equipo de soporte respondió a todas mis preguntas. Aunque el alojamiento era básico, la atmósfera y las conexiones que hice lo convirtieron en un viaje memorable."</h3>
+                      <h3>"Nunca había viajado solo, pero esta página me ayudó a sentirme seguro y emocionad0. Elegí un hostal en Nicaragua y conocí a otros viajeros maravillosos. La reserva fue rápida y el equipo de soporte respondió a todas mis preguntas. Aunque el alojamiento era básico, la atmósfera y las conexiones que hice lo convirtieron en un viaje memorable."</h3>
                       <h4>Ollie Smith</h4>
                         <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
                         <img src="imgs/star_FILL1_wght700_GRAD0_opsz48.svg#ebd725">
@@ -497,10 +488,11 @@ include("login.php");
     </div>
         
     <!--Scripts-->
-    <script src="js/script.js"></script>
+    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/c14ef371b4.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
     <!--Fin Scripts-->   
 </body>
 

@@ -106,8 +106,3 @@ function setUpCarousel(carousel) {
 
 const carousels = document.querySelectorAll('[data-carousel]');
 carousels.forEach(setUpCarousel);
-
-
-
-
-

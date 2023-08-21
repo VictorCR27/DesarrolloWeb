@@ -39,8 +39,8 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                 <ul class="logohover">
                   <li>
                     <a href="index.php">
-                      <img class="peque" src="imgCarrusel/logonav1.png" alt="Logo1">
-                      <img class="grande" src="imgCarrusel/logonav2.png" alt="Logo2">
+                      <img class="peque" src="imgs/logonav1.png" alt="Logo1">
+                      <img class="grande" src="imgs/logonav2.png" alt="Logo2">
                     </a>
                   </li>
                 </ul>
@@ -52,8 +52,8 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                     echo '<a href="publicar.php">Publicar</a>';
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
-                <a href="#">Servicios</a>
-                <a href="#">Quienes somos?</a>
+                <a href="Servicios.php">Servicios</a>
+                <a href="SobreNosotros.php">Quienes somos?</a>
                 <a href="#">Cuenta</a>
                 <?
                 if (isset($_SESSION['username'])) {
@@ -144,19 +144,19 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                 <label>Modificar busqueda</label>
                     <!-- Fecha Llegada -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
+                        <label class="black normal centered-text bold" for="fechaLlegada">Fecha llegada</label>
                         <input type="date" class="form-control" id="fechaLlegada" value="<?php echo $fechaLlegada; ?>">
                     </div>
 
                     <!-- Fecha Salida -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="fechaSalida">Fecha Salida</label>
+                        <label class="black normal centered-text bold" for="fechaSalida">Fecha Salida</label>
                         <input type="date" class="form-control" id="fechaSalida" value="<?php echo $fechaSalida; ?>">
                     </div>
 
                     <!-- Cantidad Adultos -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="CantidadAdultos">Cantidad Adultos</label>
+                        <label class="black normal centered-text bold" for="CantidadAdultos">Cantidad Adultos</label>
                         <div class="option-controls horizontal-controls" id="option-controls-adultos">
                             <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
                             <input type="text" class="form-control form-control-sm option-count adultos-input" value="<?php echo $cantidadAdultos; ?>" readonly>
@@ -166,7 +166,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
 
                     <!-- Cantidad Niños -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="CantidadNinos">Cantidad Niños</label>
+                        <label class="black normal centered-text bold" for="CantidadNinos">Cantidad Niños</label>
                         <div class="option-controls horizontal-controls" id="option-controls-ninos">
                             <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
                             <input type="text" class="form-control form-control-sm option-count adultos-input" value="<?php echo $cantidadNinos; ?>" readonly>
@@ -176,7 +176,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
 
                     <!-- Cantidad Habitaciones -->
                     <div class="col-12">
-                        <label class="sand black normal centered-text bold" for="CantidadHabitaciones">Habitaciones</label>
+                        <label class="black normal centered-text bold" for="CantidadHabitaciones">Habitaciones</label>
                         <div class="option-controls horizontal-controls" id="option-controls-habitaciones">
                             <button type="button" class="btn btn-secondary btn-sm option-minus adultos-minus">-</button>
                             <input type="text" class="form-control form-control-sm option-count adultos-input" value="<?php echo $cantidadHabitaciones; ?>" readonly>
@@ -186,7 +186,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
 
                     <div class="col-12">
                         <button type="button" class="centered-button" id="buscar-button">
-                            <img src="imgCarrusel/botonbuscar2.png" height="120" width="100" alt="buscar">
+                            <img src="imgs/botonbuscar2.png" height="120" width="100" alt="buscar">
                         </button>
                     </div>
                 </form>
@@ -206,11 +206,11 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                     </div>
 
                         <div class='card-body'>
-                            <h5 class='modern black centered-text subtitulo'><?php echo $_GET['nombre_hotel']; ?></h5>
-                            <p class='sand black  body'>Ubicación: <?php echo $_GET['ubicacion']; ?></p>
-                            <p class='sand black  body'>Precio por noche: <?php echo $_GET['precio_noche']; ?></p>
-                            <p class='sand black  bold body'>Amenidades:</p>
-                            <ul class='sand black maspequeña'>
+                            <h5 class='black centered-text subtitulo'><?php echo $_GET['nombre_hotel']; ?></h5>
+                            <p class='black  body'>Ubicación: <?php echo $_GET['ubicacion']; ?></p>
+                            <p class='black  body'>Precio por noche: <?php echo $_GET['precio_noche']; ?></p>
+                            <p class='black  bold body'>Amenidades:</p>
+                            <ul class='black maspequeña'>
                                 <?php
                                 for ($i = 1; $i <= 6; $i++) {
                                     $amenidadKey = "amenidad" . $i;
