@@ -560,20 +560,6 @@ body::-webkit-scrollbar {
   color: #197163;
 }
 
-.btn_hotel {
-  border-radius: 15px;
-  background-color: #052f50;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.btn_hotel:hover {
-  background-color: #19659f;
-}
 
 /* Ver publicaciones */
 
