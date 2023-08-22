@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
     $resultado_eliminar = mysqli_query($conex, $eliminar_query);
 
     if ($resultado_eliminar) {
-        echo "La publicación se ha eliminado correctamente.";
+        echo "";
         // Puedes redirigir a la misma página para actualizar la lista de publicaciones
         // header("Location: ver_publicaciones.php");
     } else {
