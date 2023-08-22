@@ -186,7 +186,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
         </div>
 
         <!-- Reserva -->
-        <div class="container" style="margin-top:230px">
+        <div class="container" style="margin: 225px 540px;">
             <div class="row row-cols-1 row-cols-md-3">
                 <div class='col mb-4'>
                     <div class='card h-100'>
@@ -197,7 +197,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                         <div class='card-body'>
                             <h5 class='modern black centered-text subtitulo'><?php echo $_GET['nombre_hotel']; ?></h5>
                             <p class='sand black  body'>Ubicación: <?php echo $_GET['ubicacion']; ?></p>
-                            <p class='sand black  body'>Precio por noche: <?php echo $_GET['precio_noche']; ?></p>
+                            <p class='sand black  body'>Precio por noche: $<?php echo $_GET['precio_noche']; ?></p>
                             <p class='sand black  bold body'>Amenidades:</p>
                             <ul class='sand black maspequeña'>
                                 <?php
