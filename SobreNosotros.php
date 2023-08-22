@@ -125,15 +125,12 @@ include("login.php");
                     <figcaption>Hoteles con muy buen servicio</figcaption>
                 </figure>
                 <div class="text-content">
+                    
+                    <h2 class="subt-informativas">Misión</h2>
+                    <div class="info-box">
                     <p class="txt-informativas">Nuestra Misión es conectar a viajeros con las maravillas de Centroamérica a través de experiencias de alojamiento excepcionales. 
                         Nos esforzamos por ser el puente que une a los aventureros con la belleza y diversidad de esta región única, 
                         brindando un servicio de reservaciones de hoteles que garantiza comodidad, calidad y memorias inolvidables.</p>
-                    <h2 class="subt-informativas">Misión</h2>
-                    <div class="info-box">
-                        <p class="txt-informativas">Nuestra misión en el Hotel "nombre" es proporcionar una experiencia de alojamiento
-                            excepcional, en la que cada huésped se sienta valorado, cuidado y como en casa. Nos
-                            esforzamos por superar las expectativas, creando recuerdos inolvidables en un entorno de
-                            lujo y confort.</p>
                     </div>
 
                     <h2 class="subt-informativas">Visión</h2>
