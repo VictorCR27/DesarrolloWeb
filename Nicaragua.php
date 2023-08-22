@@ -25,42 +25,106 @@ include("login.php");
 </head>
 
 <body>
+    <!--Header-->
     <header>
-
-        <!-- NAVBAR -->
-
-        <nav id="navbar" class="navbar navbar-expand-lg sand white normal">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="Servicios.php">Servicios</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="SobreNosotros.php">Quienes somos?</a>
-                  </li>
-                </ul>
-              </div>
-          
-              <div class="logo">
+        <div class="logo">
                 <ul class="logohover">
                   <li>
-                    <a href="index.php">
+                    <a href="">
                       <img class="peque" src="imgs/logonav1.png" alt="Logo1">
                       <img class="grande" src="imgs/logonav2.png" alt="Logo2">
                     </a>
                   </li>
                 </ul>
               </div>
+            <nav class="navigation">
+                <?
+                // Verificar si el rol es administrador
+                if (isset($_SESSION['roles']) && $_SESSION['roles'] === 'admin') {
+                    echo '<a href="publicar.php">Publicar</a>';
+                    echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
+                ?>
+                <a href="Servicios.php">Servicios</a>
+                <a href="SobreNosotros.php">Quienes somos?</a>
+                <?
+                if (isset($_SESSION['username'])) {
+                    $username = $_SESSION['username'];
+                    echo '<a>Bienvenido, ' . $username . '</a>';
+                    echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
+                } else {
+                    echo '<button class="btnLogin-popup">Login</button>';
+                }
+                ?>
+                
+            </nav>
+        </header>
+        <!--Fin Header-->
+
+        <!--Formulario-->
+        <div class="wrapper">
+
+            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+            
+            <!--Login-->
+            <div class="form-box login">
+                <h2>Login</h2>
+                <form id="login-form" method="post" action="index.php" onsubmit="cleanSpaces()">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
+                        <input type="email" name="email">
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
+                        <input type="password" name="password">
+                        <label>Password</label>
+                    </div>
+                    <button type="submit" class="btn" name="login">Login</button>
+                    <div class="login-register">
+                        <p>¿No tienes una cuenta? <a href="#" class="register-link">Registrarse</a></p>
+                    </div>
+                </form>
             </div>
-          </nav>
-          
+        
+            <!--Registro-->
+            <div class="form-box register">
+                <h2>Registrarse</h2>
+                <form id="register-form" method="post" action="registro.php">
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="person"></ion-icon></ion-icon></ion-icon></span>
+                        <input type="text" name="username">
+                        <label>Username</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
+                        <input type="email" name="email">
+                        <label>Email</label>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
+                        <input type="password" name="password">
+                        <label>Password</label>
+                    </div>
+
+                    <div class="buttons-register">
+                        <div class="role-buttons">
+                            <button type="button" name="role" value="admin" class="role-button" onclick="toggleButton(this)">Administrador</button>
+                            <button type="button" name="role" value="user" class="role-button" onclick="toggleButton(this)">Cliente</button>
+                        </div>
+                        <input type="hidden" name="selectedRole" id="selected-role">
+                    </div>
+
+                    <button type="submit" name="register" id="registrar" class="btn">Registrarse</button>
+
+                    <div class="login-register">
+                        <p>¿Tienes una cuenta? <a href="#" class="login-link">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--Fin Formulario-->
 
 
         <!-- FILTRO -->
@@ -123,7 +187,7 @@ include("login.php");
 
         <!-- TITULO -->
 
-        <h1 class="white titulo centered-text greenbackground">Nicaragua</h1>
+        <h1 class="white titulo centered-text greenbackground" style="margin-top: 74px;">Nicaragua</h1>
 
 
         <!-- CARUSEL CON IMÁGENES DE DIFERENTES HOTELES -->
@@ -141,7 +205,6 @@ include("login.php");
                 </div>
             </div>
         </div>
-    </header>
     <br><br>
 
 
@@ -351,6 +414,9 @@ include("login.php");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/c14ef371b4.js" crossorigin="anonymous"></script>
         
     
 </body>
