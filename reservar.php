@@ -29,12 +29,12 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
     <title>Reservar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/otrosEstilos.css">
 </head>
 <body>
-     <!--Header-->
-     <header>
+<body>
+    <!--Header-->
+    <header>
         <div class="logo">
                 <ul class="logohover">
                   <li>
@@ -52,14 +52,13 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                     echo '<a href="publicar.php">Publicar</a>';
                     echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
                 ?>
-                <a href="#">Servicios</a>
-                <a href="#">Quienes somos?</a>
-                <a href="#">Cuenta</a>
+                <a href="Servicios.php">Servicios</a>
+                <a href="SobreNosotros.php">Quienes somos?</a>
                 <?
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
                     echo '<a>Bienvenido, ' . $username . '</a>';
-                    echo '<a href="logout.php">Cerrar sesión</a>';
+                    echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
                 } else {
                     echo '<button class="btnLogin-popup">Login</button>';
                 }
@@ -301,6 +300,12 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
         updateOptionControls('.option-plus.habitaciones-plus', '.option-count.habitaciones-input', 'plus');
         updateOptionControls('.option-minus.habitaciones-minus', '.option-count.habitaciones-input', 'minus'); 
     </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/c14ef371b4.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
 
 </body>
 </html>
