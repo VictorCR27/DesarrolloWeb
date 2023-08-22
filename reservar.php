@@ -321,6 +321,28 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
     });
     </script>
 
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get references to date input fields
+            const fechaLlegadaInput = document.getElementById("fechaLlegada");
+            const fechaSalidaInput = document.getElementById("fechaSalida");
+
+            // Get the current date
+            const currentDate = new Date();
+            
+            // Set the min attribute of the date input fields to the current date
+            const year = currentDate.getFullYear();
+            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const day = String(currentDate.getDate()).padStart(2, '0');
+            const minDate = `${year}-${month}-${day}`;
+            
+            fechaLlegadaInput.min = minDate;
+            fechaSalidaInput.min = minDate;
+        });
+
+    </script>
+
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
