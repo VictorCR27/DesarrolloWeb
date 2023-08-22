@@ -17,6 +17,7 @@ if (!$conex) {
     <link rel="stylesheet" href="css/stylesPublicar.css">
     <title>Publicar</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
@@ -219,10 +220,28 @@ if (!$conex) {
         $resultado = mysqli_query($conex, $sql);
     
         if ($resultado) {
-            echo "La publicación se ha agregado correctamente.";
+            echo '<script>
+                Swal.fire({
+                    icon: "success",
+                    title: "Publicación exitosa",
+                    text: "La publicación se ha agregado correctamente.",
+                    confirmButtonText: "Aceptar"
+                }).then(function() {
+                    clearFormFields();
+                });
+            </script>';
         } else {
-            echo "Error al agregar la publicación: " . mysqli_error($conex);
+            echo '<script>
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: "Error al agregar la publicación: ' . mysqli_error($conex) . '",
+                    confirmButtonText: "Aceptar"
+                });
+            </script>';
         }
+        
+        
     }  
     ?>
     
@@ -268,6 +287,23 @@ if (!$conex) {
                 });
         }
     });
+    </script>
+
+    <script>
+        function clearFormFields() {
+        document.getElementById("nombre_hotel").value = "";
+        document.getElementById("amenidad1").value = "";
+        document.getElementById("amenidad2").value = "";
+        document.getElementById("amenidad3").value = "";
+        document.getElementById("amenidad4").value = "";
+        document.getElementById("amenidad5").value = "";
+        document.getElementById("amenidad6").value = "";
+        document.getElementById("pais").selectedIndex = 0;
+        document.getElementById("ubicacion-input").value = "";
+        document.getElementById("coordenadas").value = "";
+        document.getElementById("file-upload").value = "";
+        document.getElementById("precio_noche").value = "";
+    }
     </script>
 
 
