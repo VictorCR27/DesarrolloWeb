@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Ver publicaciones</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js@1.11.0/dist/toastify.min.css">
+
 </head>
 <body>
      <!--Header-->
@@ -185,6 +187,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
             ?>
         </div>
         <!-- Fin Ver publicaciones-->
+
+        <!-- Agrega la siguiente línea para incluir la biblioteca SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script>
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_id'])) {
+                // Resto de tu código de eliminación
+
+                if ($resultado_eliminar) {
+                    // Mostrar alerta de éxito utilizando SweetAlert2
+                    echo "Swal.fire({
+                        icon: 'success',
+                        title: '¡Éxito!',
+                        text: 'La publicación se ha eliminado correctamente.',
+                        showConfirmButton: false,
+                        timer: 2000 // Tiempo en milisegundos que dura la alerta
+                    });";
+                } else {
+                    // Mostrar alerta de error utilizando SweetAlert2
+                    echo "Swal.fire({
+                        icon: 'error',
+                        title: '¡Error!',
+                        text: 'Error al eliminar la publicación',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });";
+                }
+            }
+            ?>
+</script>
+</body>
+</html>
+
+</body>
+</html>
+
 
 
 

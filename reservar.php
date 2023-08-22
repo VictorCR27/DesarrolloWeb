@@ -186,7 +186,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
         </div>
 
         <!-- Reserva -->
-        <div class="container" style="margin: 225px 540px;">
+        <div class="container" style="margin: 225px 640px;">
             <div class="row row-cols-1 row-cols-md-3">
                 <div class='col mb-4'>
                     <div class='card h-100'>
