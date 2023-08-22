@@ -49,7 +49,7 @@ include("login.php");
                 <?
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
-                    echo '<a>Bienvenido, ' . $username . '</a>';
+                    echo '<a style="color: #FAF9F6;">Bienvenido, ' . $username . '</a>';
                     echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
                 } else {
                     echo '<button class="btnLogin-popup">Login</button>';

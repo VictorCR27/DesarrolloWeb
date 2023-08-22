@@ -57,7 +57,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                 <?
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
-                    echo '<a>Bienvenido, ' . $username . '</a>';
+                    echo '<a style="color: #FAF9F6;">Bienvenido, ' . $username . '</a>';
                     echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
                 } else {
                     echo '<button class="btnLogin-popup">Login</button>';
@@ -135,7 +135,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
         <!--Fin Formulario-->
 
         <!-- FILTRO -->
-        <div class="rectangulofilter" style="margin-top: -450px;">
+        <div class="rectangulofilter" style="margin-top: -440px;">
        
             <section class="filter">
                 
@@ -181,18 +181,9 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                             <button type="button" class="btn btn-secondary btn-sm option-plus adultos-plus">+</button>
                         </div>
                     </div>
-
-                    <div class="col-12">
-                        <button type="button" class="centered-button" id="buscar-button">
-                            <img src="imgs/botonbuscar2.png" height="120" width="100" alt="buscar">
-                        </button>
-                    </div>
                 </form>
             </section>
         </div>
-
-
-    
 
         <!-- Reserva -->
         <div class="container" style="margin-top:230px">
@@ -237,8 +228,7 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
                 </div>
             </div>
         </div>
-
-
+        <!-- Fin Reserva -->
     </div>
 
     <script>
@@ -300,6 +290,37 @@ $cantidadHabitaciones = isset($_GET['cantidadHabitaciones']) ? $_GET['cantidadHa
         updateOptionControls('.option-plus.habitaciones-plus', '.option-count.habitaciones-input', 'plus');
         updateOptionControls('.option-minus.habitaciones-minus', '.option-count.habitaciones-input', 'minus'); 
     </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const confirmarReservaBtn = document.querySelector(".reservar_btn");
+
+        confirmarReservaBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent the form from submitting directly
+
+            const fechaLlegada = document.getElementById("fechaLlegada").value;
+            const fechaSalida = document.getElementById("fechaSalida").value;
+            const cantidadAdultos = document.querySelector("#option-controls-adultos .option-count").value;
+            const cantidadNinos = document.querySelector("#option-controls-ninos .option-count").value;
+            const cantidadHabitaciones = document.querySelector("#option-controls-habitaciones .option-count").value;
+
+            // Build the URL parameters for the filter
+            const filterParams = `?fechaLlegada=${fechaLlegada}&fechaSalida=${fechaSalida}&cantidadAdultos=${cantidadAdultos}&cantidadNinos=${cantidadNinos}&cantidadHabitaciones=${cantidadHabitaciones}`;
+
+            // Build the URL parameters for the publication data
+            const publicationParams = `&nombre_hotel=${encodeURIComponent('<?php echo isset($_GET['nombre_hotel']) ? $_GET['nombre_hotel'] : ''; ?>')}`
+                + `&ubicacion=${encodeURIComponent('<?php echo isset($_GET['ubicacion']) ? $_GET['ubicacion'] : ''; ?>')}`
+                + `&precio_noche=${encodeURIComponent('<?php echo isset($_GET['precio_noche']) ? $_GET['precio_noche'] : ''; ?>')}`;
+
+            // Construct the final URL for pagoFinal.php
+            const finalUrl = `pagoFinal.php${filterParams}${publicationParams}`;
+
+            // Redirect the user to the final URL
+            window.location.href = finalUrl;
+        });
+    });
+    </script>
+
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
