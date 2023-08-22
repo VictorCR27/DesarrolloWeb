@@ -1,4 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
 body {
+    
     background-color: #f5efe6;
   }
   
@@ -21,20 +29,13 @@ body {
   
   .navbar .nav-item {
     margin-right: 10px;
-    background-color: #263a29;
     color: white;
   }
   
   .navbar .nav-link:hover {
-    background-color: #83764f;
     text-decoration: underline;
   }
-  
-  .navbar .dropdown-item:hover {
-    background-color: #4F6F9C;
-    color: white;
-    font-weight: bold;
-  }
+
   
   .navbar .container {
     display: flex;
@@ -249,14 +250,7 @@ body {
   
   /*FONTS*/
   
-  @font-face {
-    font-family: modern;
-    src: url(../fonts/modern.otf);
-  }
-  
-  .modern {
-    font-family: modern;
-  }
+
   
   .black {
     color: black;
@@ -284,16 +278,7 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  
-  @font-face {
-    font-family: sand;
-    src: url(../fonts/sand.ttf);
-  }
-  
-  .sand {
-    font-family: sand;
-  }
-  
+
   .black {
     color: black;
   }
