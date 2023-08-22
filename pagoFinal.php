@@ -6,7 +6,9 @@
     <title>Confirmar Reserva</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/otrosEstilos.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pagoFinal.css">
+
 </head>
 <body>
 
@@ -112,10 +114,10 @@
         <!--Fin Formulario-->
     </Header>
 
-    <h1 style="margin-top: 90px;">Confirmar Reserva</h1>
+    
 
     <div class="container">
-
+    <h1 style="margin-top: 90px;">Confirmar Reserva</h1>
         <?php
         // Recibir los datos de reserva confirmada desde la URL
         $nombreHotel = isset($_GET['nombre_hotel']) ? $_GET['nombre_hotel'] : "";
