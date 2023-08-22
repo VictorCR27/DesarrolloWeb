@@ -17,7 +17,7 @@ include("login.php");
             justify-content: center;
             align-items: center;
             font-size: 48px;
-            color: #1976D2; 
+            color: #1976D2; /* Change color as needed */
             height: 50px;
         }
         </style>
@@ -25,7 +25,6 @@ include("login.php");
 </head>
 
 <body>
-    <!--Header-->
     <header>
 
         <!-- NAVBAR -->
@@ -40,15 +39,11 @@ include("login.php");
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="">Servicios</a>
+                    <a class="nav-link text-white" href="Servicios.php">Servicios</a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link text-white" href="">Quienes somos?</a>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="">Perfil</a>
+                    <a class="nav-link text-white" href="SobreNosotros.php">Quienes somos?</a>
                   </li>
                 </ul>
               </div>
@@ -63,98 +58,10 @@ include("login.php");
                   </li>
                 </ul>
               </div>
-            <nav class="navigation">
-                <?
-                // Verificar si el rol es administrador
-                if (isset($_SESSION['roles']) && $_SESSION['roles'] === 'admin') {
-                    echo '<a href="publicar.php">Publicar</a>';
-                    echo '<a href="ver_publicaciones.php">Ver publicaciones</a>';}
-                ?>
-                <a href="Servicios.php">Servicios</a>
-                <a href="SobreNosotros.php">Quienes somos?</a>
-                <?
-                if (isset($_SESSION['username'])) {
-                    $username = $_SESSION['username'];
-                    echo '<a>Bienvenido, ' . $username . '</a>';
-                    echo '<a href="logout.php">Cerrar sesión</a>'; // Agregar el enlace de "Cerrar sesión"
-                } else {
-                    echo '<button class="btnLogin-popup">Login</button>';
-                }
-                ?>
-                
-            </nav>
-        </header>
-        <!--Fin Header-->
-
-        <!--Formulario-->
-        <div class="wrapper">
-
-            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
-            
-            <!--Login-->
-            <div class="form-box login">
-                <h2>Login</h2>
-                <form id="login-form" method="post" action="index.php" onsubmit="cleanSpaces()">
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
-                        <input type="email" name="email">
-                        <label>Email</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
-                        <input type="password" name="password">
-                        <label>Password</label>
-                    </div>
-                    <button type="submit" class="btn" name="login">Login</button>
-                    <div class="login-register">
-                        <p>¿No tienes una cuenta? <a href="#" class="register-link">Registrarse</a></p>
-                    </div>
-                </form>
             </div>
-        
-            <!--Registro-->
-            <div class="form-box register">
-                <h2>Registrarse</h2>
-                <form id="register-form" method="post" action="registro.php">
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="person"></ion-icon></ion-icon></ion-icon></span>
-                        <input type="text" name="username">
-                        <label>Username</label>
-                    </div>
+          </nav>
+          
 
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="mail"></ion-icon></ion-icon></span>
-                        <input type="email" name="email">
-                        <label>Email</label>
-                    </div>
-
-                    <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></ion-icon></span>
-                        <input type="password" name="password">
-                        <label>Password</label>
-                    </div>
-
-                    <div class="buttons-register">
-                        <div class="role-buttons">
-                            <button type="button" name="role" value="admin" class="role-button" onclick="toggleButton(this)">Administrador</button>
-                            <button type="button" name="role" value="user" class="role-button" onclick="toggleButton(this)">Cliente</button>
-                        </div>
-                        <input type="hidden" name="selectedRole" id="selected-role">
-                    </div>
-
-                    <button type="submit" name="register" id="registrar" class="btn">Registrarse</button>
-
-                    <div class="login-register">
-                        <p>¿Tienes una cuenta? <a href="#" class="login-link">Login</a></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!--Fin Formulario-->
-
-        <!-- TITULO -->
-
-        <h1 class="modern white titulo centered-text greenbackground" style="margin-top: 76px;">Nicaragua</h1>
 
         <!-- FILTRO -->
         <div class="rectangulofilter">
@@ -216,7 +123,7 @@ include("login.php");
 
         <!-- TITULO -->
 
-        <h1 class="modern white titulo centered-text greenbackground">Nicaragua</h1>
+        <h1 class="white titulo centered-text greenbackground">Nicaragua</h1>
 
 
         <!-- CARUSEL CON IMÁGENES DE DIFERENTES HOTELES -->
@@ -234,8 +141,8 @@ include("login.php");
                 </div>
             </div>
         </div>
-
-        <br>
+    </header>
+    <br><br>
 
 
    
@@ -374,49 +281,48 @@ include("login.php");
 
     <script>
         // Wait for the DOM to be fully loaded
-    document.addEventListener("DOMContentLoaded", function() {
-        // Get references to DOM elements
-        const buscarButton = document.getElementById("buscar-button");
-        const fechaLlegadaInput = document.getElementById("fechaLlegada");
-        const fechaSalidaInput = document.getElementById("fechaSalida");
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get references to DOM elements
+            const buscarButton = document.getElementById("buscar-button");
+            const fechaLlegadaInput = document.getElementById("fechaLlegada");
+            const fechaSalidaInput = document.getElementById("fechaSalida");
 
-        // Add click event listener to the search button and "Reservar" links
-        buscarButton.addEventListener("click", updateLinks);
-        
-        // Update the links when the page loads
-        updateLinks();
+            // Add click event listener to the search button and "Reservar" links
+            buscarButton.addEventListener("click", updateLinks);
+            
+            // Update the links when the page loads
+            updateLinks();
 
-        function updateLinks() {
-            console.log("Updating links...");
+            function updateLinks() {
+                console.log("Updating links...");
 
-            // Get data from input elements
-            const fechaLlegada = fechaLlegadaInput.value;
-            const fechaSalida = fechaSalidaInput.value;
-            const cantidadAdultos = document.querySelector("#option-controls-adultos .option-count").value;
-            const cantidadNinos = document.querySelector("#option-controls-ninos .option-count").value;
-            const cantidadHabitaciones = document.querySelector("#option-controls-habitaciones .option-count").value;
+                // Get data from input elements
+                const fechaLlegada = fechaLlegadaInput.value;
+                const fechaSalida = fechaSalidaInput.value;
+                const cantidadAdultos = document.querySelector("#option-controls-adultos .option-count").value;
+                const cantidadNinos = document.querySelector("#option-controls-ninos .option-count").value;
+                const cantidadHabitaciones = document.querySelector("#option-controls-habitaciones .option-count").value;
 
-            // Update URL with data
-            const reservarBtns = document.querySelectorAll(".reservar_btn");
-            reservarBtns.forEach(function(btn) {
-                const url = btn.getAttribute("href") +
-                    "&fechaLlegada=" + fechaLlegada +
-                    "&fechaSalida=" + fechaSalida +
-                    "&cantidadAdultos=" + cantidadAdultos +
-                    "&cantidadNinos=" + cantidadNinos +
-                    "&cantidadHabitaciones=" + cantidadHabitaciones;
-                btn.setAttribute("href", url);
-            });
+                // Update URL with data
+                const reservarBtns = document.querySelectorAll(".reservar_btn");
+                reservarBtns.forEach(function(btn) {
+                    const url = btn.getAttribute("href") +
+                        "&fechaLlegada=" + fechaLlegada +
+                        "&fechaSalida=" + fechaSalida +
+                        "&cantidadAdultos=" + cantidadAdultos +
+                        "&cantidadNinos=" + cantidadNinos +
+                        "&cantidadHabitaciones=" + cantidadHabitaciones;
+                    btn.setAttribute("href", url);
+                });
 
-            // Log the captured data
-            console.log(fechaLlegada);
-            console.log(fechaSalida);
-            console.log(cantidadAdultos);
-            console.log(cantidadNinos);
-            console.log(cantidadHabitaciones);
-        }
-    });
-
+                // Log the captured data
+                console.log(fechaLlegada);
+                console.log(fechaSalida);
+                console.log(cantidadAdultos);
+                console.log(cantidadNinos);
+                console.log(cantidadHabitaciones);
+            }
+        });
     </script>
 
     <script>
@@ -445,9 +351,6 @@ include("login.php");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="js/script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script src="https://kit.fontawesome.com/c14ef371b4.js" crossorigin="anonymous"></script>
         
     
 </body>
