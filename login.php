@@ -11,7 +11,6 @@ if (isset($_POST['login'])) {
     // Obtener los valores del formulario
     $email = $_POST['email'];
     $password = $_POST['password'];
-    
 
     $sql = "SELECT * FROM RegistroWeb WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($conex, $sql);
@@ -24,12 +23,28 @@ if (isset($_POST['login'])) {
         $_SESSION['roles'] = $row['roles'];
         // Guardar el nombre de usuario en una variable de sesión
         //$_SESSION['username'] = $username;
-        //echo '<script>alert("Inicio de sesión exitoso.");</script>';
-        //echo '<script>window.location.href = "inicio.php";</script>';
-    
+        
+        // Alerta exitosa con SweetAlert2
+        echo '<script>
+        Swal.fire({
+            icon: "success",
+            title: "Inicio de sesión exitoso",
+            text: "Has iniciado sesión correctamente.",
+            confirmButtonText: "OK"
+        }).then(function() {
+            window.location.href = "inicio.php";
+        });
+        </script>';
     } else {
-        echo '<script>alert("Email o contraseña incorrectos.");</script>';
+        // Alerta de error con SweetAlert2
+        echo '<script>
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Email o contraseña incorrectos.",
+            confirmButtonText: "OK"
+        });
+        </script>';
     }
 }
-
 ?>

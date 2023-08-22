@@ -327,7 +327,7 @@ include("login.php");
                 title: 'Realizando busqueda...',
                 allowOutsideClick: false,
                 showConfirmButton: false,
-                html: '<div class="loading-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>',
+                html: '<div class="loading-spinner"></div>',
                 onBeforeOpen: () => {
                     Swal.showLoading();
                 }

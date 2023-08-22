@@ -11,17 +11,6 @@ include("login.php");
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="css/otrosEstilos.css">
 
-    <style>
-        .loading-spinner {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 48px;
-            color: #1976D2; /* Change color as needed */
-            height: 50px;
-        }
-        </style>
-
 </head>
 
 <body>
@@ -327,7 +316,7 @@ include("login.php");
                 title: 'Realizando busqueda...',
                 allowOutsideClick: false,
                 showConfirmButton: false,
-                html: '<div class="loading-spinner"><i class="fas fa-circle-notch fa-spin"></i></div>',
+                html: '<div class="loading-spinner"></div>',
                 onBeforeOpen: () => {
                     Swal.showLoading();
                 }
