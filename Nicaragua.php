@@ -30,7 +30,7 @@ include("login.php");
         <div class="logo">
                 <ul class="logohover">
                   <li>
-                    <a href="">
+                    <a href="index.php">
                       <img class="peque" src="imgs/logonav1.png" alt="Logo1">
                       <img class="grande" src="imgs/logonav2.png" alt="Logo2">
                     </a>
@@ -225,7 +225,7 @@ include("login.php");
                 // Verificar si hay resultados
                 if (mysqli_num_rows($resultado) > 0) {
                     while ($fila = mysqli_fetch_assoc($resultado)) {
-                        if ($fila['pais'] === 'Costa Rica') {
+                        if ($fila['pais'] === 'Nicaragua') {
                             // Display the card content
                             echo "<div class='col mb-4'>"; // Add margin between columns
                             echo "<div class='card h-100'>"; // Set a fixed height for the card

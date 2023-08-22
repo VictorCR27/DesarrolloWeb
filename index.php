@@ -39,7 +39,6 @@ include("login.php");
                 ?>
                 <a href="Servicios.php">Servicios</a>
                 <a href="SobreNosotros.php">Quienes somos?</a>
-                <a href="#">Cuenta</a>
                 <?
                 if (isset($_SESSION['username'])) {
                     $username = $_SESSION['username'];
