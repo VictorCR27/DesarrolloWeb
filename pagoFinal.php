@@ -1,3 +1,7 @@
+<?php
+include("registro.php");
+include("login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,7 +121,7 @@
     
 
     <div class="container">
-    <h1 style="margin-top: 90px;">Confirmar Reserva</h1>
+    <h1>Confirmar Reserva</h1>
         <?php
         // Recibir los datos de reserva confirmada desde la URL
         $nombreHotel = isset($_GET['nombre_hotel']) ? $_GET['nombre_hotel'] : "";
@@ -142,7 +146,7 @@
 
         <p>¡Gracias por confirmar tu reserva!</p>
 
-        <button class="btn-pay">Pagar</button>
+        <button class="btn-pay" onclick="window.location.href='pago.php'">Pagar</button>
     </div>
 
 
